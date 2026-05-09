@@ -1,3 +1,23 @@
-﻿*.vsix
+# Sensitive / large binaries
+*.vsix
 *.pdf
 *.docx
+
+# Claude Code local state
+.claude/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+
+# Local env / state — defence-in-depth on top of per-folder .gitignores
+**/.env
+**/.env.local
+**/.env.*.local
+**/terraform.tfvars
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform/
+**/.terraform.lock.hcl.bak
+**/node_modules/
