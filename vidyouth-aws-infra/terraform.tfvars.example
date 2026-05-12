@@ -1,0 +1,22 @@
+# Copy this file to terraform.tfvars and fill in. terraform.tfvars is gitignored.
+
+aws_region   = "ap-south-1"
+aws_profile  = "vidyouth"
+environment  = "prod"
+name_prefix  = "vidyouth-prod"
+
+# Flip to "learning" to cut the bill from ~$700/mo to ~$90/mo
+# (single-AZ RDS db.t3.medium, 1 NAT gateway, no Redis replica, smaller EC2).
+cost_mode    = "production"
+
+vpc_cidr     = "10.0.0.0/16"
+
+# Leave empty until you own the domain. The edge module (Route 53 + CloudFront
+# + ACM + WAF) is skipped when domain_name is "".
+domain_name  = ""
+
+# Leave empty to skip the SNS email subscription. You'll need to confirm the
+# subscription email AWS sends after first apply.
+alerts_email = ""
+
+auth_service_image_tag = "v0.0.0-placeholder"

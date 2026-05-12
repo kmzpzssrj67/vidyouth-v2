@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Vidyouth",
+    "slug": "vidyouth-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": false,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#150A04"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vidyouth.app"
+    },
+    "android": {
+      "package": "com.vidyouth.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#150A04"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
