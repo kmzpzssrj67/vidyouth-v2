@@ -11,7 +11,7 @@
  */
 
 import { SignJWT, jwtVerify, importPKCS8, importSPKI, type JWTPayload, type KeyLike } from 'jose';
-import { env } from '@/config/env.js';
+import { env } from '../config/env.js';
 
 let cachedPrivateKey: KeyLike | null = null;
 let cachedPublicKey: KeyLike | null = null;

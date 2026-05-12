@@ -11,14 +11,15 @@ import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import sensible from '@fastify/sensible';
-import { env, isProd } from '@/config/env.js';
-import { closeDb } from '@/db/pg.js';
-import { closeRedis } from '@/db/redis.js';
-import { healthRoutes } from '@/routes/health.js';
-import { authRoutes } from '@/routes/auth.js';
-import { otpRoutes } from '@/routes/otp.js';
-import { meRoutes } from '@/routes/me.js';
-import { authRequired } from '@/middleware/auth.js';
+import { env, isProd } from './config/env.js';
+import { closeDb } from './db/pg.js';
+import { closeRedis } from './db/redis.js';
+import { healthRoutes } from './routes/health.js';
+import { authRoutes } from './routes/auth.js';
+import { oauthRoutes } from './routes/oauth.js';
+import { otpRoutes } from './routes/otp.js';
+import { meRoutes } from './routes/me.js';
+import { authRequired } from './middleware/auth.js';
 
 declare module 'fastify' {
   interface FastifyInstance {
@@ -73,6 +74,7 @@ async function buildApp() {
   await app.register(healthRoutes);
 
   await app.register(authRoutes);
+  await app.register(oauthRoutes);
   await app.register(otpRoutes);
   await app.register(meRoutes);
 

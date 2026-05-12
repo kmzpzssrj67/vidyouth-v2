@@ -5,8 +5,8 @@
  */
 
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import { verify, type AccessClaims } from '@/services/jwt.js';
-import { isActive } from '@/services/sessions.js';
+import { verify, type AccessClaims } from '../services/jwt.js';
+import { isActive } from '../services/sessions.js';
 
 declare module 'fastify' {
   interface FastifyRequest {

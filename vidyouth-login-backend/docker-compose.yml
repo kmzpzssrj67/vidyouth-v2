@@ -40,6 +40,13 @@ services:
       REDIS_URL: redis://redis:6379
       REDIS_KEY_PREFIX: "vidyouth:dev:"
       BCRYPT_PEPPER: dev-pepper-replace-in-prod-32chars
+      GOOGLE_CLIENT_ID: 
+      GOOGLE_CLIENT_SECRET: 
+      GOOGLE_REDIRECT_URI: http://localhost:8080/auth/google/callback
+      MICROSOFT_CLIENT_ID: 
+      MICROSOFT_CLIENT_SECRET: 
+      MICROSOFT_TENANT_ID: common
+      MICROSOFT_REDIRECT_URI: http://localhost:8080/auth/microsoft/callback
     depends_on:
       postgres:
         condition: service_healthy

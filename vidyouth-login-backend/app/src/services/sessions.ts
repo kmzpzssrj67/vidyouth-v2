@@ -9,9 +9,9 @@
  *                     starts; alternatively pass force=true to revoke all).
  */
 
-import { redis } from '@/db/redis.js';
-import { env } from '@/config/env.js';
-import { query } from '@/db/pg.js';
+import { redis } from '../db/redis.js';
+import { env } from '../config/env.js';
+import { query } from '../db/pg.js';
 
 const sessKey = (userId: string) => `sess:${userId}`;
 

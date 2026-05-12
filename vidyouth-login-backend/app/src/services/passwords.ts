@@ -8,7 +8,7 @@
  */
 
 import bcrypt from 'bcrypt';
-import { env } from '@/config/env.js';
+import { env } from '../config/env.js';
 
 const pepper = (raw: string): string => `${raw}:${env.BCRYPT_PEPPER}`;
 

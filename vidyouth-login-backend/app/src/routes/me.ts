@@ -3,7 +3,7 @@
  */
 
 import type { FastifyInstance } from 'fastify';
-import { query } from '@/db/pg.js';
+import { query } from '../db/pg.js';
 
 interface MeRow {
   id: string;

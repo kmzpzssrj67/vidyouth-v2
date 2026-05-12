@@ -6,13 +6,13 @@
 FROM node:20.11.1-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm install --omit=dev --ignore-scripts && npm cache clean --force
+RUN npm install --omit=dev && npm cache clean --force
 
 # ─── build ───────────────────────────────────────────────────────────────────
 FROM node:20.11.1-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm install --ignore-scripts
+RUN npm install
 COPY tsconfig.json ./
 COPY src ./src
 RUN npm run build

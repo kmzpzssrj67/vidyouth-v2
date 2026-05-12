@@ -10,12 +10,12 @@
 import type { FastifyInstance } from 'fastify';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
-import { query } from '@/db/pg.js';
-import { isLocked, recordFailure, resetFailures } from '@/services/lockout.js';
-import { verifyPassword } from '@/services/passwords.js';
-import { signAccess, signRefresh, verify } from '@/services/jwt.js';
-import { startSession, endSession } from '@/services/sessions.js';
-import { recordAudit } from '@/services/audit.js';
+import { query } from '../db/pg.js';
+import { isLocked, recordFailure, resetFailures } from '../services/lockout.js';
+import { verifyPassword } from '../services/passwords.js';
+import { signAccess, signRefresh, verify } from '../services/jwt.js';
+import { startSession, endSession } from '../services/sessions.js';
+import { recordAudit } from '../services/audit.js';
 
 const loginBody = z.object({
   identifier: z.string().min(3).max(254),
