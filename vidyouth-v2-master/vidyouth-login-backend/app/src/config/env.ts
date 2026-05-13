@@ -52,6 +52,8 @@ const envSchema = z.object({
   SMS_API_KEY: z.string().optional(),
   EMAIL_PROVIDER: z.enum(['mock', 'ses']).default('mock'),
   EMAIL_FROM: z.string().email().default('no-reply@vidyouth.local'),
+  EMAIL_VERIFICATION_TTL_SECONDS: z.coerce.number().int().positive().default(86_400),
+  APP_BASE_URL: z.string().url().default('http://localhost:3000'),
 
   // Audit
   AUDIT_S3_BUCKET: z.string().optional(),

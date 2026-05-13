@@ -20,6 +20,9 @@ export type AuditAction =
   | 'session.logout'
   | 'password.changed'
   | 'account.created'
+  | 'email.verification.requested'
+  | 'email.verified'
+  | 'email.verification.failed'
   | 'role.changed';
 
 export interface AuditEvent {

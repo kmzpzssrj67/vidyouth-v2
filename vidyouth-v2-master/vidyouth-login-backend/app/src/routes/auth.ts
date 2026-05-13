@@ -20,6 +20,11 @@ import {
   SignupUnavailableError,
   signupWithEmailPassword,
 } from '@/services/auth-service.js';
+import {
+  InvalidEmailVerificationTokenError,
+  resendEmailVerification,
+  verifyEmail,
+} from '@/services/email-verification.js';
 
 const displayName = z.string()
   .trim()
@@ -48,6 +53,14 @@ const loginBody = z.object({
 
 const refreshBody = z.object({
   refresh_token: z.string().min(20),
+});
+
+const verifyEmailBody = z.object({
+  token: z.string().min(32).max(512),
+});
+
+const resendVerificationBody = z.object({
+  email: z.string().trim().email().max(254).transform((value) => value.toLowerCase()),
 });
 
 export async function authRoutes(app: FastifyInstance): Promise<void> {
@@ -79,6 +92,7 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
         displayName: parsed.data.display_name,
         ip: req.ip,
         userAgent: req.headers['user-agent'],
+        logger: req.log,
       });
 
       reply.code(201).send({
@@ -94,6 +108,53 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
       }
       throw err;
     }
+  });
+
+  app.post('/auth/verify-email', async (req, reply) => {
+    const parsed = verifyEmailBody.safeParse(req.body);
+    if (!parsed.success) {
+      reply.code(400).send({ error: 'invalid_request', issues: parsed.error.issues });
+      return;
+    }
+
+    try {
+      await verifyEmail({
+        token: parsed.data.token,
+        ip: req.ip,
+        userAgent: req.headers['user-agent'],
+      });
+      reply.send({ status: 'verified' });
+    } catch (err) {
+      if (err instanceof InvalidEmailVerificationTokenError) {
+        reply.code(400).send({ error: 'invalid_or_expired_token' });
+        return;
+      }
+      throw err;
+    }
+  });
+
+  app.post('/auth/resend-verification', {
+    config: {
+      rateLimit: {
+        max: 3,
+        timeWindow: '15 minutes',
+      },
+    },
+  }, async (req, reply) => {
+    const parsed = resendVerificationBody.safeParse(req.body);
+    if (!parsed.success) {
+      reply.code(400).send({ error: 'invalid_request', issues: parsed.error.issues });
+      return;
+    }
+
+    await resendEmailVerification({
+      email: parsed.data.email,
+      ip: req.ip,
+      userAgent: req.headers['user-agent'],
+      logger: req.log,
+    });
+
+    reply.send({ status: 'sent_if_account_exists' });
   });
 
   app.post('/auth/login', async (req, reply) => {

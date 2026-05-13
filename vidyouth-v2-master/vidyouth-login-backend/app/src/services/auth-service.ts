@@ -21,6 +21,8 @@ import { signAccess, signRefresh, type AuthClaims } from '@/services/jwt.js';
 import { hashPassword } from '@/services/passwords.js';
 import { startSession } from '@/services/sessions.js';
 import { recordAudit, type AuditAction } from '@/services/audit.js';
+import { issueEmailVerification } from '@/services/email-verification.js';
+import type { FastifyBaseLogger } from 'fastify';
 
 export interface AuthenticatedSessionResult {
   access_token: string;
@@ -45,6 +47,7 @@ export interface SignupWithEmailPasswordInput {
   displayName: string;
   ip?: string | undefined;
   userAgent?: string | undefined;
+  logger: FastifyBaseLogger;
 }
 
 export class SignupUnavailableError extends Error {
@@ -178,7 +181,15 @@ export async function signupWithEmailPassword(
     email: input.email,
   });
 
-  // TODO(email-verification): issue verification token and mark email_verified_at.
+  await issueEmailVerification({
+    user,
+    ip: input.ip,
+    userAgent: input.userAgent,
+    logger: input.logger,
+  });
+
+  // TODO(email-verification-enforcement): allow login today, but gate sensitive
+  // features after signup until email_verified_at is set.
   // TODO(welcome-email): enqueue welcome email after the transaction boundary.
   // TODO(account-activation): gate activation if onboarding approval is required.
   // TODO(signup-analytics): publish account.created event for product analytics.

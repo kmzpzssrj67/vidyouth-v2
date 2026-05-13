@@ -73,6 +73,17 @@ export async function findUserByEmailIncludingDeleted(email: string): Promise<Us
   return result.rows[0] ?? null;
 }
 
+export async function findActiveUserByEmail(email: string): Promise<UserRecord | null> {
+  const result = await query<UserRecord>(
+    `SELECT ${userColumns}
+     FROM users
+     WHERE lower(email) = lower($1) AND deleted_at IS NULL
+     LIMIT 1`,
+    [email],
+  );
+  return result.rows[0] ?? null;
+}
+
 export async function findUserByMobileIncludingDeleted(mobile: string): Promise<UserRecord | null> {
   const result = await query<UserRecord>(
     `SELECT ${userColumns}
@@ -119,4 +130,16 @@ export async function updateLastLogin(_userId: string): Promise<void> {
   // TODO(schema): add users.last_login_at or user_security_events before this
   // becomes observable state. Keeping this as a repository boundary lets
   // signup/OAuth call the same hook later without route churn.
+}
+
+export async function markEmailVerified(userId: string): Promise<UserRecord | null> {
+  const result = await query<UserRecord>(
+    `UPDATE users
+     SET email_verified_at = COALESCE(email_verified_at, NOW()),
+         updated_at = NOW()
+     WHERE id = $1 AND deleted_at IS NULL
+     RETURNING ${userColumns}`,
+    [userId],
+  );
+  return result.rows[0] ?? null;
 }
