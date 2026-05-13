@@ -16,6 +16,8 @@ export type OtpChannel = 'sms' | 'email';
 const otpKey = (channel: OtpChannel, identifier: string) =>
   `otp:${channel}:${identifier.toLowerCase()}`;
 const rateKey = (identifier: string) => `otprl:${identifier.toLowerCase()}`;
+const attemptsKey = (channel: OtpChannel, identifier: string) =>
+  `otpattempt:${channel}:${identifier.toLowerCase()}`;
 
 export function generateCode(): string {
   // randomInt is uniform; toString.padStart keeps leading zeros visible.
@@ -55,6 +57,7 @@ export async function issueOtp(
     'EX',
     env.OTP_TTL_SECONDS,
   );
+  await redis.del(attemptsKey(channel, identifier));
   return { code, expiresInSec: env.OTP_TTL_SECONDS };
 }
 
@@ -71,6 +74,18 @@ export async function verifyOtp(
   const ok = safeEqual(stored, hashCode(submitted));
   if (ok) {
     await redis.del(k);
+    await redis.del(attemptsKey(channel, identifier));
+    return true;
   }
-  return ok;
+
+  const ak = attemptsKey(channel, identifier);
+  const attempts = await redis.incr(ak);
+  if (attempts === 1) {
+    await redis.expire(ak, env.OTP_TTL_SECONDS);
+  }
+  if (attempts >= env.OTP_VERIFY_MAX_ATTEMPTS) {
+    await redis.del(k);
+    await redis.del(ak);
+  }
+  return false;
 }

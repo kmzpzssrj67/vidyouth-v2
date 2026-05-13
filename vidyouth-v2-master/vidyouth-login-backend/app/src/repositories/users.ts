@@ -16,8 +16,10 @@ export interface UserRecord {
   role: UserRole;
   email: string | null;
   mobile: string | null;
+  phone_number: string | null;
   email_verified_at: Date | null;
   mobile_verified_at: Date | null;
+  phone_verified_at: Date | null;
   password_hash: string | null;
   display_name: string | null;
   is_active: boolean;
@@ -41,8 +43,10 @@ const userColumns = `
   role,
   email,
   mobile,
+  phone_number,
   email_verified_at,
   mobile_verified_at,
+  phone_verified_at,
   password_hash,
   display_name,
   is_active,
@@ -55,7 +59,8 @@ export async function findUserByEmailOrMobile(identifier: string): Promise<UserR
   const result = await query<UserRecord>(
     `SELECT ${userColumns}
      FROM users
-     WHERE (lower(email) = lower($1) OR mobile = $1) AND deleted_at IS NULL
+     WHERE (lower(email) = lower($1) OR mobile = $1 OR phone_number = $1)
+       AND deleted_at IS NULL
      LIMIT 1`,
     [identifier],
   );
@@ -88,9 +93,20 @@ export async function findUserByMobileIncludingDeleted(mobile: string): Promise<
   const result = await query<UserRecord>(
     `SELECT ${userColumns}
      FROM users
-     WHERE mobile = $1
+     WHERE mobile = $1 OR phone_number = $1
      LIMIT 1`,
     [mobile],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function findUserByPhone(phoneNumber: string): Promise<UserRecord | null> {
+  const result = await query<UserRecord>(
+    `SELECT ${userColumns}
+     FROM users
+     WHERE (phone_number = $1 OR mobile = $1) AND deleted_at IS NULL
+     LIMIT 1`,
+    [phoneNumber],
   );
   return result.rows[0] ?? null;
 }
@@ -126,6 +142,17 @@ export async function createUser(input: CreateUserInput): Promise<UserRecord> {
   return result.rows[0] as UserRecord;
 }
 
+export async function createPhoneUser(phoneNumber: string): Promise<UserRecord> {
+  const result = await query<UserRecord>(
+    `INSERT INTO users
+       (role, mobile, phone_number, mobile_verified_at, phone_verified_at, display_name)
+     VALUES ('student', $1, $1, NOW(), NOW(), $2)
+     RETURNING ${userColumns}`,
+    [phoneNumber, `Student ${phoneNumber.slice(-4)}`],
+  );
+  return result.rows[0] as UserRecord;
+}
+
 export async function updateLastLogin(_userId: string): Promise<void> {
   // TODO(schema): add users.last_login_at or user_security_events before this
   // becomes observable state. Keeping this as a repository boundary lets
@@ -140,6 +167,24 @@ export async function markEmailVerified(userId: string): Promise<UserRecord | nu
      WHERE id = $1 AND deleted_at IS NULL
      RETURNING ${userColumns}`,
     [userId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function markPhoneVerified(
+  userId: string,
+  phoneNumber: string,
+): Promise<UserRecord | null> {
+  const result = await query<UserRecord>(
+    `UPDATE users
+     SET mobile = COALESCE(mobile, $2),
+         phone_number = COALESCE(phone_number, $2),
+         mobile_verified_at = COALESCE(mobile_verified_at, NOW()),
+         phone_verified_at = COALESCE(phone_verified_at, NOW()),
+         updated_at = NOW()
+     WHERE id = $1 AND deleted_at IS NULL AND is_active = TRUE
+     RETURNING ${userColumns}`,
+    [userId, phoneNumber],
   );
   return result.rows[0] ?? null;
 }

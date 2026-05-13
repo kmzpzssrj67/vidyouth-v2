@@ -31,6 +31,12 @@ import {
   resetPassword,
   WeakPasswordResetPasswordError,
 } from '@/services/password-reset.js';
+import {
+  InvalidPhoneNumberError,
+  InvalidPhoneOtpError,
+  requestPhoneOtp,
+  verifyPhoneOtp,
+} from '@/services/phone-auth.js';
 
 const displayName = z.string()
   .trim()
@@ -76,6 +82,15 @@ const forgotPasswordBody = z.object({
 const resetPasswordBody = z.object({
   token: z.string().min(32).max(512),
   new_password: z.string().min(12).max(128),
+});
+
+const phoneOtpRequestBody = z.object({
+  phone_number: z.string().trim().min(8).max(20),
+});
+
+const phoneOtpVerifyBody = z.object({
+  phone_number: z.string().trim().min(8).max(20),
+  code: z.string().regex(/^\d{4,8}$/),
 });
 
 export async function authRoutes(app: FastifyInstance): Promise<void> {
@@ -225,6 +240,83 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
       }
       if (err instanceof InvalidPasswordResetTokenError) {
         reply.code(400).send({ error: 'invalid_or_expired_token' });
+        return;
+      }
+      throw err;
+    }
+  });
+
+  app.post('/auth/phone/request-otp', {
+    config: {
+      rateLimit: {
+        max: 5,
+        timeWindow: '15 minutes',
+      },
+    },
+  }, async (req, reply) => {
+    const parsed = phoneOtpRequestBody.safeParse(req.body);
+    if (!parsed.success) {
+      reply.code(400).send({ error: 'invalid_request', issues: parsed.error.issues });
+      return;
+    }
+
+    try {
+      await requestPhoneOtp({
+        phoneNumber: parsed.data.phone_number,
+        ip: req.ip,
+        userAgent: req.headers['user-agent'],
+        logger: req.log,
+      });
+      reply.send({ status: 'otp_sent' });
+    } catch (err) {
+      if (err instanceof InvalidPhoneNumberError) {
+        reply.code(400).send({ error: 'invalid_phone_number' });
+        return;
+      }
+      const e = err as { statusCode?: number };
+      if (e.statusCode === 429) {
+        reply.code(429).send({ error: 'rate_limited' });
+        return;
+      }
+      throw err;
+    }
+  });
+
+  app.post('/auth/phone/verify-otp', {
+    config: {
+      rateLimit: {
+        max: 10,
+        timeWindow: '15 minutes',
+      },
+    },
+  }, async (req, reply) => {
+    const parsed = phoneOtpVerifyBody.safeParse(req.body);
+    if (!parsed.success) {
+      reply.code(400).send({ error: 'invalid_request', issues: parsed.error.issues });
+      return;
+    }
+
+    try {
+      const session = await verifyPhoneOtp({
+        phoneNumber: parsed.data.phone_number,
+        code: parsed.data.code,
+        ip: req.ip,
+        userAgent: req.headers['user-agent'],
+      });
+
+      reply.send({
+        access_token: session.access_token,
+        refresh_token: session.refresh_token,
+        token_type: session.token_type,
+        expires_in: session.expires_in,
+      });
+    } catch (err) {
+      if (err instanceof InvalidPhoneNumberError) {
+        reply.code(400).send({ error: 'invalid_phone_number' });
+        return;
+      }
+      if (err instanceof InvalidPhoneOtpError) {
+        reply.code(401).send({ error: 'invalid_otp' });
         return;
       }
       throw err;
