@@ -50,9 +50,9 @@ export async function endSession(userId: string, sessionId: string): Promise<voi
   await revokeSession(sessionId, 'logout');
 }
 
-export async function endAllSessions(userId: string): Promise<void> {
+export async function endAllSessions(userId: string, reason = 'forced'): Promise<void> {
   await redis.del(sessKey(userId));
-  await revokeAllUserSessions(userId, 'forced');
+  await revokeAllUserSessions(userId, reason);
 }
 
 export async function isActive(userId: string, sessionId: string): Promise<boolean> {

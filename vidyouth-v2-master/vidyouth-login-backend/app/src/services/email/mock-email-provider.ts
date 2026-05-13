@@ -1,4 +1,8 @@
-import type { EmailProvider, SendVerificationEmailInput } from './email-provider.js';
+import type {
+  EmailProvider,
+  SendPasswordResetEmailInput,
+  SendVerificationEmailInput,
+} from './email-provider.js';
 
 export class MockEmailProvider implements EmailProvider {
   async sendVerificationEmail(input: SendVerificationEmailInput): Promise<void> {
@@ -10,6 +14,18 @@ export class MockEmailProvider implements EmailProvider {
         expiresAt: input.expiresAt.toISOString(),
       },
       '[DEV] Email verification link',
+    );
+  }
+
+  async sendPasswordResetEmail(input: SendPasswordResetEmailInput): Promise<void> {
+    input.logger.info(
+      {
+        provider: 'mock',
+        to: input.to,
+        resetUrl: input.resetUrl,
+        expiresAt: input.expiresAt.toISOString(),
+      },
+      '[DEV] Password reset link',
     );
   }
 }

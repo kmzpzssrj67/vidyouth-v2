@@ -25,6 +25,12 @@ import {
   resendEmailVerification,
   verifyEmail,
 } from '@/services/email-verification.js';
+import {
+  InvalidPasswordResetTokenError,
+  requestPasswordReset,
+  resetPassword,
+  WeakPasswordResetPasswordError,
+} from '@/services/password-reset.js';
 
 const displayName = z.string()
   .trim()
@@ -61,6 +67,15 @@ const verifyEmailBody = z.object({
 
 const resendVerificationBody = z.object({
   email: z.string().trim().email().max(254).transform((value) => value.toLowerCase()),
+});
+
+const forgotPasswordBody = z.object({
+  email: z.string().trim().email().max(254).transform((value) => value.toLowerCase()),
+});
+
+const resetPasswordBody = z.object({
+  token: z.string().min(32).max(512),
+  new_password: z.string().min(12).max(128),
 });
 
 export async function authRoutes(app: FastifyInstance): Promise<void> {
@@ -155,6 +170,65 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
     });
 
     reply.send({ status: 'sent_if_account_exists' });
+  });
+
+  app.post('/auth/forgot-password', {
+    config: {
+      rateLimit: {
+        max: 3,
+        timeWindow: '15 minutes',
+      },
+    },
+  }, async (req, reply) => {
+    const parsed = forgotPasswordBody.safeParse(req.body);
+    if (!parsed.success) {
+      reply.code(400).send({ error: 'invalid_request', issues: parsed.error.issues });
+      return;
+    }
+
+    await requestPasswordReset({
+      email: parsed.data.email,
+      ip: req.ip,
+      userAgent: req.headers['user-agent'],
+      logger: req.log,
+    });
+
+    reply.send({ status: 'sent_if_account_exists' });
+  });
+
+  app.post('/auth/reset-password', {
+    config: {
+      rateLimit: {
+        max: 5,
+        timeWindow: '15 minutes',
+      },
+    },
+  }, async (req, reply) => {
+    const parsed = resetPasswordBody.safeParse(req.body);
+    if (!parsed.success) {
+      reply.code(400).send({ error: 'invalid_request', issues: parsed.error.issues });
+      return;
+    }
+
+    try {
+      await resetPassword({
+        token: parsed.data.token,
+        newPassword: parsed.data.new_password,
+        ip: req.ip,
+        userAgent: req.headers['user-agent'],
+      });
+      reply.send({ status: 'password_reset' });
+    } catch (err) {
+      if (err instanceof WeakPasswordResetPasswordError) {
+        reply.code(400).send({ error: 'weak_password', issues: err.issues });
+        return;
+      }
+      if (err instanceof InvalidPasswordResetTokenError) {
+        reply.code(400).send({ error: 'invalid_or_expired_token' });
+        return;
+      }
+      throw err;
+    }
   });
 
   app.post('/auth/login', async (req, reply) => {

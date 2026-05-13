@@ -53,6 +53,7 @@ const envSchema = z.object({
   EMAIL_PROVIDER: z.enum(['mock', 'ses']).default('mock'),
   EMAIL_FROM: z.string().email().default('no-reply@vidyouth.local'),
   EMAIL_VERIFICATION_TTL_SECONDS: z.coerce.number().int().positive().default(86_400),
+  PASSWORD_RESET_TTL_SECONDS: z.coerce.number().int().positive().default(3_600),
   APP_BASE_URL: z.string().url().default('http://localhost:3000'),
 
   // Audit

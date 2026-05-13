@@ -143,3 +143,18 @@ export async function markEmailVerified(userId: string): Promise<UserRecord | nu
   );
   return result.rows[0] ?? null;
 }
+
+export async function updateUserPassword(
+  userId: string,
+  passwordHash: string,
+): Promise<UserRecord | null> {
+  const result = await query<UserRecord>(
+    `UPDATE users
+     SET password_hash = $2,
+         updated_at = NOW()
+     WHERE id = $1 AND deleted_at IS NULL AND is_active = TRUE
+     RETURNING ${userColumns}`,
+    [userId, passwordHash],
+  );
+  return result.rows[0] ?? null;
+}

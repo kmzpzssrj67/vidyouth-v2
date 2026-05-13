@@ -7,6 +7,14 @@ export interface SendVerificationEmailInput {
   logger: FastifyBaseLogger;
 }
 
+export interface SendPasswordResetEmailInput {
+  to: string;
+  resetUrl: string;
+  expiresAt: Date;
+  logger: FastifyBaseLogger;
+}
+
 export interface EmailProvider {
   sendVerificationEmail(input: SendVerificationEmailInput): Promise<void>;
+  sendPasswordResetEmail(input: SendPasswordResetEmailInput): Promise<void>;
 }
