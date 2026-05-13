@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Vidyouth | Sign in</title>
+<title>Vidyouth | Create account</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -495,8 +495,8 @@
     </div>
 
     <!-- Heading -->
-    <h1 class="auth-heading mb-1.5">Sign in to your account</h1>
-    <p class="auth-sub mb-6">Continue your learning journey.</p>
+    <h1 class="auth-heading mb-1.5">Create your account</h1>
+    <p class="auth-sub mb-6">Start your learning journey with Vidyouth.</p>
 
     <!-- Tabs -->
     <div class="auth-tabs flex mb-5" role="tablist">
@@ -505,6 +505,12 @@
     </div>
 
     <form id="authForm" class="space-y-4" autocomplete="on" novalidate>
+
+      <!-- Full name (sign-up only) -->
+      <div>
+        <label class="auth-label" for="displayName">Full name</label>
+        <input id="displayName" name="displayName" type="text" autocomplete="name" required minlength="2" maxlength="80" class="auth-input" placeholder="Priya Sharma"/>
+      </div>
 
       <!-- Email pane -->
       <div data-pane="email">
@@ -529,28 +535,49 @@
 
       <!-- Password -->
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <label class="auth-label" style="margin-bottom:0;" for="password">Password</label>
-          <a href="#" class="auth-link">Forgot password?</a>
-        </div>
+        <label class="auth-label" for="password">Password</label>
         <div class="auth-input-wrap">
-          <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" class="auth-input" placeholder="At least 8 characters" style="padding-right:42px;"/>
+          <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" class="auth-input" placeholder="At least 8 characters, 1 letter + 1 number" style="padding-right:42px;"/>
           <button type="button" class="auth-input-eye" id="togglePw" aria-label="Show password">
+            <span class="material-symbols-outlined text-[18px]">visibility</span>
+          </button>
+        </div>
+        <!-- live strength meter -->
+        <div id="pwMeter" class="mt-2 flex gap-1.5" aria-hidden="true">
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+        </div>
+        <p id="pwHint" class="text-[11px] mt-1.5" style="color:var(--text-muted);">Use 8+ characters with at least one letter and one number.</p>
+      </div>
+
+      <!-- Confirm password -->
+      <div>
+        <label class="auth-label" for="passwordConfirm">Confirm password</label>
+        <div class="auth-input-wrap">
+          <input id="passwordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" required minlength="8" maxlength="128" class="auth-input" placeholder="Re-enter password" style="padding-right:42px;"/>
+          <button type="button" class="auth-input-eye" id="togglePwConfirm" aria-label="Show password">
             <span class="material-symbols-outlined text-[18px]">visibility</span>
           </button>
         </div>
       </div>
 
-      <!-- Keep signed in -->
-      <label class="checkbox-wrap">
-        <input type="checkbox" class="checkbox-input"/>
-        <span>Keep me signed in for 7 days</span>
+      <!-- Terms -->
+      <label class="checkbox-wrap" style="align-items:flex-start;">
+        <input id="acceptTerms" type="checkbox" class="checkbox-input" required style="margin-top:3px;"/>
+        <span>
+          I agree to Vidyouth's
+          <a href="#" class="auth-link">Terms of Service</a>
+          and
+          <a href="#" class="auth-link">Privacy Policy</a>.
+        </span>
       </label>
 
       <p id="authMessage" class="text-sm min-h-[20px]" style="color:var(--accent-primary);" role="status" aria-live="polite"></p>
 
-      <!-- Sign in -->
-      <button type="submit" class="auth-btn-primary">Sign in</button>
+      <!-- Create account -->
+      <button type="submit" class="auth-btn-primary">Create account</button>
 
     </form>
 
@@ -579,9 +606,9 @@
       </button>
     </div>
 
-    <!-- Sign up -->
+    <!-- Already a member -->
     <p class="text-center text-sm mt-6" style="color:var(--text-secondary);">
-      New to Vidyouth? <a href="signup.html" class="auth-link" style="font-size:14px;">Create an account</a>
+      Already have an account? <a href="login.html" class="auth-link" style="font-size:14px;">Sign in</a>
     </p>
 
   </div>
@@ -673,17 +700,44 @@
     });
   });
 
-  /* ── Password show/hide ── */
-  const togglePw = document.getElementById('togglePw');
-  const pwInput = document.getElementById('password');
-  togglePw.addEventListener('click', () => {
-    const showing = pwInput.type === 'password';
-    pwInput.type = showing ? 'text' : 'password';
-    togglePw.querySelector('span').textContent = showing ? 'visibility_off' : 'visibility';
-    togglePw.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
-  });
+  /* ── Password show/hide (both fields) ── */
+  function wireEyeToggle(toggleId, inputId) {
+    const toggle = document.getElementById(toggleId);
+    const input = document.getElementById(inputId);
+    toggle.addEventListener('click', () => {
+      const showing = input.type === 'password';
+      input.type = showing ? 'text' : 'password';
+      toggle.querySelector('span').textContent = showing ? 'visibility_off' : 'visibility';
+      toggle.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
+    });
+  }
+  wireEyeToggle('togglePw', 'password');
+  wireEyeToggle('togglePwConfirm', 'passwordConfirm');
 
-  /* ── Backend auth integration ── */
+  /* ── Password strength meter ── */
+  const pwInput = document.getElementById('password');
+  const pwMeter = document.getElementById('pwMeter');
+  const pwHint = document.getElementById('pwHint');
+  function scorePassword(p) {
+    let s = 0;
+    if (p.length >= 8)               s++;
+    if (/[A-Za-z]/.test(p) && /\d/.test(p)) s++;
+    if (p.length >= 12)              s++;
+    if (/[^A-Za-z0-9]/.test(p))      s++;
+    return s; // 0..4
+  }
+  function paintMeter(score) {
+    const colors = ['#9CA3AF', '#F87171', '#FBBF24', '#34D399', '#10B981'];
+    const labels = ['Too short', 'Weak', 'Fair', 'Strong', 'Excellent'];
+    [...pwMeter.children].forEach((bar, i) => {
+      bar.style.background = i < score ? colors[score] : 'rgba(var(--glass-base),0.20)';
+    });
+    pwHint.textContent = pwInput.value ? labels[score] : 'Use 8+ characters with at least one letter and one number.';
+    pwHint.style.color = pwInput.value ? colors[score] : 'var(--text-muted)';
+  }
+  pwInput.addEventListener('input', () => paintMeter(scorePassword(pwInput.value)));
+
+  /* ── Backend signup integration ── */
   const API_BASE_URL = localStorage.getItem('vidyouth_api_base_url') || 'http://localhost:8080';
 
   /* Ping /livez once so the user can see whether the API is reachable. */
@@ -716,8 +770,9 @@
   }
 
   function storeTokens(payload) {
+    if (!payload || !payload.access_token) return;
     localStorage.setItem('vidyouth_access_token', payload.access_token);
-    localStorage.setItem('vidyouth_refresh_token', payload.refresh_token);
+    if (payload.refresh_token) localStorage.setItem('vidyouth_refresh_token', payload.refresh_token);
     localStorage.setItem('vidyouth_token_type', payload.token_type || 'Bearer');
     localStorage.setItem('vidyouth_token_expires_at', String(Date.now() + ((payload.expires_in || 900) * 1000)));
   }
@@ -727,48 +782,69 @@
     return `${countryCode}${digits}`;
   }
 
-  async function loginWithPassword(identifier, password) {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+  async function signup(body) {
+    const response = await fetch(`${API_BASE_URL}/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identifier, password }),
+      body: JSON.stringify(body),
     });
-
     const payload = response.status === 204 ? {} : await response.json().catch(() => ({}));
     if (!response.ok) {
-      throw new Error(payload.error || 'Login failed');
+      throw new Error(payload.error || 'Signup failed');
     }
     return payload;
   }
 
-  /* ── Form submit → backend login ── */
+  /* ── Form submit → backend signup ── */
   authForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     setAuthMessage('');
 
     const tab = activeLoginTab();
-    const password = pwInput.value.trim();
-    const identifier = tab === 'email'
-      ? document.getElementById('email').value.trim()
-      : normalizeMobile(document.getElementById('countryCode').value, document.getElementById('phone').value);
+    const displayName = document.getElementById('displayName').value.trim();
+    const password = pwInput.value;
+    const confirm = document.getElementById('passwordConfirm').value;
+    const acceptTerms = document.getElementById('acceptTerms').checked;
 
-    if (!identifier || !password) {
-      setAuthMessage('Enter your login details.', true);
-      return;
+    if (!displayName) { setAuthMessage('Enter your name.', true); return; }
+    if (password.length < 8) { setAuthMessage('Password must be at least 8 characters.', true); return; }
+    if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) {
+      setAuthMessage('Password needs at least one letter and one number.', true); return;
+    }
+    if (password !== confirm) { setAuthMessage('Passwords don’t match.', true); return; }
+    if (!acceptTerms) { setAuthMessage('Please accept the Terms and Privacy Policy.', true); return; }
+
+    const body = { displayName, password, channel: tab };
+    if (tab === 'email') {
+      const email = document.getElementById('email').value.trim();
+      if (!email) { setAuthMessage('Enter your email.', true); return; }
+      body.email = email;
+    } else {
+      const code = document.getElementById('countryCode').value;
+      const phone = document.getElementById('phone').value;
+      if (!phone) { setAuthMessage('Enter your mobile number.', true); return; }
+      body.mobile = normalizeMobile(code, phone);
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Signing in...';
+    submitBtn.textContent = 'Creating account...';
     try {
-      const payload = await loginWithPassword(identifier, password);
-      storeTokens(payload);
-      setAuthMessage('Signed in. Opening dashboard...');
-      window.location.href = 'newhome.html';
+      const payload = await signup(body);
+      // If the backend returns tokens, log the user straight in.
+      // Otherwise, redirect to login with a success flash.
+      if (payload && payload.access_token) {
+        storeTokens(payload);
+        setAuthMessage('Account created. Opening dashboard...');
+        window.location.href = 'newhome.html';
+      } else {
+        setAuthMessage('Account created. Redirecting to sign in...');
+        setTimeout(() => { window.location.href = 'login.html?from=signup'; }, 800);
+      }
     } catch (err) {
-      setAuthMessage(err.message || 'Unable to sign in.', true);
+      setAuthMessage(err.message || 'Unable to create account.', true);
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Sign in';
+      submitBtn.textContent = 'Create account';
     }
   });
 
