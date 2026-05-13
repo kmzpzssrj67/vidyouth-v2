@@ -13,6 +13,7 @@ import { recordAudit } from '@/services/audit.js';
 import { query } from '@/db/pg.js';
 import { signAccess, signRefresh } from '@/services/jwt.js';
 import { startSession } from '@/services/sessions.js';
+import { getSmsProvider } from '@/services/sms/index.js';
 
 const requestBody = z.object({
   channel: z.enum(['sms', 'email']),
@@ -43,10 +44,17 @@ export async function otpRoutes(app: FastifyInstance): Promise<void> {
     try {
       const { code, expiresInSec } = await issueOtp(channel, identifier);
 
-      // TODO: dispatch to MSG91 (sms) or SES (email). For now, dev-only —
-      // do NOT log the code in production.
-      if (process.env.NODE_ENV !== 'production') {
-        req.log.info({ channel, identifier, code }, '[DEV] OTP issued');
+      if (channel === 'sms') {
+        await getSmsProvider().sendOtp({
+          to: identifier,
+          code,
+          expiresInSec,
+          logger: req.log,
+        });
+      } else {
+        // TODO(email-otp-provider): add an email OTP provider method for
+        // signup/login flows, reusing the SES/mock email abstraction.
+        req.log.info({ channel, identifier, code }, '[DEV] Email OTP issued');
       }
 
       await recordAudit({

@@ -50,11 +50,20 @@ const envSchema = z.object({
   // SMS / email
   SMS_PROVIDER: z.enum(['mock', 'msg91', 'sns']).default('mock'),
   SMS_API_KEY: z.string().optional(),
+  SNS_SENDER_ID: z.string().max(11).optional(),
+  SNS_SMS_TYPE: z.enum(['Transactional', 'Promotional']).default('Transactional'),
   EMAIL_PROVIDER: z.enum(['mock', 'ses']).default('mock'),
   EMAIL_FROM: z.string().email().default('no-reply@vidyouth.local'),
+  SES_FROM_EMAIL: z.string().email().optional(),
   EMAIL_VERIFICATION_TTL_SECONDS: z.coerce.number().int().positive().default(86_400),
   PASSWORD_RESET_TTL_SECONDS: z.coerce.number().int().positive().default(3_600),
   APP_BASE_URL: z.string().url().default('http://localhost:3000'),
+
+  // AWS SDK providers read credentials from these env vars in local Docker.
+  AWS_ACCESS_KEY_ID: z.string().optional(),
+  AWS_SECRET_ACCESS_KEY: z.string().optional(),
+  AWS_SESSION_TOKEN: z.string().optional(),
+  AWS_REGION: z.string().default('ap-south-1'),
 
   // Audit
   AUDIT_S3_BUCKET: z.string().optional(),
