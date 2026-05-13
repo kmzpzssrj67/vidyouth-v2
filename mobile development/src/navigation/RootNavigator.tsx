@@ -22,6 +22,7 @@ import { useThemeTokens } from '@/theme/ThemeProvider';
 
 import SplashScreen from '@/screens/SplashScreen';
 import LoginScreen from '@/screens/auth/LoginScreen';
+import SignupScreen from '@/screens/auth/SignupScreen';
 import HomeScreen from '@/screens/student/HomeScreen';
 import SettingsScreen from '@/screens/settings/SettingsScreen';
 import ThemeStudioScreen from '@/screens/settings/ThemeStudioScreen';
@@ -29,6 +30,7 @@ import ThemeStudioScreen from '@/screens/settings/ThemeStudioScreen';
 type Route =
   | { name: 'splash' }
   | { name: 'login' }
+  | { name: 'signup' }
   | { name: 'tabs'; tab: 'home' | 'settings' }
   | { name: 'theme-studio' };
 
@@ -38,6 +40,7 @@ export default function RootNavigator() {
   const [route, setRoute] = useState<Route>({ name: 'splash' });
 
   const goLogin = () => setRoute({ name: 'login' });
+  const goSignup = () => setRoute({ name: 'signup' });
   const goTabs = (tab: 'home' | 'settings' = 'home') =>
     setRoute({ name: 'tabs', tab });
   const goThemeStudio = () => setRoute({ name: 'theme-studio' });
@@ -47,7 +50,21 @@ export default function RootNavigator() {
   }
 
   if (route.name === 'login') {
-    return <LoginScreen onSignIn={() => goTabs('home')} />;
+    return (
+      <LoginScreen
+        onSignIn={() => goTabs('home')}
+        onCreateAccount={goSignup}
+      />
+    );
+  }
+
+  if (route.name === 'signup') {
+    return (
+      <SignupScreen
+        onSignedUp={() => goTabs('home')}
+        onSignIn={goLogin}
+      />
+    );
   }
 
   if (route.name === 'theme-studio') {
