@@ -54,12 +54,12 @@ export async function endSession(userId: string, sessionId: string): Promise<voi
   );
 }
 
-export async function endAllSessions(userId: string): Promise<void> {
+export async function endAllSessions(userId: string, reason: string = 'forced'): Promise<void> {
   await redis.del(sessKey(userId));
   await query(
-    `UPDATE sessions SET revoked_at = NOW(), revoked_reason = 'forced'
+    `UPDATE sessions SET revoked_at = NOW(), revoked_reason = $2
      WHERE user_id = $1 AND revoked_at IS NULL`,
-    [userId],
+    [userId, reason],
   );
 }
 

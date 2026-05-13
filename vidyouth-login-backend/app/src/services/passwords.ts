@@ -30,3 +30,22 @@ export function safeEqual(a: string, b: string): boolean {
   }
   return diff === 0;
 }
+
+export interface PasswordStrength {
+  valid: boolean;
+  issues: string[];
+}
+
+/**
+ * Minimum-strength check applied at password set / reset time. Returns
+ * a shape compatible with the password-reset service:
+ *   { valid: false, issues: ['too_short_min_8', 'need_letter_and_digit'] }
+ */
+export function validatePasswordStrength(plain: string): PasswordStrength {
+  const issues: string[] = [];
+  if (!plain || plain.length < 8)              issues.push('too_short_min_8');
+  if (plain && plain.length > 128)             issues.push('too_long_max_128');
+  if (plain && !/[A-Za-z]/.test(plain))        issues.push('missing_letter');
+  if (plain && !/\d/.test(plain))              issues.push('missing_digit');
+  return { valid: issues.length === 0, issues };
+}
