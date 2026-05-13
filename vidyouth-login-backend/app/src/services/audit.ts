@@ -5,7 +5,7 @@
  * tamper-evident long-term audit copy lives outside the app's RDS instance.
  */
 
-import { query } from '@/db/pg.js';
+import { query } from '../db/pg.js';
 
 export type AuditAction =
   | 'login.success'

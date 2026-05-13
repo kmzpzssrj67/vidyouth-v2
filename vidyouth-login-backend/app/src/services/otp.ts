@@ -7,8 +7,8 @@
  */
 
 import { createHash, randomInt } from 'node:crypto';
-import { redis } from '@/db/redis.js';
-import { env } from '@/config/env.js';
+import { redis } from '../db/redis.js';
+import { env } from '../config/env.js';
 import { safeEqual } from './passwords.js';
 
 export type OtpChannel = 'sms' | 'email';
