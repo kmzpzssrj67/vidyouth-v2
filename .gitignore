@@ -34,3 +34,6 @@ Thumbs.db
 # Block accidental zip-into-self folder copies
 vidyouth-v2-master/
 vidyouth-v2-main/
+
+# Portable Postgres + Redis binaries used by start-local-stack.ps1 (600MB+)
+runtime/
