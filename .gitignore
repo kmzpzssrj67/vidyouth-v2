@@ -21,3 +21,16 @@ Thumbs.db
 **/.terraform/
 **/.terraform.lock.hcl.bak
 **/node_modules/
+
+# NEVER COMMIT cryptographic key material — Secrets Manager / Vault only
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/secrets/
+!**/secrets/**/*.tf
+!**/secrets/**/*.md
+
+# Block accidental zip-into-self folder copies
+vidyouth-v2-master/
+vidyouth-v2-main/
