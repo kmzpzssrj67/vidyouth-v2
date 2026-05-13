@@ -16,9 +16,13 @@ import { closeDb } from './db/pg.js';
 import { closeRedis } from './db/redis.js';
 import { healthRoutes } from './routes/health.js';
 import { authRoutes } from './routes/auth.js';
+import { signupRoutes } from './routes/signup.js';
 import { oauthRoutes } from './routes/oauth.js';
 import { otpRoutes } from './routes/otp.js';
 import { meRoutes } from './routes/me.js';
+import { emailVerifyRoutes } from './routes/email-verify.js';
+import { passwordResetRoutes } from './routes/password-reset.js';
+import { phoneAuthRoutes } from './routes/phone.js';
 import { authRequired } from './middleware/auth.js';
 
 declare module 'fastify' {
@@ -74,9 +78,13 @@ async function buildApp() {
   await app.register(healthRoutes);
 
   await app.register(authRoutes);
+  await app.register(signupRoutes);
   await app.register(oauthRoutes);
   await app.register(otpRoutes);
   await app.register(meRoutes);
+  await app.register(emailVerifyRoutes);
+  await app.register(passwordResetRoutes);
+  await app.register(phoneAuthRoutes);
 
   app.setErrorHandler((err, req, reply) => {
     req.log.error({ err }, 'unhandled error');
