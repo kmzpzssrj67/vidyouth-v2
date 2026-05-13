@@ -148,6 +148,29 @@ docker compose build --no-cache api
 docker compose up -d
 ```
 
+### Applying New Migrations To An Existing Dev Database
+
+Postgres only runs files mounted at `/docker-entrypoint-initdb.d` when the
+database volume is created for the first time. If a new SQL file is added after
+your local `vidyouth-pgdata` volume already exists, apply it manually without
+resetting data:
+
+```powershell
+docker exec vidyouth-postgres psql -U vidyouth -d vidyouth_lms -f /docker-entrypoint-initdb.d/009_phone_auth_columns.sql
+```
+
+Or use the helper script from this folder:
+
+```powershell
+.\scripts\apply-migration.ps1 -FileName 009_phone_auth_columns.sql
+```
+
+Verify the phone auth columns:
+
+```powershell
+docker exec vidyouth-postgres psql -U vidyouth -d vidyouth_lms -c "SELECT column_name, data_type FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'users' AND column_name IN ('phone_number','phone_verified_at') ORDER BY column_name;"
+```
+
 ## 5. Production Mode
 
 Production mode uses:

@@ -126,6 +126,22 @@ terraform apply tfplan
 | AWS state backend (S3 + DynamoDB) | not yet — blocked on AWS IAM permissions |
 | Live AWS deploy | not yet |
 
+## Local migration note
+
+Migration files in `database/migrations/` are auto-applied by Postgres only
+when the Docker volume is first initialized. For an existing local database,
+run the new migration explicitly:
+
+```pwsh
+docker exec vidyouth-postgres psql -U vidyouth -d vidyouth_lms -f /docker-entrypoint-initdb.d/009_phone_auth_columns.sql
+```
+
+The helper script wraps that command and prints schema verification output:
+
+```pwsh
+.\scripts\apply-migration.ps1 -FileName 009_phone_auth_columns.sql
+```
+
 The IAM blocker: the CLI is authenticated as `arn:aws:iam::940932546129:user/sunny`
 who currently has zero policies attached. Attach `AdministratorAccess` (or a
 narrower set: `AmazonS3FullAccess`, `AmazonDynamoDBFullAccess`, `IAMFullAccess`,
