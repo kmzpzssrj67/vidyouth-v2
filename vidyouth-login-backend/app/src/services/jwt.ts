@@ -11,7 +11,7 @@
  */
 
 import { SignJWT, jwtVerify, importPKCS8, importSPKI, type JWTPayload, type KeyLike } from 'jose';
-import { env } from '@/config/env.js';
+import { env } from '../config/env.js';
 
 let cachedPrivateKey: KeyLike | null = null;
 let cachedPublicKey: KeyLike | null = null;
@@ -33,9 +33,12 @@ async function getPublicKey(): Promise<KeyLike> {
 export interface AccessClaims extends JWTPayload {
   sub: string;        // user id
   sid: string;        // session id
-  role: 'student' | 'admin' | 'vendor' | 'organisation';
+  role: 'student' | 'admin' | 'vendor' | 'organisation' | 'superadmin';
   org?: string | undefined;
 }
+
+/** Alias for the type imported by services/auth-service.ts (added by PR #2). */
+export type AuthClaims = AccessClaims;
 
 export type TokenKind = 'access' | 'refresh';
 

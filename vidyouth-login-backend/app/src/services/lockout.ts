@@ -9,8 +9,8 @@
  * every attempt — short-circuits before bcrypt verification (cheap denial).
  */
 
-import { redis } from '@/db/redis.js';
-import { env } from '@/config/env.js';
+import { redis } from '../db/redis.js';
+import { env } from '../config/env.js';
 
 const failKey = (userId: string) => `fail:${userId}`;
 const lockKey = (userId: string) => `lock:${userId}`;

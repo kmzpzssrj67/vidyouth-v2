@@ -34,6 +34,12 @@ const PRESET_LIST: PaletteName[] = [
   'apple-light',
   'apple-dark',
   'swiss-white',
+  'rose-blush',
+  'ocean-deep',
+  'sunset-orange',
+  'monokai-pro',
+  'graphite',
+  'high-contrast',
 ];
 
 /** Curated swatch options per token role. Kept tight on purpose — full

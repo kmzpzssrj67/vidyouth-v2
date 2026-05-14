@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="warm-amber">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vidyouth | Create account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+  /* ══════════════════════════════════════════════════════════════
+     THEME TOKENS — shared with newhome.html (kept in sync)
+  ══════════════════════════════════════════════════════════════ */
+  :root {
+    --blur-strength:26px; --blur-strong:32px;
+    --glass-base:80,50,25; --glass-bg-alpha:0.22; --glass-bg-strong-alpha:0.30;
+    --glass-bg:rgba(var(--glass-base),var(--glass-bg-alpha));
+    --glass-bg-strong:rgba(var(--glass-base),var(--glass-bg-strong-alpha));
+    --glass-bg-hover:var(--glass-bg-strong);
+    --glass-border-base:232,194,140; --glass-border-alpha:0.22; --glass-border-strong-alpha:0.36;
+    --glass-border:rgba(var(--glass-border-base),var(--glass-border-alpha));
+    --glass-border-strong:rgba(var(--glass-border-base),var(--glass-border-strong-alpha));
+    --glass-blur:blur(var(--blur-strength)) saturate(180%);
+    --glass-blur-strong:blur(var(--blur-strong)) saturate(200%);
+    --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.20), inset 0 -1px 0 rgba(255,255,255,0.04);
+    --glass-highlight-strong:inset 0 1px 0 rgba(255,255,255,0.32), inset 0 -1px 0 rgba(255,255,255,0.06);
+    --shadow-color:25,12,4;
+    --glass-shadow:0 4px 20px rgba(var(--shadow-color),0.28);
+    --glass-shadow-hover:0 12px 36px rgba(var(--shadow-color),0.36);
+    --shimmer-color-primary: rgba(255,232,184,0.55);
+    --shimmer-color-secondary: rgba(232,194,140,0.32);
+    --shimmer-glow-color: rgba(232,194,140,0.40);
+  }
+
+  [data-theme="warm-amber"] {
+    --bg-primary:#150A04; --bg-secondary:#2A170A;
+    --glass-base:80,50,25; --glass-bg-alpha:0.22; --glass-bg-strong-alpha:0.30;
+    --glass-border-base:232,194,140; --glass-border-alpha:0.22; --glass-border-strong-alpha:0.36;
+    --accent-primary:#E8C28C; --accent-secondary:#C99A5C;
+    --text-primary:#FAF0E0; --text-secondary:#D9C4A6; --text-muted:#A88A6E;
+    --shadow-color:25,12,4;
+    --shimmer-color-primary:rgba(255,232,184,0.55);
+    --shimmer-color-secondary:rgba(232,194,140,0.32);
+    --shimmer-glow-color:rgba(232,194,140,0.40);
+  }
+  [data-theme="cyber-navy"] {
+    --bg-primary:#071426; --bg-secondary:#0B1F3A;
+    --glass-base:255,255,255; --glass-bg-alpha:0.08; --glass-bg-strong-alpha:0.14;
+    --glass-border-base:255,255,255; --glass-border-alpha:0.18; --glass-border-strong-alpha:0.30;
+    --accent-primary:#38BDF8; --accent-secondary:#8B5CF6;
+    --text-primary:#F8FAFC; --text-secondary:#CBD5E1; --text-muted:#94A3B8;
+    --shadow-color:0,0,0;
+    --shimmer-color-primary:rgba(255,255,255,0.50);
+    --shimmer-color-secondary:rgba(56,189,248,0.30);
+    --shimmer-glow-color:rgba(56,189,248,0.40);
+  }
+  [data-theme="warm-beige"] {
+    --bg-primary:#DCCBB7; --bg-secondary:#C8B59B;
+    --glass-base:255,255,255; --glass-bg-alpha:0.18; --glass-bg-strong-alpha:0.24;
+    --glass-border-base:255,255,255; --glass-border-alpha:0.26; --glass-border-strong-alpha:0.34;
+    --accent-primary:#D6A85F; --accent-secondary:#B68A52;
+    --text-primary:#2B2118; --text-secondary:#5E4A38; --text-muted:#8A7663;
+    --shadow-color:60,40,20;
+    --shimmer-color-primary:rgba(255,235,205,0.60);
+    --shimmer-color-secondary:rgba(214,168,95,0.30);
+    --shimmer-glow-color:rgba(214,168,95,0.30);
+  }
+  [data-theme="calm-green"] {
+    --bg-primary:#0F2E2A; --bg-secondary:#1E4A43;
+    --glass-base:255,255,255; --glass-bg-alpha:0.08; --glass-bg-strong-alpha:0.12;
+    --glass-border-base:255,255,255; --glass-border-alpha:0.14; --glass-border-strong-alpha:0.20;
+    --accent-primary:#86EFAC; --accent-secondary:#22C55E;
+    --text-primary:#F4FFF7; --text-secondary:#CFEADF; --text-muted:#9BC5B5;
+    --shadow-color:0,30,20;
+    --shimmer-color-primary:rgba(255,255,255,0.50);
+    --shimmer-color-secondary:rgba(134,239,172,0.30);
+    --shimmer-glow-color:rgba(134,239,172,0.40);
+  }
+  [data-theme="purple"] {
+    --bg-primary:#180B2A; --bg-secondary:#2A1245;
+    --glass-base:255,255,255; --glass-bg-alpha:0.08; --glass-bg-strong-alpha:0.12;
+    --glass-border-base:255,255,255; --glass-border-alpha:0.14; --glass-border-strong-alpha:0.20;
+    --accent-primary:#C084FC; --accent-secondary:#8B5CF6;
+    --text-primary:#FAF5FF; --text-secondary:#D8C8F0; --text-muted:#A78BC7;
+    --shadow-color:30,0,50;
+    --shimmer-color-primary:rgba(230,216,255,0.50);
+    --shimmer-color-secondary:rgba(192,132,252,0.30);
+    --shimmer-glow-color:rgba(192,132,252,0.40);
+  }
+
+  /* ── BASE ───────────────────────────────────────────────── */
+  html { background: var(--bg-primary); }
+  body {
+    margin:0; min-height:100vh;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    color: var(--text-primary);
+    background:
+      radial-gradient(ellipse 130% 130% at 50% 50%, transparent 48%, rgba(0,0,0,0.32) 100%),
+      linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  /* ── BG AURA — atmosphere bokeh blobs ────────────────────── */
+  .bg-aura { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+  .aura-blob { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform; }
+  .aura-1 { width: 700px; height: 700px; top: -200px; right: -150px;
+    background: radial-gradient(circle at 40% 40%, rgba(56,122,255,0.80) 0%, rgba(29,78,216,0.45) 50%, transparent 75%);
+    animation: auraDrift1 22s ease-in-out infinite; opacity: 0.72; }
+  .aura-2 { width: 620px; height: 620px; bottom: -160px; left: -130px;
+    background: radial-gradient(circle at 55% 55%, rgba(0,194,222,0.72) 0%, rgba(8,145,178,0.36) 50%, transparent 75%);
+    animation: auraDrift2 27s ease-in-out infinite; opacity: 0.68; }
+  .aura-3 { width: 480px; height: 480px; top: 30%; left: 4%;
+    background: radial-gradient(circle at 50% 45%, rgba(149,76,255,0.68) 0%, rgba(109,40,217,0.32) 50%, transparent 75%);
+    animation: auraDrift3 30s ease-in-out infinite; opacity: 0.58; }
+  .aura-4 { width: 420px; height: 420px; bottom: 8%; right: 3%;
+    background: radial-gradient(circle at 50% 50%, rgba(0,210,140,0.62) 0%, rgba(5,150,105,0.28) 50%, transparent 75%);
+    animation: auraDrift4 24s ease-in-out infinite; opacity: 0.52; }
+  .aura-5 { width: 360px; height: 360px; top: 50%; left: 38%;
+    background: radial-gradient(circle at 50% 50%, rgba(168,85,247,0.58) 0%, rgba(79,70,229,0.22) 50%, transparent 75%);
+    animation: auraDrift5 20s ease-in-out infinite; opacity: 0.48; }
+
+  /* Theme overrides — gold/copper for warm-amber */
+  [data-theme="warm-amber"] .aura-1 { background: radial-gradient(circle at 40% 40%, rgba(255,180,90,0.78) 0%, rgba(180,110,40,0.42) 50%, transparent 75%); }
+  [data-theme="warm-amber"] .aura-2 { background: radial-gradient(circle at 55% 55%, rgba(232,194,140,0.70) 0%, rgba(160,100,40,0.34) 50%, transparent 75%); }
+  [data-theme="warm-amber"] .aura-3 { background: radial-gradient(circle at 50% 45%, rgba(245,155,80,0.62) 0%, rgba(160,80,30,0.30) 50%, transparent 75%); }
+  [data-theme="warm-amber"] .aura-4 { background: radial-gradient(circle at 50% 50%, rgba(220,140,70,0.58) 0%, rgba(140,70,25,0.28) 50%, transparent 75%); }
+  [data-theme="warm-amber"] .aura-5 { background: radial-gradient(circle at 50% 50%, rgba(255,210,140,0.55) 0%, rgba(190,130,60,0.22) 50%, transparent 75%); }
+
+  @keyframes auraDrift1 { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(-55px,80px) scale(1.10); } 66% { transform: translate(40px,-50px) scale(0.93); } }
+  @keyframes auraDrift2 { 0%,100% { transform: translate(0,0) scale(1); } 40% { transform: translate(65px,-85px) scale(1.08); } 70% { transform: translate(-38px,55px) scale(0.95); } }
+  @keyframes auraDrift3 { 0%,100% { transform: translate(0,0) scale(1); } 35% { transform: translate(75px,-65px) scale(1.12); } 70% { transform: translate(-55px,75px) scale(0.90); } }
+  @keyframes auraDrift4 { 0%,100% { transform: translate(0,0) scale(1); } 45% { transform: translate(-55px,45px) scale(1.07); } 75% { transform: translate(70px,-58px) scale(0.94); } }
+  @keyframes auraDrift5 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-65px,-45px) scale(1.15); } }
+
+  /* ── GLASS CARD (.gc) — same effect as newhome ────────────── */
+  .gc {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    box-shadow: var(--glass-shadow), var(--glass-highlight);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gc::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(155deg, rgba(255,255,255,0.10) 0%, transparent 40%);
+    pointer-events: none; z-index: 0; border-radius: inherit;
+  }
+  .gc::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit;
+    pointer-events: none; z-index: 3;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.08) 6%, rgba(255,255,255,0) 14%),
+      linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 50%, transparent 100%);
+    opacity: 0; transition: opacity 0.7s ease;
+  }
+  .gc:hover::after, .shimmer-host:hover::after { opacity: 1; }
+  .gc:hover, .shimmer-host:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-strong);
+    box-shadow: var(--glass-shadow-hover), var(--glass-highlight-strong), 0 0 22px var(--shimmer-glow-color);
+    transform: translateY(-2px);
+  }
+  .gc > * { position: relative; z-index: 1; }
+  .shimmer-host {
+    position: relative; overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* ── SHIMMER OVERLAYS (light sweep + glitter) ─────────────── */
+  .shimmer-sweep {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: inherit; pointer-events: none; z-index: 2; opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    background: linear-gradient(115deg, transparent 30%,
+      color-mix(in srgb, var(--shimmer-color-primary) 60%, transparent) 47%,
+      var(--shimmer-color-primary) 50%,
+      color-mix(in srgb, var(--shimmer-color-primary) 60%, transparent) 53%,
+      transparent 70%);
+    transform: translateX(-110%);
+    mix-blend-mode: screen;
+  }
+  .shimmer-glitter {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: inherit; pointer-events: none; z-index: 2; opacity: 0;
+    transition: opacity 0.5s ease;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, var(--shimmer-color-secondary), transparent),
+      radial-gradient(2px 2px at 60% 70%, var(--shimmer-color-secondary), transparent),
+      radial-gradient(1px 1px at 50% 50%, var(--shimmer-color-secondary), transparent),
+      radial-gradient(1px 1px at 80% 10%, var(--shimmer-color-secondary), transparent),
+      radial-gradient(2px 2px at 90% 60%, var(--shimmer-color-secondary), transparent),
+      radial-gradient(1px 1px at 30% 80%, var(--shimmer-color-secondary), transparent);
+  }
+  @keyframes shimmer-sweep { from { transform: translateX(-110%); } to { transform: translateX(160%); } }
+  @keyframes glitter-pulse { 0% { opacity:0; transform:scale(0.8); } 50% { opacity:1; } 100% { opacity:0; transform:scale(1.1); } }
+  .shimmer-active .shimmer-sweep { opacity: 1; animation: shimmer-sweep 0.9s ease-in-out forwards; }
+  .shimmer-active .shimmer-glitter { opacity: 1; animation: glitter-pulse 0.9s ease-in-out; }
+
+  /* ── LOGIN-SPECIFIC ───────────────────────────────────────── */
+  .brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .brand-logo {
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.10),
+      0 14px 36px rgba(34, 197, 94, 0.40),
+      0 0 60px rgba(34, 197, 94, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .brand-logo::after {
+    content: "";
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(34,197,94,0.35) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(8px);
+  }
+  .brand-logo:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.14),
+      0 20px 48px rgba(34, 197, 94, 0.55),
+      0 0 80px rgba(34, 197, 94, 0.40);
+  }
+  .brand-logo img,
+  .brand-logo svg {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .brand-text-block { margin-top: 16px; }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .brand-tagline {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--text-muted);
+    margin-top: 7px;
+    text-transform: uppercase;
+  }
+  .brand-institute {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--text-muted);
+    opacity: 0.6;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .auth-card { padding: 36px; max-width: 460px; width: 100%; }
+  @media (max-width: 480px) { .auth-card { padding: 24px; } }
+  .auth-heading { font-size: 26px; font-weight: 800; line-height: 1.18; letter-spacing: -0.01em; color: var(--text-primary); text-align: center; }
+  .auth-sub { font-size: 14px; color: var(--text-secondary); text-align: center; }
+
+  .auth-tabs {
+    background: rgba(var(--glass-base),0.10);
+    padding: 4px; border-radius: 14px;
+    border: 1px solid var(--glass-border);
+  }
+  .auth-tab {
+    flex: 1; padding: 9px 0; border-radius: 10px;
+    font-size: 13px; font-weight: 700;
+    color: var(--text-secondary);
+    background: transparent; border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .auth-tab:hover:not(.active) { color: var(--text-primary); }
+  .auth-tab.active {
+    color: var(--text-primary);
+    background: var(--glass-bg-strong);
+    border-color: var(--glass-border-strong);
+    box-shadow: 0 4px 14px rgba(var(--shadow-color),0.20);
+  }
+
+  .auth-label { font-size: 12px; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 8px; letter-spacing: 0.02em; }
+  .auth-input {
+    width: 100%; padding: 12px 14px;
+    background: rgba(var(--glass-base),0.14);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .auth-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: rgba(var(--glass-base),0.20);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 28%, transparent);
+  }
+  .auth-input::placeholder { color: var(--text-muted); }
+
+  .auth-input-wrap { position: relative; }
+  .auth-input-eye {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted); cursor: pointer; padding: 4px; border-radius: 6px;
+    background: transparent; border: 0;
+    transition: color 0.2s ease;
+    display: inline-flex;
+  }
+  .auth-input-eye:hover { color: var(--text-primary); }
+
+  .auth-link { color: var(--accent-primary); font-size: 12px; font-weight: 600; transition: color 0.2s ease; text-decoration: none; }
+  .auth-link:hover { color: var(--accent-secondary); }
+
+  .auth-btn-primary {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: #150A04;
+    border: 1px solid var(--glass-border-strong);
+    border-radius: 12px;
+    font-weight: 800; font-size: 14px; letter-spacing: 0.01em;
+    box-shadow: 0 8px 24px rgba(232,194,140,0.30);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, filter 0.2s ease;
+    position: relative; overflow: hidden;
+  }
+  .auth-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(232,194,140,0.45); filter: brightness(1.05); }
+  .auth-btn-primary:active { transform: translateY(0); }
+
+  .auth-divider { display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+  .auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--glass-border); }
+
+  .auth-social-btn {
+    flex: 1; padding: 11px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-weight: 600; font-size: 13px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative; overflow: hidden;
+  }
+  .auth-social-btn:hover {
+    background: var(--glass-bg-strong);
+    border-color: var(--glass-border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(var(--shadow-color),0.30);
+  }
+
+  .checkbox-wrap { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; font-size: 13px; color: var(--text-secondary); }
+  .checkbox-input { width: 16px; height: 16px; accent-color: var(--accent-primary); cursor: pointer; }
+
+  /* Floating theme switcher */
+  .theme-switcher {
+    position: fixed; top: 18px; right: 18px; z-index: 50;
+    display: flex; gap: 6px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    padding: 6px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+  }
+  .theme-dot {
+    width: 22px; height: 22px; border-radius: 50%;
+    cursor: pointer; border: 2px solid transparent;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    padding: 0;
+  }
+  .theme-dot:hover { transform: scale(1.18); }
+  .theme-dot.active { border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(var(--shadow-color),0.4); }
+
+  /* Footer */
+  .auth-footer { color: var(--text-muted); font-size: 11px; }
+
+  /* API status pill */
+  .api-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    color: var(--text-secondary);
+  }
+  .api-pill-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #FBBF24; box-shadow: 0 0 8px rgba(251,191,36,0.7);
+  }
+  .api-pill-online .api-pill-dot   { background:#22c55e; box-shadow: 0 0 10px rgba(34,197,94,0.7); }
+  .api-pill-offline .api-pill-dot  { background:#ef4444; box-shadow: 0 0 10px rgba(239,68,68,0.7); }
+  .api-pill-online  { color: #86efac; }
+  .api-pill-offline { color: #fca5a5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-blob { animation: none; }
+    .gc:hover, .shimmer-host:hover { transform: none; }
+    .shimmer-active .shimmer-sweep, .shimmer-active .shimmer-glitter { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Atmosphere bokeh -->
+<div class="bg-aura" aria-hidden="true">
+  <span class="aura-blob aura-1"></span>
+  <span class="aura-blob aura-2"></span>
+  <span class="aura-blob aura-3"></span>
+  <span class="aura-blob aura-4"></span>
+  <span class="aura-blob aura-5"></span>
+</div>
+
+<!-- Floating theme switcher -->
+<div class="theme-switcher" role="group" aria-label="Theme">
+  <button class="theme-dot" data-theme="warm-amber" style="background:linear-gradient(135deg,#E8C28C,#8B4F1C);" title="Warm Amber"></button>
+  <button class="theme-dot" data-theme="cyber-navy" style="background:linear-gradient(135deg,#38BDF8,#1E3A8A);" title="Cyber Navy"></button>
+  <button class="theme-dot" data-theme="warm-beige" style="background:linear-gradient(135deg,#DCCBB7,#B68A52);" title="Warm Beige"></button>
+  <button class="theme-dot" data-theme="calm-green" style="background:linear-gradient(135deg,#86EFAC,#0F2E2A);" title="Calm Green"></button>
+  <button class="theme-dot" data-theme="purple" style="background:linear-gradient(135deg,#C084FC,#180B2A);" title="Purple"></button>
+</div>
+
+<main class="relative z-10 min-h-screen flex items-center justify-center px-4 py-10">
+  <div class="gc auth-card" id="authCard">
+
+    <!-- Brand: centered, large, with SVG fallback that approximates the real badge -->
+    <div class="brand-section">
+      <div class="brand-logo" id="brandLogo">
+        <img
+          src="assets/vidyouth-logo.png"
+          alt="Vidyouth Intelligence Institute Pvt. Ltd."
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        />
+        <!-- SVG fallback — renders if the PNG is missing. Approximates the
+             circular badge: green ring, "VIDYOUTH INTELLIGENCE" curved on top,
+             "INSTITUTE PVT. LTD." curved on bottom, stylized V mark inside. -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+          <defs>
+            <path id="topArc"    d="M 30,100 A 70,70 0 0 1 170,100" fill="none" />
+            <path id="bottomArc" d="M 30,100 A 70,70 0 0 0 170,100" fill="none" />
+          </defs>
+
+          <!-- Outer green ring -->
+          <circle cx="100" cy="100" r="92" fill="#22c55e" />
+          <circle cx="100" cy="100" r="78" fill="#ffffff" />
+
+          <!-- Curved text top: VIDYOUTH INTELLIGENCE -->
+          <text fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="800" letter-spacing="2">
+            <textPath href="#topArc" startOffset="50%" text-anchor="middle">VIDYOUTH  INTELLIGENCE</textPath>
+          </text>
+
+          <!-- Curved text bottom: INSTITUTE PVT. LTD. -->
+          <text fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="2">
+            <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">INSTITUTE  PVT.  LTD.</textPath>
+          </text>
+
+          <!-- Stylized V mark: inverted triangle with V cutout -->
+          <polygon points="60,72 140,72 100,148" fill="#22c55e" />
+          <polygon points="78,72 122,72 100,118" fill="#ffffff" />
+
+          <!-- Light bulb top-right of V -->
+          <circle cx="128" cy="74" r="7" fill="#22c55e" />
+          <rect x="125" y="80" width="6" height="3" rx="1" fill="#22c55e" />
+
+          <!-- Tiny circuit-board dots either side -->
+          <circle cx="46" cy="100" r="2" fill="#22c55e" />
+          <circle cx="52" cy="106" r="2" fill="#22c55e" />
+          <circle cx="52" cy="94"  r="2" fill="#22c55e" />
+          <circle cx="154" cy="100" r="2" fill="#22c55e" />
+          <circle cx="148" cy="106" r="2" fill="#22c55e" />
+          <circle cx="148" cy="94"  r="2" fill="#22c55e" />
+        </svg>
+      </div>
+
+      <div class="brand-text-block">
+        <p class="brand-name">Vidyouth</p>
+        <p class="brand-tagline">AI Learning Lab</p>
+        <p class="brand-institute">Intelligence Institute Pvt. Ltd.</p>
+      </div>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="auth-heading mb-1.5">Create your account</h1>
+    <p class="auth-sub mb-6">Start your learning journey with Vidyouth.</p>
+
+    <!-- Tabs -->
+    <div class="auth-tabs flex mb-5" role="tablist">
+      <button type="button" class="auth-tab active" data-tab="email" role="tab" aria-selected="true">Email</button>
+      <button type="button" class="auth-tab" data-tab="mobile" role="tab" aria-selected="false">Mobile</button>
+    </div>
+
+    <form id="authForm" class="space-y-4" autocomplete="on" novalidate>
+
+      <!-- Full name (sign-up only) -->
+      <div>
+        <label class="auth-label" for="displayName">Full name</label>
+        <input id="displayName" name="displayName" type="text" autocomplete="name" required minlength="2" maxlength="80" class="auth-input" placeholder="Priya Sharma"/>
+      </div>
+
+      <!-- Email pane -->
+      <div data-pane="email">
+        <label class="auth-label" for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" required class="auth-input" placeholder="you@example.com"/>
+      </div>
+
+      <!-- Mobile pane -->
+      <div data-pane="mobile" hidden>
+        <label class="auth-label" for="phone">Mobile number</label>
+        <div class="flex gap-2">
+          <select id="countryCode" class="auth-input shrink-0" style="width:96px;" aria-label="Country code">
+            <option value="+91">+91</option>
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+            <option value="+61">+61</option>
+            <option value="+971">+971</option>
+          </select>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" class="auth-input" placeholder="98765 43210"/>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="auth-label" for="password">Password</label>
+        <div class="auth-input-wrap">
+          <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" class="auth-input" placeholder="At least 8 characters, 1 letter + 1 number" style="padding-right:42px;"/>
+          <button type="button" class="auth-input-eye" id="togglePw" aria-label="Show password">
+            <span class="material-symbols-outlined text-[18px]">visibility</span>
+          </button>
+        </div>
+        <!-- live strength meter -->
+        <div id="pwMeter" class="mt-2 flex gap-1.5" aria-hidden="true">
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
+        </div>
+        <p id="pwHint" class="text-[11px] mt-1.5" style="color:var(--text-muted);">Use 8+ characters with at least one letter and one number.</p>
+      </div>
+
+      <!-- Confirm password -->
+      <div>
+        <label class="auth-label" for="passwordConfirm">Confirm password</label>
+        <div class="auth-input-wrap">
+          <input id="passwordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" required minlength="8" maxlength="128" class="auth-input" placeholder="Re-enter password" style="padding-right:42px;"/>
+          <button type="button" class="auth-input-eye" id="togglePwConfirm" aria-label="Show password">
+            <span class="material-symbols-outlined text-[18px]">visibility</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <label class="checkbox-wrap" style="align-items:flex-start;">
+        <input id="acceptTerms" type="checkbox" class="checkbox-input" required style="margin-top:3px;"/>
+        <span>
+          I agree to Vidyouth's
+          <a href="#" class="auth-link">Terms of Service</a>
+          and
+          <a href="#" class="auth-link">Privacy Policy</a>.
+        </span>
+      </label>
+
+      <p id="authMessage" class="text-sm min-h-[20px]" style="color:var(--accent-primary);" role="status" aria-live="polite"></p>
+
+      <!-- Create account -->
+      <button type="submit" class="auth-btn-primary">Create account</button>
+
+    </form>
+
+    <!-- Divider -->
+    <div class="auth-divider my-5">or continue with</div>
+
+    <!-- Social -->
+    <div class="flex gap-3">
+      <button type="button" class="auth-social-btn" data-provider="google">
+        <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+          <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+          <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+          <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-0.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.650-.389-3.917z"/>
+        </svg>
+        <span>Google</span>
+      </button>
+      <button type="button" class="auth-social-btn" data-provider="microsoft">
+        <svg width="14" height="14" viewBox="0 0 23 23" aria-hidden="true">
+          <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+          <rect x="12" y="1" width="10" height="10" fill="#7FBA00"/>
+          <rect x="1" y="12" width="10" height="10" fill="#00A4EF"/>
+          <rect x="12" y="12" width="10" height="10" fill="#FFB900"/>
+        </svg>
+        <span>Microsoft</span>
+      </button>
+    </div>
+
+    <!-- Already a member -->
+    <p class="text-center text-sm mt-6" style="color:var(--text-secondary);">
+      Already have an account? <a href="login.html" class="auth-link" style="font-size:14px;">Sign in</a>
+    </p>
+
+  </div>
+</main>
+
+<div class="relative z-10 flex flex-col items-center gap-2 pb-6">
+  <span id="apiPing" class="api-pill api-pill-checking" title="Backend reachability">
+    <span class="api-pill-dot"></span><span id="apiPingText">checking API…</span>
+  </span>
+  <p class="auth-footer text-center">© 2026 Vidyouth · AI Learning Lab</p>
+</div>
+
+<script>
+  /* ── Theme System (shared with newhome.html via localStorage) ── */
+  const presets = {
+    'warm-amber': {
+      '--bg-primary':'#150A04','--bg-secondary':'#2A170A',
+      '--glass-bg-alpha':'0.22','--glass-bg-strong-alpha':'0.30',
+      '--glass-border-alpha':'0.22','--glass-border-strong-alpha':'0.36',
+      '--accent-primary':'#E8C28C','--accent-secondary':'#C99A5C',
+      '--text-primary':'#FAF0E0','--blur-strength':'26px'
+    },
+    'cyber-navy': {
+      '--bg-primary':'#071426','--bg-secondary':'#0B1F3A',
+      '--glass-bg-alpha':'0.08','--glass-bg-strong-alpha':'0.14',
+      '--glass-border-alpha':'0.18','--glass-border-strong-alpha':'0.30',
+      '--accent-primary':'#38BDF8','--accent-secondary':'#8B5CF6',
+      '--text-primary':'#F8FAFC','--blur-strength':'22px'
+    },
+    'warm-beige': {
+      '--bg-primary':'#DCCBB7','--bg-secondary':'#C8B59B',
+      '--glass-bg-alpha':'0.18','--glass-bg-strong-alpha':'0.24',
+      '--glass-border-alpha':'0.26','--glass-border-strong-alpha':'0.34',
+      '--accent-primary':'#D6A85F','--accent-secondary':'#B68A52',
+      '--text-primary':'#2B2118','--blur-strength':'28px'
+    },
+    'calm-green': {
+      '--bg-primary':'#0F2E2A','--bg-secondary':'#1E4A43',
+      '--glass-bg-alpha':'0.08','--glass-bg-strong-alpha':'0.12',
+      '--glass-border-alpha':'0.14','--glass-border-strong-alpha':'0.20',
+      '--accent-primary':'#86EFAC','--accent-secondary':'#22C55E',
+      '--text-primary':'#F4FFF7','--blur-strength':'22px'
+    },
+    'purple': {
+      '--bg-primary':'#180B2A','--bg-secondary':'#2A1245',
+      '--glass-bg-alpha':'0.08','--glass-bg-strong-alpha':'0.12',
+      '--glass-border-alpha':'0.14','--glass-border-strong-alpha':'0.20',
+      '--accent-primary':'#C084FC','--accent-secondary':'#8B5CF6',
+      '--text-primary':'#FAF5FF','--blur-strength':'24px'
+    }
+  };
+
+  const root = document.documentElement;
+  function applyTheme(name) {
+    const t = presets[name];
+    if (!t) return;
+    Object.entries(t).forEach(([k,v]) => root.style.setProperty(k,v));
+    root.setAttribute('data-theme', name);
+    localStorage.setItem('vidyouth_theme_name', name);
+    localStorage.setItem('vidyouth_theme', JSON.stringify(t));
+    document.querySelectorAll('.theme-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === name));
+  }
+
+  // Pick up the user's last-chosen theme (set on either page).
+  const savedName = localStorage.getItem('vidyouth_theme_name') || 'warm-amber';
+  applyTheme(savedName);
+
+  document.querySelectorAll('.theme-dot').forEach(dot => {
+    dot.addEventListener('click', () => applyTheme(dot.dataset.theme));
+  });
+
+  /* ── Email / Mobile tab switch ── */
+  document.querySelectorAll('.auth-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.auth-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected','false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      const target = tab.dataset.tab;
+      document.querySelectorAll('[data-pane]').forEach(p => {
+        p.hidden = (p.dataset.pane !== target);
+      });
+      // Move focus to the visible field
+      const visiblePane = document.querySelector(`[data-pane="${target}"]`);
+      const firstInput = visiblePane && visiblePane.querySelector('input,select');
+      if (firstInput) firstInput.focus();
+    });
+  });
+
+  /* ── Password show/hide (both fields) ── */
+  function wireEyeToggle(toggleId, inputId) {
+    const toggle = document.getElementById(toggleId);
+    const input = document.getElementById(inputId);
+    toggle.addEventListener('click', () => {
+      const showing = input.type === 'password';
+      input.type = showing ? 'text' : 'password';
+      toggle.querySelector('span').textContent = showing ? 'visibility_off' : 'visibility';
+      toggle.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
+    });
+  }
+  wireEyeToggle('togglePw', 'password');
+  wireEyeToggle('togglePwConfirm', 'passwordConfirm');
+
+  /* ── Password strength meter ── */
+  const pwInput = document.getElementById('password');
+  const pwMeter = document.getElementById('pwMeter');
+  const pwHint = document.getElementById('pwHint');
+  function scorePassword(p) {
+    let s = 0;
+    if (p.length >= 8)               s++;
+    if (/[A-Za-z]/.test(p) && /\d/.test(p)) s++;
+    if (p.length >= 12)              s++;
+    if (/[^A-Za-z0-9]/.test(p))      s++;
+    return s; // 0..4
+  }
+  function paintMeter(score) {
+    const colors = ['#9CA3AF', '#F87171', '#FBBF24', '#34D399', '#10B981'];
+    const labels = ['Too short', 'Weak', 'Fair', 'Strong', 'Excellent'];
+    [...pwMeter.children].forEach((bar, i) => {
+      bar.style.background = i < score ? colors[score] : 'rgba(var(--glass-base),0.20)';
+    });
+    pwHint.textContent = pwInput.value ? labels[score] : 'Use 8+ characters with at least one letter and one number.';
+    pwHint.style.color = pwInput.value ? colors[score] : 'var(--text-muted)';
+  }
+  pwInput.addEventListener('input', () => paintMeter(scorePassword(pwInput.value)));
+
+  /* ── Backend signup integration ── */
+  const API_BASE_URL = localStorage.getItem('vidyouth_api_base_url') || 'http://localhost:8080';
+
+  /* Ping /livez once so the user can see whether the API is reachable. */
+  (async function pingApi() {
+    const pill = document.getElementById('apiPing');
+    const text = document.getElementById('apiPingText');
+    try {
+      const r = await fetch(`${API_BASE_URL}/livez`, { method: 'GET', mode: 'cors' });
+      if (!r.ok) throw new Error('not ok');
+      pill.classList.remove('api-pill-checking');
+      pill.classList.add('api-pill-online');
+      text.textContent = `API online · ${new URL(API_BASE_URL).host}`;
+    } catch {
+      pill.classList.remove('api-pill-checking');
+      pill.classList.add('api-pill-offline');
+      text.textContent = `API offline · ${new URL(API_BASE_URL).host}`;
+    }
+  })();
+  const authForm = document.getElementById('authForm');
+  const authMessage = document.getElementById('authMessage');
+  const submitBtn = authForm.querySelector('button[type="submit"]');
+
+  function setAuthMessage(message, isError = false) {
+    authMessage.textContent = message;
+    authMessage.style.color = isError ? '#FCA5A5' : 'var(--accent-primary)';
+  }
+
+  function activeLoginTab() {
+    return document.querySelector('.auth-tab.active')?.dataset.tab || 'email';
+  }
+
+  function storeTokens(payload) {
+    if (!payload || !payload.access_token) return;
+    localStorage.setItem('vidyouth_access_token', payload.access_token);
+    if (payload.refresh_token) localStorage.setItem('vidyouth_refresh_token', payload.refresh_token);
+    localStorage.setItem('vidyouth_token_type', payload.token_type || 'Bearer');
+    localStorage.setItem('vidyouth_token_expires_at', String(Date.now() + ((payload.expires_in || 900) * 1000)));
+  }
+
+  function normalizeMobile(countryCode, phone) {
+    const digits = phone.replace(/\D/g, '');
+    return `${countryCode}${digits}`;
+  }
+
+  async function signup(body) {
+    const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const payload = response.status === 204 ? {} : await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(payload.error || 'Signup failed');
+    }
+    return payload;
+  }
+
+  /* ── Form submit → backend signup ── */
+  authForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setAuthMessage('');
+
+    const tab = activeLoginTab();
+    const displayName = document.getElementById('displayName').value.trim();
+    const password = pwInput.value;
+    const confirm = document.getElementById('passwordConfirm').value;
+    const acceptTerms = document.getElementById('acceptTerms').checked;
+
+    if (!displayName) { setAuthMessage('Enter your name.', true); return; }
+    if (password.length < 8) { setAuthMessage('Password must be at least 8 characters.', true); return; }
+    if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) {
+      setAuthMessage('Password needs at least one letter and one number.', true); return;
+    }
+    if (password !== confirm) { setAuthMessage('Passwords don’t match.', true); return; }
+    if (!acceptTerms) { setAuthMessage('Please accept the Terms and Privacy Policy.', true); return; }
+
+    const body = { displayName, password, channel: tab };
+    if (tab === 'email') {
+      const email = document.getElementById('email').value.trim();
+      if (!email) { setAuthMessage('Enter your email.', true); return; }
+      body.email = email;
+    } else {
+      const code = document.getElementById('countryCode').value;
+      const phone = document.getElementById('phone').value;
+      if (!phone) { setAuthMessage('Enter your mobile number.', true); return; }
+      body.mobile = normalizeMobile(code, phone);
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Creating account...';
+    try {
+      const payload = await signup(body);
+      // If the backend returns tokens, log the user straight in.
+      // Otherwise, redirect to login with a success flash.
+      if (payload && payload.access_token) {
+        storeTokens(payload);
+        setAuthMessage('Account created. Opening dashboard...');
+        window.location.href = 'newhome.html';
+      } else {
+        setAuthMessage('Account created. Redirecting to sign in...');
+        setTimeout(() => { window.location.href = 'login.html?from=signup'; }, 800);
+      }
+    } catch (err) {
+      setAuthMessage(err.message || 'Unable to create account.', true);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Create account';
+    }
+  });
+
+  /* ── Social provider buttons → backend OAuth start routes ── */
+  document.querySelectorAll('.auth-social-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const provider = btn.dataset.provider;
+      window.location.href = `${API_BASE_URL}/auth/${provider}`;
+    });
+  });
+
+  /* ── Shimmer hover (same effect as dashboard) ── */
+  (function () {
+    const targets = document.querySelectorAll('.gc, .auth-social-btn, .auth-btn-primary');
+    function ensureOverlays(el) {
+      el.classList.add('shimmer-host');
+      if (!el.querySelector(':scope > .shimmer-sweep')) {
+        const s = document.createElement('div'); s.className = 'shimmer-sweep'; el.appendChild(s);
+      }
+      if (!el.querySelector(':scope > .shimmer-glitter')) {
+        const g = document.createElement('div'); g.className = 'shimmer-glitter'; el.appendChild(g);
+      }
+    }
+    targets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ensureOverlays(el);
+        el.classList.remove('shimmer-active');
+        void el.offsetWidth;
+        el.classList.add('shimmer-active');
+      });
+      el.addEventListener('mouseleave', () => el.classList.remove('shimmer-active'));
+    });
+  })();
+</script>
+</body>
+</html>

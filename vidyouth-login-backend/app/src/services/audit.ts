@@ -5,7 +5,7 @@
  * tamper-evident long-term audit copy lives outside the app's RDS instance.
  */
 
-import { query } from '@/db/pg.js';
+import { query } from '../db/pg.js';
 
 export type AuditAction =
   | 'login.success'
@@ -20,7 +20,19 @@ export type AuditAction =
   | 'session.logout'
   | 'password.changed'
   | 'account.created'
-  | 'role.changed';
+  | 'role.changed'
+  // Email verification (introduced by PR #2 / kmzpzssrj67)
+  | 'email.verified'
+  | 'email.verification.requested'
+  | 'email.verification.failed'
+  // Password reset flow (PR #2)
+  | 'password.reset.requested'
+  | 'password.reset.completed'
+  | 'password.reset.failed'
+  // Phone OTP (PR #3 / Jagadheesh)
+  | 'phone.otp.requested'
+  | 'phone.otp.verified'
+  | 'phone.otp.failed';
 
 export interface AuditEvent {
   userId?: string | undefined;

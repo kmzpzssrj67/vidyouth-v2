@@ -1,8 +1,13 @@
 # Local-dev compose. Brings up Postgres + Redis + the API on one network so a
 # fresh clone can run `docker compose up` and hit http://localhost:8080/healthz.
+#
+# JWT_PRIVATE_KEY and JWT_PUBLIC_KEY are pulled from the host shell (see
+# scripts/run-local.ps1 — it loads PEMs from ./secrets and exports them
+# before invoking compose).
 services:
   postgres:
     image: postgres:16-alpine
+    container_name: vidyouth-postgres
     environment:
       POSTGRES_DB: vidyouth_lms
       POSTGRES_USER: vidyouth
@@ -20,6 +25,7 @@ services:
 
   redis:
     image: redis:7-alpine
+    container_name: vidyouth-redis
     ports:
       - "6379:6379"
     healthcheck:
@@ -32,6 +38,7 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
+    container_name: vidyouth-api
     environment:
       NODE_ENV: development
       PORT: 8080
@@ -40,6 +47,17 @@ services:
       REDIS_URL: redis://redis:6379
       REDIS_KEY_PREFIX: "vidyouth:dev:"
       BCRYPT_PEPPER: dev-pepper-replace-in-prod-32chars
+      JWT_PRIVATE_KEY: ${JWT_PRIVATE_KEY:-}
+      JWT_PUBLIC_KEY: ${JWT_PUBLIC_KEY:-}
+      JWT_ISSUER: vidyouth.auth
+      JWT_AUDIENCE: vidyouth.lms
+      JWT_ACCESS_TTL_SECONDS: "900"
+      JWT_REFRESH_TTL_SECONDS: "2592000"
+      SMS_PROVIDER: mock
+      EMAIL_PROVIDER: mock
+      EMAIL_FROM: no-reply@vidyouth.local
+      APP_BASE_URL: http://localhost:8080
+      MICROSOFT_TENANT_ID: common
     depends_on:
       postgres:
         condition: service_healthy
@@ -50,3 +68,4 @@ services:
 
 volumes:
   pgdata:
+    name: vidyouth-pgdata

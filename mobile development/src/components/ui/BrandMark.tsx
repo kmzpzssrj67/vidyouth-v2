@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle, StyleProp } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Sparkles } from 'lucide-react-native';
 import { useThemeTokens } from '@/theme/ThemeProvider';
+import VidyouthLogoSvg from './VidyouthLogoSvg';
 
 interface BrandMarkProps {
   style?: StyleProp<ViewStyle>;
@@ -10,32 +9,29 @@ interface BrandMarkProps {
   compact?: boolean;
 }
 
-/** Vidyouth logo lockup: gradient sparkle glyph + "Vidyouth" / "AI Learning Lab". */
+/** Vidyouth logo lockup: circular green badge + "Vidyouth" / "AI Learning Lab". */
 export default function BrandMark({ style, compact = false }: BrandMarkProps) {
   const t = useThemeTokens();
-  const size = compact ? 36 : 44;
+  const size = compact ? 36 : 56;
   return (
     <View style={[styles.row, style]}>
-      <LinearGradient
-        colors={t.colors.accentGradient}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
+      <View
         style={[
-          styles.glyph,
+          styles.glyphRing,
           {
-            width: size,
-            height: size,
-            borderRadius: t.radius.lg,
+            width: size + 6,
+            height: size + 6,
+            borderRadius: (size + 6) / 2,
             shadowColor: t.colors.glowPrimary,
-            shadowOpacity: 0.5 * t.effects.glowIntensity,
+            shadowOpacity: 0.45 * t.effects.glowIntensity,
             shadowRadius: 14,
             shadowOffset: { width: 0, height: 4 },
             elevation: 6,
           },
         ]}
       >
-        <Sparkles size={compact ? 16 : 20} color={t.colors.bgPrimary} strokeWidth={2.4} />
-      </LinearGradient>
+        <VidyouthLogoSvg size={size} accent="#22C55E" background="#FFFFFF" />
+      </View>
 
       <View>
         <Text
@@ -64,7 +60,12 @@ export default function BrandMark({ style, compact = false }: BrandMarkProps) {
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  glyph: { alignItems: 'center', justifyContent: 'center' },
+  glyphRing: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    overflow: 'hidden',
+  },
   wordmark: { fontWeight: '700', letterSpacing: -0.4 },
   subtitle: { fontWeight: '600', letterSpacing: 2.2, marginTop: 2 },
 });

@@ -5,8 +5,8 @@
  */
 
 import type { FastifyInstance } from 'fastify';
-import { pingDb } from '@/db/pg.js';
-import { pingRedis } from '@/db/redis.js';
+import { pingDb } from '../db/pg.js';
+import { pingRedis } from '../db/redis.js';
 
 export async function healthRoutes(app: FastifyInstance): Promise<void> {
   app.get('/healthz', async (_req, reply) => {

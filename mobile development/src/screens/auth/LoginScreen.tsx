@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -19,6 +19,7 @@ import GlassInput from '@/components/ui/GlassInput';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import SocialButton from '@/components/ui/SocialButton';
 import RoleSegment, { Role } from '@/components/ui/RoleSegment';
+import { login, ping } from '@/services/auth';
 
 interface LoginScreenProps {
   /** Called once the (placeholder) sign-in succeeds. The navigator uses
@@ -26,6 +27,16 @@ interface LoginScreenProps {
   onSignIn?: () => void;
   onCreateAccount?: () => void;
   onForgotPassword?: () => void;
+}
+
+function translateAuthError(code: string): string {
+  switch (code) {
+    case 'invalid_credentials': return 'Email/mobile or password is wrong.';
+    case 'account_locked':      return 'Account is locked. Try again in a few minutes.';
+    case 'invalid_request':     return 'Check the details and try again.';
+    case 'network_unreachable': return 'Backend not reachable. Is the API running on localhost:8080?';
+    default:                    return code.replace(/_/g, ' ');
+  }
 }
 
 function GoogleGlyph({ size = 18 }: { size?: number }) {
@@ -62,13 +73,29 @@ export default function LoginScreen({
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<Role>('student');
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [apiOnline, setApiOnline] = useState<boolean | null>(null);
 
-  const handleSignIn = () => {
+  useEffect(() => {
+    ping().then(setApiOnline);
+  }, []);
+
+  const handleSignIn = async () => {
+    setError(null);
+    if (!identifier.trim() || !password) {
+      setError('Enter your email/mobile and password.');
+      return;
+    }
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      await login({ identifier: identifier.trim(), password });
       onSignIn?.();
-    }, 600);
+    } catch (err) {
+      const code = (err as Error).message;
+      setError(translateAuthError(code));
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleGoogle = () => onSignIn?.();
@@ -143,6 +170,12 @@ export default function LoginScreen({
               />
             </View>
 
+            {error ? (
+              <Text style={[styles.errorText, { color: t.colors.danger }]} accessibilityLiveRegion="polite">
+                {error}
+              </Text>
+            ) : null}
+
             <PrimaryButton
               label="Sign in"
               onPress={handleSignIn}
@@ -194,6 +227,15 @@ export default function LoginScreen({
           <Text style={[styles.trust, { color: t.colors.textMuted }]}>
             Learn. Certify. Build your career.
           </Text>
+
+          {apiOnline !== null ? (
+            <View style={[styles.pingPill, { borderColor: t.colors.glassBorder, backgroundColor: t.colors.glassBg }]}>
+              <View style={[styles.pingDot, { backgroundColor: apiOnline ? t.colors.success : t.colors.danger }]} />
+              <Text style={[styles.pingText, { color: apiOnline ? t.colors.success : t.colors.danger }]}>
+                {apiOnline ? 'API online' : 'API offline'}
+              </Text>
+            </View>
+          ) : null}
         </ScrollView>
       </KeyboardAvoidingView>
     </ScreenBackground>
@@ -263,4 +305,23 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     textTransform: 'uppercase',
   },
+  errorText: {
+    marginTop: 14,
+    fontSize: 13,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  pingPill: {
+    alignSelf: 'center',
+    marginTop: 10,
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    borderRadius: 999,
+    borderWidth: StyleSheet.hairlineWidth,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  pingDot: { width: 7, height: 7, borderRadius: 999 },
+  pingText: { fontSize: 10, fontWeight: '700', letterSpacing: 1.4, textTransform: 'uppercase' },
 });
