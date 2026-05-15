@@ -413,6 +413,100 @@
     .gc:hover, .shimmer-host:hover { transform: none; }
     .shimmer-active .shimmer-sweep, .shimmer-active .shimmer-glitter { animation: none !important; }
   }
+
+  /* ════════════════════════════════════════════════════════════
+     FIX 1 — INPUT CONTRAST
+     Tailwind "forms" plugin forces background:#fff + dark text on
+     inputs after our styles, making typed text invisible. These win
+     with !important and also tame browser autofill.
+  ════════════════════════════════════════════════════════════ */
+  .auth-input,
+  input.auth-input,
+  input[type="text"].auth-input,
+  input[type="email"].auth-input,
+  input[type="tel"].auth-input,
+  input[type="password"].auth-input,
+  select.auth-input {
+    background: rgba(var(--glass-base), 0.16) !important;
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    caret-color: var(--accent-primary) !important;
+    border: 1px solid var(--glass-border) !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .auth-input:focus,
+  input.auth-input:focus {
+    background: rgba(var(--glass-base), 0.24) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 28%, transparent) !important;
+  }
+  .auth-input::placeholder { color: var(--text-muted) !important; opacity: 1; }
+  .auth-input:-webkit-autofill,
+  .auth-input:-webkit-autofill:hover,
+  .auth-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-primary) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--bg-secondary) inset !important;
+    caret-color: var(--accent-primary) !important;
+    transition: background-color 9999s ease-out 0s;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     FIX 2 — FIT THE CARD IN ONE SCREEN (no scrolling)
+  ════════════════════════════════════════════════════════════ */
+  main.min-h-screen {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    min-height: 100vh;
+    align-items: center;
+  }
+  .auth-card {
+    padding: 20px 24px !important;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+  .auth-card::-webkit-scrollbar { width: 0; height: 0; }
+  .auth-card { scrollbar-width: none; }
+
+  .brand-section { margin-bottom: 10px !important; }
+  .brand-logo { width: 60px !important; height: 60px !important; }
+  .brand-text-block { margin-top: 6px !important; }
+  .brand-name { font-size: 17px !important; }
+  .brand-tagline { font-size: 9px !important; margin-top: 3px !important; }
+  .brand-institute { font-size: 8px !important; margin-top: 2px !important; }
+
+  .auth-heading { font-size: 19px !important; line-height: 1.15 !important; }
+  .auth-sub { font-size: 12px !important; }
+  .auth-heading.mb-1\.5 { margin-bottom: 2px !important; }
+  .auth-sub.mb-6 { margin-bottom: 12px !important; }
+
+  .auth-tabs.mb-5 { margin-bottom: 10px !important; }
+  .auth-tab { padding: 7px 0 !important; }
+
+  form#authForm.space-y-4 > * + * { margin-top: 10px !important; }
+  .auth-label { margin-bottom: 5px !important; font-size: 11px !important; }
+  .auth-input { padding: 10px 13px !important; font-size: 13px !important; }
+
+  #pwMeter.mt-2 { margin-top: 6px !important; }
+  #pwHint.mt-1\.5 { margin-top: 4px !important; }
+  #pwHint { font-size: 10px !important; }
+
+  .auth-divider.my-5 { margin-top: 12px !important; margin-bottom: 12px !important; }
+  .auth-social-btn { padding: 9px !important; }
+  .auth-btn-primary { padding: 11px !important; }
+
+  p.text-center.mt-6 { margin-top: 12px !important; }
+  .relative.z-10.flex.flex-col.items-center.gap-2.pb-6 {
+    padding-bottom: 8px !important;
+    gap: 4px !important;
+  }
+  .api-pill { padding: 3px 9px !important; font-size: 10px !important; }
+
+  @media (max-height: 720px) {
+    .brand-logo { width: 48px !important; height: 48px !important; }
+    .brand-section { margin-bottom: 8px !important; }
+    form#authForm.space-y-4 > * + * { margin-top: 8px !important; }
+  }
 </style>
 </head>
 <body>
@@ -516,12 +610,8 @@
       <div data-pane="mobile" hidden>
         <label class="auth-label" for="phone">Mobile number</label>
         <div class="flex gap-2">
-          <select id="countryCode" class="auth-input shrink-0" style="width:96px;" aria-label="Country code">
-            <option value="+91">+91</option>
-            <option value="+1">+1</option>
-            <option value="+44">+44</option>
-            <option value="+61">+61</option>
-            <option value="+971">+971</option>
+          <select id="countryCode" class="auth-input shrink-0" style="width:132px;" aria-label="Country code">
+            <!-- Populated by buildCountryCodes() — full international list -->
           </select>
           <input id="phone" name="phone" type="tel" autocomplete="tel" class="auth-input" placeholder="98765 43210"/>
         </div>
@@ -551,6 +641,13 @@
 
       <!-- Sign in -->
       <button type="submit" class="auth-btn-primary">Sign in</button>
+
+      <!-- Email-code (passwordless) entry point -->
+      <p class="text-center text-sm" style="color:var(--text-secondary);">
+        <a href="#" id="emailCodeLink" class="auth-link" style="font-size:13px;">
+          Sign in with an email code instead
+        </a>
+      </p>
 
     </form>
 
@@ -653,6 +750,39 @@
     dot.addEventListener('click', () => applyTheme(dot.dataset.theme));
   });
 
+  /* ── Country dial codes (full international list, India default) ── */
+  (function buildCountryCodes() {
+    const sel = document.getElementById('countryCode');
+    if (!sel) return;
+    const C = [
+      ['+91','India'],['+1','USA / Canada'],['+44','United Kingdom'],['+61','Australia'],
+      ['+971','UAE'],['+65','Singapore'],['+60','Malaysia'],['+966','Saudi Arabia'],
+      ['+974','Qatar'],['+973','Bahrain'],['+968','Oman'],['+965','Kuwait'],
+      ['+92','Pakistan'],['+880','Bangladesh'],['+94','Sri Lanka'],['+977','Nepal'],
+      ['+975','Bhutan'],['+960','Maldives'],['+93','Afghanistan'],['+98','Iran'],
+      ['+64','New Zealand'],['+27','South Africa'],['+234','Nigeria'],['+254','Kenya'],
+      ['+233','Ghana'],['+255','Tanzania'],['+256','Uganda'],['+20','Egypt'],
+      ['+212','Morocco'],['+251','Ethiopia'],['+49','Germany'],['+33','France'],
+      ['+39','Italy'],['+34','Spain'],['+31','Netherlands'],['+32','Belgium'],
+      ['+41','Switzerland'],['+43','Austria'],['+46','Sweden'],['+47','Norway'],
+      ['+45','Denmark'],['+358','Finland'],['+351','Portugal'],['+353','Ireland'],
+      ['+30','Greece'],['+48','Poland'],['+420','Czechia'],['+36','Hungary'],
+      ['+40','Romania'],['+380','Ukraine'],['+7','Russia / Kazakhstan'],['+90','Turkey'],
+      ['+972','Israel'],['+86','China'],['+852','Hong Kong'],['+886','Taiwan'],
+      ['+81','Japan'],['+82','South Korea'],['+84','Vietnam'],['+66','Thailand'],
+      ['+63','Philippines'],['+62','Indonesia'],['+95','Myanmar'],['+855','Cambodia'],
+      ['+856','Laos'],['+852','Hong Kong'],['+55','Brazil'],['+52','Mexico'],
+      ['+54','Argentina'],['+56','Chile'],['+57','Colombia'],['+51','Peru'],
+      ['+58','Venezuela'],['+593','Ecuador'],['+598','Uruguay'],['+595','Paraguay'],
+    ];
+    const seen = new Set();
+    sel.innerHTML = C
+      .filter(([code]) => !seen.has(code) && seen.add(code))
+      .map(([code, name]) => `<option value="${code}">${code}  ${name}</option>`)
+      .join('');
+    sel.value = '+91';
+  })();
+
   /* ── Email / Mobile tab switch ── */
   document.querySelectorAll('.auth-tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -682,6 +812,31 @@
     togglePw.querySelector('span').textContent = showing ? 'visibility_off' : 'visibility';
     togglePw.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
   });
+
+  /* ── OAuth return handler ──
+     The backend's /auth/{provider}/callback redirects here with tokens (or an
+     error) in the URL fragment. Read them, store under the same localStorage
+     keys the password flow uses, strip the hash, and continue. */
+  (function handleOauthReturn() {
+    if (!location.hash || location.hash.length < 2) return;
+    const p = new URLSearchParams(location.hash.slice(1));
+    const err = p.get('oauth_error');
+    if (err) {
+      history.replaceState(null, '', location.pathname + location.search);
+      const m = document.getElementById('authMessage');
+      if (m) { m.textContent = 'Sign-in failed: ' + err.replace(/_/g, ' '); m.style.color = '#FCA5A5'; }
+      return;
+    }
+    const at = p.get('access_token');
+    if (!at) return;
+    localStorage.setItem('vidyouth_access_token', at);
+    if (p.get('refresh_token')) localStorage.setItem('vidyouth_refresh_token', p.get('refresh_token'));
+    localStorage.setItem('vidyouth_token_type', p.get('token_type') || 'Bearer');
+    localStorage.setItem('vidyouth_token_expires_at',
+      String(Date.now() + (parseInt(p.get('expires_in') || '900', 10) * 1000)));
+    history.replaceState(null, '', location.pathname + location.search);
+    window.location.href = 'newhome.html';
+  })();
 
   /* ── Backend auth integration ── */
   const API_BASE_URL = localStorage.getItem('vidyouth_api_base_url') || 'http://localhost:8080';
@@ -779,6 +934,22 @@
       window.location.href = `${API_BASE_URL}/auth/${provider}`;
     });
   });
+
+  /* ── "Sign in with an email code" → OTP verification page ── */
+  const emailCodeLink = document.getElementById('emailCodeLink');
+  if (emailCodeLink) {
+    emailCodeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = (document.getElementById('email')?.value || '').trim();
+      if (!email) {
+        setAuthMessage('Enter your email above first, then tap the code link.', true);
+        document.getElementById('email')?.focus();
+        return;
+      }
+      localStorage.setItem('vidyouth_pending_email', email);
+      window.location.href = 'verify.html?email=' + encodeURIComponent(email);
+    });
+  }
 
   /* ── Shimmer hover (same effect as dashboard) ── */
   (function () {
