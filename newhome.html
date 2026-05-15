@@ -3223,6 +3223,22 @@
 <script>
 /* Ã¢â€â‚¬Ã¢â€â‚¬ Convert Material Symbols Ã¢â€ â€™ Lucide icons Ã¢â€â‚¬Ã¢â€â‚¬ */
 (function () {
+  /* OAuth return handler — backend redirects here with tokens in the URL
+     fragment after Google / Microsoft sign-in. Persist under the same keys
+     the login page uses, then strip the hash. */
+  (function captureOauthTokens() {
+    if (!location.hash || location.hash.length < 2) return;
+    var p = new URLSearchParams(location.hash.slice(1));
+    var at = p.get('access_token');
+    if (!at) return;
+    localStorage.setItem('vidyouth_access_token', at);
+    if (p.get('refresh_token')) localStorage.setItem('vidyouth_refresh_token', p.get('refresh_token'));
+    localStorage.setItem('vidyouth_token_type', p.get('token_type') || 'Bearer');
+    localStorage.setItem('vidyouth_token_expires_at',
+      String(Date.now() + (parseInt(p.get('expires_in') || '900', 10) * 1000)));
+    history.replaceState(null, '', location.pathname + location.search);
+  })();
+
   const map = {
     'school':'graduation-cap','home':'home','play_lesson':'play-circle','live_tv':'tv',
     'analytics':'bar-chart-3','workspaces':'layers','query_stats':'trending-up',
