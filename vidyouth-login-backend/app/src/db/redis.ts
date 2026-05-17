@@ -15,7 +15,10 @@ import { env } from '../config/env.js';
 
 export const redis = new Redis(env.REDIS_URL, {
   keyPrefix: env.REDIS_KEY_PREFIX,
-  lazyConnect: false,
+  // In test, connect lazily so importing a module that transitively pulls
+  // in this file doesn't open a socket (keeps unit-test workers exiting
+  // cleanly). In dev/prod, connect eagerly so a bad REDIS_URL fails fast.
+  lazyConnect: env.NODE_ENV === 'test',
   enableReadyCheck: true,
   maxRetriesPerRequest: 3,
   // For ElastiCache TLS, prefix the URL with rediss:// — ioredis picks it up.

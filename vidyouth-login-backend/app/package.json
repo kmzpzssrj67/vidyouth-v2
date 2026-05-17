@@ -14,7 +14,9 @@
     "start": "node dist/server.js",
     "type-check": "tsc --noEmit",
     "lint": "echo 'add eslint when ready'",
-    "test": "echo 'add vitest when ready'"
+    "test": "node --import tsx --import ./tests/setup.ts --test --test-reporter=spec \"tests/**/*.test.ts\"",
+    "test:unit": "node --import tsx --import ./tests/setup.ts --test --test-reporter=spec \"tests/unit/**/*.test.ts\"",
+    "test:integration": "node --import tsx --import ./tests/setup.ts --test --test-reporter=spec \"tests/integration/**/*.test.ts\""
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.654.0",

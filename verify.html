@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Vidyouth | Create account</title>
+<title>Vidyouth | Verify email</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -516,6 +516,41 @@
     .brand-logo { width: 48px !important; height: 48px !important; }
     .brand-section { margin-bottom: 8px !important; }
     form#authForm.space-y-4 > * + * { margin-top: 8px !important; }
+    form#otpForm.space-y-4 > * + * { margin-top: 8px !important; }
+  }
+
+  /* ── OTP code boxes ───────────────────────────────────────── */
+  form#otpForm.space-y-4 > * + * { margin-top: 14px !important; }
+  .otp-boxes {
+    display: flex; gap: 10px; justify-content: center;
+  }
+  .otp-box {
+    width: 46px; height: 56px;
+    text-align: center;
+    font-size: 22px; font-weight: 800;
+    border-radius: 12px;
+    background: rgba(var(--glass-base), 0.16) !important;
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    caret-color: var(--accent-primary) !important;
+    border: 1px solid var(--glass-border) !important;
+    -webkit-appearance: none; appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .otp-box:focus {
+    outline: none;
+    border-color: var(--accent-primary) !important;
+    background: rgba(var(--glass-base), 0.24) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 28%, transparent);
+  }
+  .otp-box.filled { border-color: var(--accent-primary) !important; }
+  .otp-box.otp-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239,68,68,0.25);
+  }
+  @media (max-width: 420px) {
+    .otp-box { width: 40px; height: 50px; font-size: 19px; }
+    .otp-boxes { gap: 7px; }
   }
 </style>
 </head>
@@ -599,116 +634,43 @@
     </div>
 
     <!-- Heading -->
-    <h1 class="auth-heading mb-1.5">Create your account</h1>
-    <p class="auth-sub mb-6">Start your learning journey with Vidyouth.</p>
+    <h1 class="auth-heading mb-1.5">Verify your email</h1>
+    <p class="auth-sub mb-6">
+      Enter the 6-digit code we sent to
+      <span id="verifyEmail" style="color:var(--accent-primary);font-weight:700;">your email</span>.
+    </p>
 
-    <!-- Tabs -->
-    <div class="auth-tabs flex mb-5" role="tablist">
-      <button type="button" class="auth-tab active" data-tab="email" role="tab" aria-selected="true">Email</button>
-      <button type="button" class="auth-tab" data-tab="mobile" role="tab" aria-selected="false">Mobile</button>
-    </div>
+    <form id="otpForm" class="space-y-4" autocomplete="one-time-code" novalidate>
 
-    <form id="authForm" class="space-y-4" autocomplete="on" novalidate>
-
-      <!-- Full name (sign-up only) -->
+      <!-- OTP code boxes -->
       <div>
-        <label class="auth-label" for="displayName">Full name</label>
-        <input id="displayName" name="displayName" type="text" autocomplete="name" required minlength="2" maxlength="80" class="auth-input" placeholder="Priya Sharma"/>
-      </div>
-
-      <!-- Email pane -->
-      <div data-pane="email">
-        <label class="auth-label" for="email">Email address</label>
-        <input id="email" name="email" type="email" autocomplete="email" required class="auth-input" placeholder="you@example.com"/>
-      </div>
-
-      <!-- Mobile pane -->
-      <div data-pane="mobile" hidden>
-        <label class="auth-label" for="phone">Mobile number</label>
-        <div class="flex gap-2">
-          <select id="countryCode" class="auth-input shrink-0" style="width:132px;" aria-label="Country code">
-            <!-- Populated by buildCountryCodes() — full international list -->
-          </select>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" class="auth-input" placeholder="98765 43210"/>
+        <label class="auth-label" style="text-align:center;display:block;">Verification code</label>
+        <div id="otpBoxes" class="otp-boxes" role="group" aria-label="6 digit verification code">
+          <input class="otp-box" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="Digit 1"/>
+          <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2"/>
+          <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3"/>
+          <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4"/>
+          <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 5"/>
+          <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 6"/>
         </div>
       </div>
 
-      <!-- Password -->
-      <div>
-        <label class="auth-label" for="password">Password</label>
-        <div class="auth-input-wrap">
-          <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" class="auth-input" placeholder="At least 8 characters, 1 letter + 1 number" style="padding-right:42px;"/>
-          <button type="button" class="auth-input-eye" id="togglePw" aria-label="Show password">
-            <span class="material-symbols-outlined text-[18px]">visibility</span>
-          </button>
-        </div>
-        <!-- live strength meter -->
-        <div id="pwMeter" class="mt-2 flex gap-1.5" aria-hidden="true">
-          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
-          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
-          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
-          <span class="h-1 flex-1 rounded-full" style="background:rgba(var(--glass-base),0.20);"></span>
-        </div>
-        <p id="pwHint" class="text-[11px] mt-1.5" style="color:var(--text-muted);">Use 8+ characters with at least one letter and one number.</p>
-      </div>
+      <p id="authMessage" class="text-sm min-h-[20px] text-center" style="color:var(--accent-primary);" role="status" aria-live="polite"></p>
 
-      <!-- Confirm password -->
-      <div>
-        <label class="auth-label" for="passwordConfirm">Confirm password</label>
-        <div class="auth-input-wrap">
-          <input id="passwordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" required minlength="8" maxlength="128" class="auth-input" placeholder="Re-enter password" style="padding-right:42px;"/>
-          <button type="button" class="auth-input-eye" id="togglePwConfirm" aria-label="Show password">
-            <span class="material-symbols-outlined text-[18px]">visibility</span>
-          </button>
-        </div>
-      </div>
+      <!-- Verify -->
+      <button type="submit" class="auth-btn-primary" id="verifyBtn">Verify code</button>
 
-      <!-- Terms -->
-      <label class="checkbox-wrap" style="align-items:flex-start;">
-        <input id="acceptTerms" type="checkbox" class="checkbox-input" required style="margin-top:3px;"/>
-        <span>
-          I agree to Vidyouth's
-          <a href="#" class="auth-link">Terms of Service</a>
-          and
-          <a href="#" class="auth-link">Privacy Policy</a>.
-        </span>
-      </label>
-
-      <p id="authMessage" class="text-sm min-h-[20px]" style="color:var(--accent-primary);" role="status" aria-live="polite"></p>
-
-      <!-- Create account -->
-      <button type="submit" class="auth-btn-primary">Create account</button>
-
+      <!-- Resend -->
+      <p class="text-center text-sm" style="color:var(--text-secondary);">
+        Didn't get it?
+        <a href="#" id="resendLink" class="auth-link" style="font-size:14px;">Resend code</a>
+        <span id="resendTimer" style="color:var(--text-muted);"></span>
+      </p>
     </form>
 
-    <!-- Divider -->
-    <div class="auth-divider my-5">or continue with</div>
-
-    <!-- Social -->
-    <div class="flex gap-3">
-      <button type="button" class="auth-social-btn" data-provider="google">
-        <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">
-          <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
-          <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
-          <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
-          <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-0.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.650-.389-3.917z"/>
-        </svg>
-        <span>Google</span>
-      </button>
-      <button type="button" class="auth-social-btn" data-provider="microsoft">
-        <svg width="14" height="14" viewBox="0 0 23 23" aria-hidden="true">
-          <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
-          <rect x="12" y="1" width="10" height="10" fill="#7FBA00"/>
-          <rect x="1" y="12" width="10" height="10" fill="#00A4EF"/>
-          <rect x="12" y="12" width="10" height="10" fill="#FFB900"/>
-        </svg>
-        <span>Microsoft</span>
-      </button>
-    </div>
-
-    <!-- Already a member -->
+    <!-- Wrong email / back -->
     <p class="text-center text-sm mt-6" style="color:var(--text-secondary);">
-      Already have an account? <a href="login.html" class="auth-link" style="font-size:14px;">Sign in</a>
+      Wrong address? <a href="login.html" class="auth-link" style="font-size:14px;">Back to sign in</a>
     </p>
 
   </div>
@@ -780,97 +742,7 @@
     dot.addEventListener('click', () => applyTheme(dot.dataset.theme));
   });
 
-  /* ── Country dial codes (full international list, India default) ── */
-  (function buildCountryCodes() {
-    const sel = document.getElementById('countryCode');
-    if (!sel) return;
-    const C = [
-      ['+91','India'],['+1','USA / Canada'],['+44','United Kingdom'],['+61','Australia'],
-      ['+971','UAE'],['+65','Singapore'],['+60','Malaysia'],['+966','Saudi Arabia'],
-      ['+974','Qatar'],['+973','Bahrain'],['+968','Oman'],['+965','Kuwait'],
-      ['+92','Pakistan'],['+880','Bangladesh'],['+94','Sri Lanka'],['+977','Nepal'],
-      ['+975','Bhutan'],['+960','Maldives'],['+93','Afghanistan'],['+98','Iran'],
-      ['+64','New Zealand'],['+27','South Africa'],['+234','Nigeria'],['+254','Kenya'],
-      ['+233','Ghana'],['+255','Tanzania'],['+256','Uganda'],['+20','Egypt'],
-      ['+212','Morocco'],['+251','Ethiopia'],['+49','Germany'],['+33','France'],
-      ['+39','Italy'],['+34','Spain'],['+31','Netherlands'],['+32','Belgium'],
-      ['+41','Switzerland'],['+43','Austria'],['+46','Sweden'],['+47','Norway'],
-      ['+45','Denmark'],['+358','Finland'],['+351','Portugal'],['+353','Ireland'],
-      ['+30','Greece'],['+48','Poland'],['+420','Czechia'],['+36','Hungary'],
-      ['+40','Romania'],['+380','Ukraine'],['+7','Russia / Kazakhstan'],['+90','Turkey'],
-      ['+972','Israel'],['+86','China'],['+852','Hong Kong'],['+886','Taiwan'],
-      ['+81','Japan'],['+82','South Korea'],['+84','Vietnam'],['+66','Thailand'],
-      ['+63','Philippines'],['+62','Indonesia'],['+95','Myanmar'],['+855','Cambodia'],
-      ['+856','Laos'],['+55','Brazil'],['+52','Mexico'],['+54','Argentina'],
-      ['+56','Chile'],['+57','Colombia'],['+51','Peru'],['+58','Venezuela'],
-      ['+593','Ecuador'],['+598','Uruguay'],['+595','Paraguay'],
-    ];
-    const seen = new Set();
-    sel.innerHTML = C
-      .filter(([code]) => !seen.has(code) && seen.add(code))
-      .map(([code, name]) => `<option value="${code}">${code}  ${name}</option>`)
-      .join('');
-    sel.value = '+91';
-  })();
-
-  /* ── Email / Mobile tab switch ── */
-  document.querySelectorAll('.auth-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.auth-tab').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected','false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected','true');
-      const target = tab.dataset.tab;
-      document.querySelectorAll('[data-pane]').forEach(p => {
-        p.hidden = (p.dataset.pane !== target);
-      });
-      // Move focus to the visible field
-      const visiblePane = document.querySelector(`[data-pane="${target}"]`);
-      const firstInput = visiblePane && visiblePane.querySelector('input,select');
-      if (firstInput) firstInput.focus();
-    });
-  });
-
-  /* ── Password show/hide (both fields) ── */
-  function wireEyeToggle(toggleId, inputId) {
-    const toggle = document.getElementById(toggleId);
-    const input = document.getElementById(inputId);
-    toggle.addEventListener('click', () => {
-      const showing = input.type === 'password';
-      input.type = showing ? 'text' : 'password';
-      toggle.querySelector('span').textContent = showing ? 'visibility_off' : 'visibility';
-      toggle.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
-    });
-  }
-  wireEyeToggle('togglePw', 'password');
-  wireEyeToggle('togglePwConfirm', 'passwordConfirm');
-
-  /* ── Password strength meter ── */
-  const pwInput = document.getElementById('password');
-  const pwMeter = document.getElementById('pwMeter');
-  const pwHint = document.getElementById('pwHint');
-  function scorePassword(p) {
-    let s = 0;
-    if (p.length >= 8)               s++;
-    if (/[A-Za-z]/.test(p) && /\d/.test(p)) s++;
-    if (p.length >= 12)              s++;
-    if (/[^A-Za-z0-9]/.test(p))      s++;
-    return s; // 0..4
-  }
-  function paintMeter(score) {
-    const colors = ['#9CA3AF', '#F87171', '#FBBF24', '#34D399', '#10B981'];
-    const labels = ['Too short', 'Weak', 'Fair', 'Strong', 'Excellent'];
-    [...pwMeter.children].forEach((bar, i) => {
-      bar.style.background = i < score ? colors[score] : 'rgba(var(--glass-base),0.20)';
-    });
-    pwHint.textContent = pwInput.value ? labels[score] : 'Use 8+ characters with at least one letter and one number.';
-    pwHint.style.color = pwInput.value ? colors[score] : 'var(--text-muted)';
-  }
-  pwInput.addEventListener('input', () => paintMeter(scorePassword(pwInput.value)));
-
-  /* ── Backend signup integration ── */
+  /* ── Backend OTP-verify integration ── */
   const API_BASE_URL = localStorage.getItem('vidyouth_api_base_url') || 'http://localhost:8080';
 
   /* Ping /livez once so the user can see whether the API is reachable. */
@@ -889,17 +761,16 @@
       text.textContent = `API offline · ${new URL(API_BASE_URL).host}`;
     }
   })();
-  const authForm = document.getElementById('authForm');
+  const otpForm    = document.getElementById('otpForm');
   const authMessage = document.getElementById('authMessage');
-  const submitBtn = authForm.querySelector('button[type="submit"]');
+  const verifyBtn  = document.getElementById('verifyBtn');
+  const resendLink = document.getElementById('resendLink');
+  const resendTimer = document.getElementById('resendTimer');
+  const boxes = Array.from(document.querySelectorAll('.otp-box'));
 
   function setAuthMessage(message, isError = false) {
     authMessage.textContent = message;
     authMessage.style.color = isError ? '#FCA5A5' : 'var(--accent-primary)';
-  }
-
-  function activeLoginTab() {
-    return document.querySelector('.auth-tab.active')?.dataset.tab || 'email';
   }
 
   function storeTokens(payload) {
@@ -910,79 +781,156 @@
     localStorage.setItem('vidyouth_token_expires_at', String(Date.now() + ((payload.expires_in || 900) * 1000)));
   }
 
-  function normalizeMobile(countryCode, phone) {
-    const digits = phone.replace(/\D/g, '');
-    return `${countryCode}${digits}`;
+  /* ── Which email are we verifying? ──
+     Priority: ?email= query param → localStorage(vidyouth_pending_email).
+     login.html / signup.html set the localStorage key before sending here. */
+  const params = new URLSearchParams(location.search);
+  const EMAIL =
+    (params.get('email') || localStorage.getItem('vidyouth_pending_email') || '').trim();
+
+  const emailLabel = document.getElementById('verifyEmail');
+  if (EMAIL) {
+    emailLabel.textContent = EMAIL;
+    localStorage.setItem('vidyouth_pending_email', EMAIL);
+  } else {
+    emailLabel.textContent = 'your email';
+    setAuthMessage('No email to verify. Go back to sign in and start again.', true);
   }
 
-  async function signup(body) {
-    const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+  /* ── OTP box behaviour: auto-advance, backspace, paste ── */
+  function currentCode() {
+    return boxes.map((b) => b.value).join('');
+  }
+  function focusBox(i) {
+    if (i >= 0 && i < boxes.length) boxes[i].focus();
+  }
+  boxes.forEach((box, i) => {
+    box.addEventListener('input', () => {
+      box.value = box.value.replace(/\D/g, '').slice(0, 1);
+      box.classList.toggle('filled', !!box.value);
+      box.classList.remove('otp-error');
+      if (box.value && i < boxes.length - 1) focusBox(i + 1);
+      if (currentCode().length === boxes.length) otpForm.requestSubmit();
+    });
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !box.value && i > 0) focusBox(i - 1);
+      if (e.key === 'ArrowLeft') focusBox(i - 1);
+      if (e.key === 'ArrowRight') focusBox(i + 1);
+    });
+    box.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const digits = (e.clipboardData.getData('text') || '').replace(/\D/g, '').slice(0, boxes.length);
+      digits.split('').forEach((d, k) => {
+        if (boxes[k]) { boxes[k].value = d; boxes[k].classList.add('filled'); }
+      });
+      focusBox(Math.min(digits.length, boxes.length - 1));
+      if (digits.length === boxes.length) otpForm.requestSubmit();
+    });
+  });
+  focusBox(0);
+
+  /* ── Backend calls ── */
+  async function requestOtp() {
+    const r = await fetch(`${API_BASE_URL}/auth/otp/request`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ channel: 'email', identifier: EMAIL }),
     });
-    const payload = response.status === 204 ? {} : await response.json().catch(() => ({}));
-    if (!response.ok) {
-      throw new Error(payload.error || 'Signup failed');
-    }
-    return payload;
+    const p = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(p.error || 'Could not send code');
+    return p;
+  }
+  async function verifyOtp(code) {
+    const r = await fetch(`${API_BASE_URL}/auth/otp/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ channel: 'email', identifier: EMAIL, code }),
+    });
+    const p = r.status === 204 ? {} : await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(p.error || 'invalid_otp');
+    return p;
   }
 
-  /* ── Form submit → backend signup ── */
-  authForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    setAuthMessage('');
-
-    const tab = activeLoginTab();
-    const displayName = document.getElementById('displayName').value.trim();
-    const password = pwInput.value;
-    const confirm = document.getElementById('passwordConfirm').value;
-    const acceptTerms = document.getElementById('acceptTerms').checked;
-
-    if (!displayName) { setAuthMessage('Enter your name.', true); return; }
-    if (password.length < 8) { setAuthMessage('Password must be at least 8 characters.', true); return; }
-    if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) {
-      setAuthMessage('Password needs at least one letter and one number.', true); return;
-    }
-    if (password !== confirm) { setAuthMessage('Passwords don’t match.', true); return; }
-    if (!acceptTerms) { setAuthMessage('Please accept the Terms and Privacy Policy.', true); return; }
-
-    const body = { displayName, password, channel: tab };
-    if (tab === 'email') {
-      const email = document.getElementById('email').value.trim();
-      if (!email) { setAuthMessage('Enter your email.', true); return; }
-      body.email = email;
-    } else {
-      const code = document.getElementById('countryCode').value;
-      const phone = document.getElementById('phone').value;
-      if (!phone) { setAuthMessage('Enter your mobile number.', true); return; }
-      body.mobile = normalizeMobile(code, phone);
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Creating account...';
-    try {
-      const payload = await signup(body);
-      if (payload && payload.access_token) storeTokens(payload);
-      // Email signups go through the OTP verification page next.
-      // Mobile signups already proved the number, so go straight in.
-      if (tab === 'email') {
-        localStorage.setItem('vidyouth_pending_email', body.email);
-        setAuthMessage('Account created. Verifying your email…');
-        setTimeout(() => {
-          window.location.href = 'verify.html?email=' + encodeURIComponent(body.email);
-        }, 600);
-      } else {
-        setAuthMessage('Account created. Opening dashboard…');
-        window.location.href = 'newhome.html';
+  /* ── Resend with a 30s cooldown ── */
+  let cooldown = 0, cooldownId = null;
+  function startCooldown(sec) {
+    cooldown = sec;
+    resendLink.style.pointerEvents = 'none';
+    resendLink.style.opacity = '0.5';
+    clearInterval(cooldownId);
+    cooldownId = setInterval(() => {
+      cooldown -= 1;
+      resendTimer.textContent = cooldown > 0 ? ` (${cooldown}s)` : '';
+      if (cooldown <= 0) {
+        clearInterval(cooldownId);
+        resendLink.style.pointerEvents = '';
+        resendLink.style.opacity = '';
       }
+    }, 1000);
+  }
+  resendLink.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (cooldown > 0 || !EMAIL) return;
+    setAuthMessage('Sending a new code…');
+    try {
+      await requestOtp();
+      setAuthMessage(`New code sent to ${EMAIL}.`);
+      startCooldown(30);
     } catch (err) {
-      setAuthMessage(err.message || 'Unable to create account.', true);
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Create account';
+      setAuthMessage(translate(err.message), true);
     }
   });
+
+  function translate(code) {
+    switch (code) {
+      case 'invalid_otp':         return 'That code is wrong or expired. Try again.';
+      case 'invalid_credentials': return 'No account found for this email. Sign up first.';
+      case 'rate_limited':        return 'Too many requests. Wait a few minutes and retry.';
+      case 'invalid_request':     return 'Enter all 6 digits.';
+      default:                    return code ? code.replace(/_/g, ' ') : 'Verification failed.';
+    }
+  }
+
+  /* ── Submit → verify the code ── */
+  otpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!EMAIL) { setAuthMessage('No email to verify.', true); return; }
+    const code = currentCode();
+    if (code.length !== boxes.length) {
+      setAuthMessage('Enter all 6 digits.', true);
+      return;
+    }
+    verifyBtn.disabled = true;
+    verifyBtn.textContent = 'Verifying…';
+    setAuthMessage('');
+    try {
+      const payload = await verifyOtp(code);
+      boxes.forEach((b) => b.classList.add('filled'));
+      setAuthMessage('✓ Verified! Opening dashboard…');
+      if (payload && payload.access_token) storeTokens(payload);
+      localStorage.removeItem('vidyouth_pending_email');
+      setTimeout(() => { window.location.href = 'newhome.html'; }, 700);
+    } catch (err) {
+      boxes.forEach((b) => b.classList.add('otp-error'));
+      setAuthMessage(translate(err.message), true);
+      verifyBtn.disabled = false;
+      verifyBtn.textContent = 'Verify code';
+      setTimeout(() => boxes.forEach((b) => b.classList.remove('otp-error')), 1200);
+    }
+  });
+
+  /* ── On load: auto-send the first code ── */
+  (async function autoSend() {
+    if (!EMAIL) return;
+    setAuthMessage('Sending a code to your email…');
+    try {
+      await requestOtp();
+      setAuthMessage(`We sent a 6-digit code to ${EMAIL}.`);
+      startCooldown(30);
+    } catch (err) {
+      setAuthMessage(translate(err.message), true);
+    }
+  })();
 
   /* ── Social provider buttons → backend OAuth start routes ── */
   document.querySelectorAll('.auth-social-btn').forEach(btn => {

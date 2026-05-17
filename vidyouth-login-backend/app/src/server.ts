@@ -31,9 +31,14 @@ declare module 'fastify' {
   }
 }
 
-async function buildApp() {
+export interface BuildAppOptions {
+  /** Override the Fastify logger — tests pass a silent or capturing logger. */
+  logger?: import('fastify').FastifyServerOptions['logger'];
+}
+
+export async function buildApp(opts: BuildAppOptions = {}) {
   const app = Fastify({
-    logger: {
+    logger: opts.logger ?? {
       level: env.LOG_LEVEL,
       ...(isProd
         ? {}
@@ -122,4 +127,8 @@ async function start() {
   process.on('SIGTERM', shutdown);
 }
 
-start();
+// Only auto-start when run as the server. Under the test runner
+// (NODE_ENV=test) the suite imports buildApp and drives it via inject().
+if (env.NODE_ENV !== 'test') {
+  start();
+}
