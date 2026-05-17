@@ -50,12 +50,42 @@ const envSchema = z.object({
   // SMS / email
   SMS_PROVIDER: z.enum(['mock', 'msg91', 'sns']).default('mock'),
   SMS_API_KEY: z.string().optional(),
+  // MSG91 (real SMS delivery for +91 and international numbers)
+  MSG91_AUTH_KEY: z.string().optional(),
+  MSG91_TEMPLATE_ID: z.string().optional(),
+  MSG91_SENDER_ID: z.string().optional(),
   EMAIL_PROVIDER: z.enum(['mock', 'ses']).default('mock'),
   EMAIL_FROM: z.string().email().default('no-reply@vidyouth.local'),
 
   // Audit
   AUDIT_S3_BUCKET: z.string().optional(),
   AUDIT_S3_REGION: z.string().default('ap-south-1'),
+  
+  // Google OAuth
+  GOOGLE_CLIENT_ID: z.string().optional(),
+  GOOGLE_CLIENT_SECRET: z.string().optional(),
+  GOOGLE_REDIRECT_URI: z.string().url().optional(),
+
+  // Microsoft OAuth
+  MICROSOFT_CLIENT_ID: z.string().optional(),
+  MICROSOFT_CLIENT_SECRET: z.string().optional(),
+  MICROSOFT_TENANT_ID: z.string().default('common'),
+  MICROSOFT_REDIRECT_URI: z.string().url().optional(),
+
+  // Where the OAuth callback sends the browser after a successful login.
+  // Tokens are appended in the URL fragment; the frontend reads + stores them.
+  OAUTH_SUCCESS_REDIRECT_URL: z.string().url().default('http://localhost:5500/newhome.html'),
+
+  // Email verification + password reset (added by PR #2)
+  APP_BASE_URL: z.string().url().default('http://localhost:8080'),
+  EMAIL_VERIFICATION_TTL_SECONDS: z.coerce.number().int().positive().default(86_400),
+  PASSWORD_RESET_TTL_SECONDS: z.coerce.number().int().positive().default(3_600),
+
+  // AWS SDK config consumed by SES + SNS providers (PR #2)
+  AWS_REGION: z.string().default('ap-south-1'),
+  SES_FROM_EMAIL: z.string().email().default('no-reply@vidyouth.local'),
+  SNS_SMS_TYPE: z.enum(['Transactional', 'Promotional']).default('Transactional'),
+  SNS_SENDER_ID: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

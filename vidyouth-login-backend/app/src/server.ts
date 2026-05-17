@@ -11,14 +11,19 @@ import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import sensible from '@fastify/sensible';
-import { env, isProd } from '@/config/env.js';
-import { closeDb } from '@/db/pg.js';
-import { closeRedis } from '@/db/redis.js';
-import { healthRoutes } from '@/routes/health.js';
-import { authRoutes } from '@/routes/auth.js';
-import { otpRoutes } from '@/routes/otp.js';
-import { meRoutes } from '@/routes/me.js';
-import { authRequired } from '@/middleware/auth.js';
+import { env, isProd } from './config/env.js';
+import { closeDb } from './db/pg.js';
+import { closeRedis } from './db/redis.js';
+import { healthRoutes } from './routes/health.js';
+import { authRoutes } from './routes/auth.js';
+import { signupRoutes } from './routes/signup.js';
+import { oauthRoutes } from './routes/oauth.js';
+import { otpRoutes } from './routes/otp.js';
+import { meRoutes } from './routes/me.js';
+import { emailVerifyRoutes } from './routes/email-verify.js';
+import { passwordResetRoutes } from './routes/password-reset.js';
+import { phoneAuthRoutes } from './routes/phone.js';
+import { authRequired } from './middleware/auth.js';
 
 declare module 'fastify' {
   interface FastifyInstance {
@@ -26,9 +31,14 @@ declare module 'fastify' {
   }
 }
 
-async function buildApp() {
+export interface BuildAppOptions {
+  /** Override the Fastify logger — tests pass a silent or capturing logger. */
+  logger?: import('fastify').FastifyServerOptions['logger'];
+}
+
+export async function buildApp(opts: BuildAppOptions = {}) {
   const app = Fastify({
-    logger: {
+    logger: opts.logger ?? {
       level: env.LOG_LEVEL,
       ...(isProd
         ? {}
@@ -73,8 +83,13 @@ async function buildApp() {
   await app.register(healthRoutes);
 
   await app.register(authRoutes);
+  await app.register(signupRoutes);
+  await app.register(oauthRoutes);
   await app.register(otpRoutes);
   await app.register(meRoutes);
+  await app.register(emailVerifyRoutes);
+  await app.register(passwordResetRoutes);
+  await app.register(phoneAuthRoutes);
 
   app.setErrorHandler((err, req, reply) => {
     req.log.error({ err }, 'unhandled error');
@@ -112,4 +127,8 @@ async function start() {
   process.on('SIGTERM', shutdown);
 }
 
-start();
+// Only auto-start when run as the server. Under the test runner
+// (NODE_ENV=test) the suite imports buildApp and drives it via inject().
+if (env.NODE_ENV !== 'test') {
+  start();
+}

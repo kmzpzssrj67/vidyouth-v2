@@ -37,18 +37,18 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
      DESIGN TOKEN SYSTEM
      Every visible surface, accent, and chrome element references
      these tokens. Switching presets / colour pickers updates every
-     component in lockstep — no hardcoded colour anywhere downstream.
-  ══════════════════════════════════════════════════════════════ */
+     component in lockstep Ã¢â‚¬â€ no hardcoded colour anywhere downstream.
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
   :root {
-    /* ── Backgrounds ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Backgrounds Ã¢â€â‚¬Ã¢â€â‚¬ */
     --bg-primary:       #071426;
     --bg-secondary:     #0B1F3A;
 
-    /* ── Glass surfaces (separate alpha + base for dynamic mixing) ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Glass surfaces (separate alpha + base for dynamic mixing) Ã¢â€â‚¬Ã¢â€â‚¬ */
     --glass-base:           255,255,255;     /* RGB base for glass tint */
     --glass-bg-alpha:       0.08;
     --glass-bg-strong-alpha:0.14;
@@ -56,64 +56,64 @@
     --glass-bg-strong:      rgba(var(--glass-base), var(--glass-bg-strong-alpha));
     --glass-bg-hover:       var(--glass-bg-strong);
 
-    /* ── Glass borders ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Glass borders Ã¢â€â‚¬Ã¢â€â‚¬ */
     --glass-border-base:        255,255,255;
     --glass-border-alpha:       0.18;
     --glass-border-strong-alpha:0.30;
     --glass-border:             rgba(var(--glass-border-base), var(--glass-border-alpha));
     --glass-border-strong:      rgba(var(--glass-border-base), var(--glass-border-strong-alpha));
 
-    /* ── Blur ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Blur Ã¢â€â‚¬Ã¢â€â‚¬ */
     --blur-strength:    22px;
     --blur-strong:      28px;
     --glass-blur:       blur(var(--blur-strength)) saturate(180%);
     --glass-blur-strong:blur(var(--blur-strong))   saturate(200%);
 
-    /* ── Glass highlights & shadows ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Glass highlights & shadows Ã¢â€â‚¬Ã¢â€â‚¬ */
     --glass-highlight:        inset 0 1px 0 rgba(255,255,255,0.30), inset 0 -1px 0 rgba(255,255,255,0.05);
     --glass-highlight-strong: inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(255,255,255,0.08);
     --shadow-color:           0,0,0;
     --glass-shadow:           0 4px 20px rgba(var(--shadow-color),0.18);
     --glass-shadow-hover:     0 12px 36px rgba(var(--shadow-color),0.28);
 
-    /* ── Accents ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Accents Ã¢â€â‚¬Ã¢â€â‚¬ */
     --accent-primary:   #38BDF8;
     --accent-secondary: #8B5CF6;
 
-    /* ── Status ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Status Ã¢â€â‚¬Ã¢â€â‚¬ */
     --success:          #22C55E;
     --warning:          #F59E0B;
     --danger:           #EF4444;
 
-    /* ── Text ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Text Ã¢â€â‚¬Ã¢â€â‚¬ */
     --text-primary:     #F8FAFC;
     --text-secondary:   #CBD5E1;
     --text-muted:       #94A3B8;
 
-    /* ── Radii ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Radii Ã¢â€â‚¬Ã¢â€â‚¬ */
     --radius-sm:        10px;
     --radius-md:        14px;
     --radius-lg:        18px;
     --radius-xl:        22px;
     --radius-2xl:       28px;
 
-    /* ── Layout / typography control tokens ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Layout / typography control tokens Ã¢â€â‚¬Ã¢â€â‚¬ */
     --card-spacing:     1.5rem;     /* gap between dashboard cards */
     --font-scale:       1;          /* multiplier for body text */
     --bg-gradient:      linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
 
-    /* ── Glow / hover interaction tokens ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Glow / hover interaction tokens Ã¢â€â‚¬Ã¢â€â‚¬ */
     --glow-primary:     rgba(255,255,255,0.18);
     --glow-secondary:   rgba(255,255,255,0.10);
     --hover-lift:       -2px;       /* translateY on card hover (set 0 to disable) */
     --hover-glow-on:    1;          /* multiplied into halo box-shadow alpha */
 
-    /* ── Shimmer / glitter control tokens (consumed by .shimmer-active rules) ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Shimmer / glitter control tokens (consumed by .shimmer-active rules) Ã¢â€â‚¬Ã¢â€â‚¬ */
     --shimmer-enabled:  1;          /* multiplied into shimmer opacity */
     --shimmer-opacity:  1;          /* slider 0..1 */
     --shimmer-speed:    0.9s;       /* slider 0.4s..2.0s */
 
-    /* ── Legacy aliases used by older rules (still valid after refactor) ── */
+    /* Ã¢â€â‚¬Ã¢â€â‚¬ Legacy aliases used by older rules (still valid after refactor) Ã¢â€â‚¬Ã¢â€â‚¬ */
     --primary-blue:     var(--accent-primary);
     --secondary-blue:   var(--accent-primary);
     --accent:           var(--accent-primary);
@@ -124,9 +124,9 @@
     --shadow-hover:     var(--glass-shadow-hover);
   }
 
-  /* ══════════════════════════════════════════════════════════════
-     THEME PRESETS — applied via [data-theme="..."] on <html>
-  ══════════════════════════════════════════════════════════════ */
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+     THEME PRESETS Ã¢â‚¬â€ applied via [data-theme="..."] on <html>
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
   /* Dark Cyber Navy (default) */
   [data-theme="cyber-navy"] {
@@ -172,7 +172,7 @@
     --shadow-color:30,0,50;
   }
 
-  /* Apple Light — clean light surface with classic blue accent */
+  /* Apple Light Ã¢â‚¬â€ clean light surface with classic blue accent */
   [data-theme="apple-light"] {
     --bg-primary:#F5F5F7; --bg-secondary:#FFFFFF;
     --glass-base:255,255,255; --glass-bg-alpha:0.78; --glass-bg-strong-alpha:0.92;
@@ -183,7 +183,7 @@
     --shadow-color:20,20,30;
   }
 
-  /* Apple Dark — pure black with vibrant accent */
+  /* Apple Dark Ã¢â‚¬â€ pure black with vibrant accent */
   [data-theme="apple-dark"] {
     --bg-primary:#000000; --bg-secondary:#161617;
     --glass-base:255,255,255; --glass-bg-alpha:0.08; --glass-bg-strong-alpha:0.14;
@@ -194,7 +194,7 @@
     --shadow-color:0,0,0;
   }
 
-  /* Swiss White — Swiss-style stone-paper light */
+  /* Swiss White Ã¢â‚¬â€ Swiss-style stone-paper light */
   [data-theme="swiss-white"] {
     --bg-primary:#F6F5F1; --bg-secondary:#EAE7DF;
     --glass-base:255,255,255; --glass-bg-alpha:0.72; --glass-bg-strong-alpha:0.88;
@@ -205,7 +205,7 @@
     --shadow-color:30,30,30;
   }
 
-  /* Minimal Light — soft neutral with a hint of warmth */
+  /* Minimal Light Ã¢â‚¬â€ soft neutral with a hint of warmth */
   [data-theme="minimal-light"] {
     --bg-primary:#FAFAF9; --bg-secondary:#F4F4F2;
     --glass-base:255,255,255; --glass-bg-alpha:0.78; --glass-bg-strong-alpha:0.92;
@@ -216,7 +216,7 @@
     --shadow-color:30,30,40;
   }
 
-  /* Warm Amber / Espresso — dark cocoa background with champagne gold accents */
+  /* Warm Amber / Espresso Ã¢â‚¬â€ dark cocoa background with champagne gold accents */
   [data-theme="warm-amber"] {
     --bg-primary:#150A04; --bg-secondary:#2A170A;
     --glass-base:80,50,25; --glass-bg-alpha:0.22; --glass-bg-strong-alpha:0.30;
@@ -227,13 +227,13 @@
     --shadow-color:25,12,4;
   }
 
-  /* ══════════════════════════════════════════════════════════════
-     DESIGN STYLE SCOPES — applied via [data-style="..."] on <html>
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+     DESIGN STYLE SCOPES Ã¢â‚¬â€ applied via [data-style="..."] on <html>
      A design style adjusts the *visual treatment* (blur, surface
      opacity, radius, decorative effects) on top of any colour theme.
-  ══════════════════════════════════════════════════════════════ */
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
-  /* Glassmorphism — default (matches existing tokens, kept for completeness) */
+  /* Glassmorphism Ã¢â‚¬â€ default (matches existing tokens, kept for completeness) */
   [data-style="glassmorphism"] {
     --blur-strength:24px;
     --radius-sm:10px; --radius-md:14px; --radius-lg:20px; --radius-xl:24px; --radius-2xl:30px;
@@ -241,7 +241,7 @@
     --hover-lift:-2px; --hover-glow-on:1;
   }
 
-  /* Swiss Minimal — flat surfaces, tiny radius, no shimmer, restrained motion */
+  /* Swiss Minimal Ã¢â‚¬â€ flat surfaces, tiny radius, no shimmer, restrained motion */
   [data-style="swiss-minimal"] {
     --blur-strength:0px; --blur-strong:0px;
     --glass-bg-alpha:0.96; --glass-bg-strong-alpha:1;
@@ -259,7 +259,7 @@
   [data-style="swiss-minimal"] .assessment-engine-card { border-radius: var(--radius-md) !important; }
   [data-style="swiss-minimal"] .bg-aura, [data-style="swiss-minimal"] .bk { display: none !important; }
 
-  /* Apple Premium — full apple.com aesthetic
+  /* Apple Premium Ã¢â‚¬â€ full apple.com aesthetic
      One-click conversion to Apple.com's clean light system.
      Forces apple-light tokens, system font stack, generous typography
      and white surfaces with subtle borders. Scoped only to this style,
@@ -315,7 +315,7 @@
     [data-style="apple-premium"] .welcome-heading { font-size: 3rem !important; }
   }
 
-  /* Cards — clean white surfaces, soft shadow, no heavy glow */
+  /* Cards Ã¢â‚¬â€ clean white surfaces, soft shadow, no heavy glow */
   [data-style="apple-premium"] .gc, [data-style="apple-premium"] .gl,
   [data-style="apple-premium"] main section,
   [data-style="apple-premium"] main .grid > div,
@@ -345,7 +345,7 @@
     transform: translateY(-1px) !important;
   }
 
-  /* Sidebar — pure white panel */
+  /* Sidebar Ã¢â‚¬â€ pure white panel */
   [data-style="apple-premium"] aside.sidebar-glass {
     background: rgba(255,255,255,0.86) !important;
     border-right: 1px solid rgba(0,0,0,0.08) !important;
@@ -362,7 +362,7 @@
   }
   [data-style="apple-premium"] aside.sidebar-glass a.active-nav .nav-icon { color: var(--accent-primary) !important; }
 
-  /* Header — clean translucent bar */
+  /* Header Ã¢â‚¬â€ clean translucent bar */
   [data-style="apple-premium"] header[class*="sticky"] {
     background: rgba(255,255,255,0.82) !important;
     border-bottom-color: rgba(0,0,0,0.08) !important;
@@ -384,7 +384,7 @@
     background: rgba(0,0,0,0.08) !important;
   }
 
-  /* Buttons — Apple blue pill */
+  /* Buttons Ã¢â‚¬â€ Apple blue pill */
   [data-style="apple-premium"] .nav-pill-ai,
   [data-style="apple-premium"] .welcome-cta {
     background: var(--accent-primary) !important;
@@ -420,7 +420,7 @@
   [data-style="apple-premium"] nav.mobile-nav button { color: var(--text-secondary) !important; }
   [data-style="apple-premium"] nav.mobile-nav button.active { color: var(--accent-primary) !important; }
 
-  /* Warm Editorial — softer feel, gentle gold-leaning glow */
+  /* Warm Editorial Ã¢â‚¬â€ softer feel, gentle gold-leaning glow */
   [data-style="warm-editorial"] {
     --blur-strength:20px; --blur-strong:26px;
     --radius-sm:8px; --radius-md:12px; --radius-lg:16px; --radius-xl:20px; --radius-2xl:24px;
@@ -428,7 +428,7 @@
     --hover-lift:-2px; --hover-glow-on:0.85;
   }
 
-  /* Futuristic AI — sharper neon, more dramatic interactions */
+  /* Futuristic AI Ã¢â‚¬â€ sharper neon, more dramatic interactions */
   [data-style="futuristic-ai"] {
     --blur-strength:26px; --blur-strong:34px;
     --glass-bg-alpha:0.10; --glass-border-alpha:0.22;
@@ -437,9 +437,9 @@
     --hover-lift:-3px; --hover-glow-on:1.4;
   }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
      DENSITY / SIDEBAR / CARD STYLE SCOPES
-  ══════════════════════════════════════════════════════════════ */
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
   [data-density="comfortable"] { --card-spacing:1.5rem; --font-scale:1; }
   [data-density="compact"]     { --card-spacing:1rem;   --font-scale:0.94; }
   [data-density="spacious"]    { --card-spacing:2.25rem;--font-scale:1.06; }
@@ -485,7 +485,7 @@
     box-shadow: 0 18px 48px rgba(var(--shadow-color),0.30), var(--glass-highlight-strong) !important;
   }
 
-  /* ── BASE — Token-driven environment ─────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ BASE Ã¢â‚¬â€ Token-driven environment Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   html { background: var(--bg-primary); }
   body {
     margin: 0;
@@ -497,7 +497,7 @@
       radial-gradient(ellipse 130% 130% at 50% 50%,
         transparent 48%,
         rgba(0,0,0,0.28) 100%),
-      /* Diagonal blend bg-primary → bg-secondary → bg-primary */
+      /* Diagonal blend bg-primary Ã¢â€ â€™ bg-secondary Ã¢â€ â€™ bg-primary */
       linear-gradient(135deg,
         var(--bg-primary)   0%,
         var(--bg-secondary) 50%,
@@ -507,9 +507,13 @@
     transition: background 0.5s ease, color 0.5s ease;
   }
 
-  /* ── SIDEBAR ─────────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ SIDEBAR Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   aside, aside.sidebar-glass {
-    background: var(--glass-bg) !important;
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--accent-primary) calc(var(--sidebar-tint, 0.12) * 100%), transparent) 0%,
+        transparent 70%),
+      var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur) !important;
     -webkit-backdrop-filter: var(--glass-blur) !important;
     border-right: 1px solid var(--glass-border) !important;
@@ -540,9 +544,13 @@
   aside .sidebar-section-label { color: var(--text-muted) !important; }
   aside .border-glass { border-color: var(--glass-border) !important; }
 
-  /* ── HEADER / NAVBAR ─────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ HEADER / NAVBAR Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   header {
-    background: var(--glass-bg) !important;
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--accent-primary) calc(var(--nav-tint, 0.18) * 100%), transparent) 0%,
+        transparent 100%),
+      var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur) !important;
     -webkit-backdrop-filter: var(--glass-blur) !important;
     border-color: var(--glass-border) !important;
@@ -577,7 +585,7 @@
   }
   .nav-pill-ai:hover { background: var(--accent-secondary) !important; }
 
-  /* ── GLOBAL TYPOGRAPHY OVERRIDES ────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ GLOBAL TYPOGRAPHY OVERRIDES Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   h1, h2, h3, h4 { color: var(--text-primary) !important; }
   p, span { color: inherit; }
   main p, main .text-sub, header .text-sub, aside .text-sub { color: var(--text-secondary) !important; }
@@ -587,9 +595,36 @@
   .metric-value.yellow { color: var(--warning) !important; }
   .metric-value.red { color: var(--danger) !important; }
 
-  /* ══════════════════════════════════════════════════════════════
-     SHIMMER / GLITTER HOVER EFFECT — Theme-aware premium shine
-  ══════════════════════════════════════════════════════════════ */
+  /* â”€â”€ THEME-AWARE TAILWIND OVERRIDES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+     Neutralize Tailwind utility classes that would otherwise pin
+     elements to white / slate regardless of the active palette so
+     picking a light theme actually flips text colour. */
+  .text-white { color: var(--text-primary) !important; }
+  .text-slate-300, .text-slate-400 { color: var(--text-secondary) !important; }
+  .text-slate-500, .text-slate-600 { color: var(--text-muted) !important; }
+
+  /* Caret + selection — gated by the Sync section toggles on <html>.
+     Default (no class) leaves browser defaults intact; .cursor-accent
+     and .accent-select are added by the palette's applyState(). */
+  html.cursor-accent input,
+  html.cursor-accent textarea,
+  html.cursor-accent [contenteditable="true"] { caret-color: var(--accent-primary) !important; }
+  html.accent-select ::selection {
+    background: color-mix(in srgb, var(--accent-primary) 35%, transparent);
+    color: var(--text-primary);
+  }
+  /* Active-item glow — when on, nav-pill and sidebar active items get an
+     accent-tinted halo so the user immediately sees what's selected. */
+  html.active-glow .nav-pill[aria-current="true"],
+  html.active-glow .nav-pill.is-active,
+  html.active-glow aside a.is-active {
+    box-shadow: 0 0 0 1px var(--accent-primary), 0 6px 18px color-mix(in srgb, var(--accent-primary) 30%, transparent) !important;
+    border-color: var(--accent-primary) !important;
+  }
+
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+     SHIMMER / GLITTER HOVER EFFECT Ã¢â‚¬â€ Theme-aware premium shine
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
   :root {
     /* Shimmer colors per theme (will be overridden in theme presets) */
     --shimmer-color-primary:    rgba(255,255,255,0.4);
@@ -623,7 +658,7 @@
     --shimmer-glow-color:       rgba(232,194,140,0.40);
   }
 
-  /* Shimmer overlay class — soft glossy light sweep with thin specular core */
+  /* Shimmer overlay class Ã¢â‚¬â€ soft glossy light sweep with thin specular core */
   .shimmer-sweep {
     position: absolute;
     top: 0; left: 0;
@@ -692,7 +727,7 @@
     background: linear-gradient(155deg, rgba(255,255,255,0.10) 0%, transparent 40%);
     pointer-events: none; z-index: 0; border-radius: inherit;
   }
-  /* Crystal-glass top-edge reflection — fades in on hover */
+  /* Crystal-glass top-edge reflection Ã¢â‚¬â€ fades in on hover */
   .gc::after, .gl::after, .shimmer-host::after {
     content: "";
     position: absolute; inset: 0;
@@ -715,7 +750,7 @@
     transform: translateY(var(--hover-lift, -2px));
   }
   .gc > *, .gl > * { position: relative; z-index: 1; }
-  /* Reusable host class — JS attaches this to non-.gc/.gl shimmer targets
+  /* Reusable host class Ã¢â‚¬â€ JS attaches this to non-.gc/.gl shimmer targets
      so they get position+overflow+lift consistently. */
   .shimmer-host {
     position: relative;
@@ -736,7 +771,7 @@
   }
   html.reduce-motion .gc:hover, html.reduce-motion .gl:hover, html.reduce-motion .shimmer-host:hover { transform: none; }
 
-  /* Shimmer effect activation — JS adds .shimmer-active on mouseenter.
+  /* Shimmer effect activation Ã¢â‚¬â€ JS adds .shimmer-active on mouseenter.
      Intensity (--shimmer-opacity) and speed (--shimmer-speed) are driven
      by the Theme Studio sliders; --shimmer-enabled (0/1) acts as a kill switch. */
   .shimmer-active .shimmer-sweep {
@@ -758,7 +793,7 @@
     border-color: var(--glass-border-strong) !important;
   }
 
-  /* ── MAIN CARD GRID DEFAULTS ─────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ MAIN CARD GRID DEFAULTS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   main section, main .grid > div, main .grid > a {
     border-color: var(--glass-border) !important;
     background: var(--glass-bg) !important;
@@ -773,7 +808,7 @@
     box-shadow: var(--glass-shadow-hover), var(--glass-highlight-strong) !important;
   }
 
-  /* ── SHINE SWEEP ON HOVER ───────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ SHINE SWEEP ON HOVER Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .shimmer-card {
     position: relative;
     overflow: hidden;
@@ -789,7 +824,7 @@
   }
   .shimmer-card:hover::after { left: 130%; }
 
-  /* ── ACCENT TOP STRIPE ───────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ ACCENT TOP STRIPE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .accent-top { position: relative; }
   .accent-top::before {
     content: "";
@@ -802,7 +837,7 @@
   .accent-top.accent-success::before { background: linear-gradient(90deg,#34d399,#22c55e); }
   .accent-top.accent-warning::before { background: linear-gradient(90deg,#fbbf24,#f59e0b); }
 
-  /* ── WELCOME HERO CARD ───────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ WELCOME HERO CARD Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .welcome-hero-card {
     position: relative; isolation: isolate; overflow: hidden !important;
     padding: 32px !important;
@@ -888,7 +923,7 @@
   .welcome-orb-ring::before { top: -3px; left: 50%; transform: translateX(-50%); }
   .welcome-orb-ring::after { bottom: -3px; right: 18%; background: #c4b5fd; box-shadow: 0 0 10px rgba(196,181,253,0.85); }
 
-  /* Welcome orb — gold variant for warm-amber theme */
+  /* Welcome orb Ã¢â‚¬â€ gold variant for warm-amber theme */
   [data-theme="warm-amber"] .welcome-orb-halo {
     background: radial-gradient(circle at 50% 50%, rgba(255,200,120,0.55) 0%, rgba(200,130,60,0.22) 40%, transparent 70%);
   }
@@ -906,7 +941,7 @@
   @keyframes heroOrbPulse { 0%,100% { opacity: 0.85; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
   @keyframes heroOrbSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  /* ── ASSESSMENT ENGINE CARD ──────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ ASSESSMENT ENGINE CARD Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .assessment-engine-card {
     position: relative; isolation: isolate; overflow: hidden !important;
     padding: 28px !important;
@@ -959,7 +994,7 @@
   .difficulty-badge.badge-medium { background: rgba(250,204,21,0.18) !important; color: #fef08a !important; border: 1px solid rgba(250,204,21,0.45) !important; }
   .assessment-footer { border-top: 1px solid rgba(255,255,255,0.16) !important; }
 
-  /* ── INSIGHTS BUTTON ─────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ INSIGHTS BUTTON Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .insights-btn {
     background: #3F9ED1 !important; color: #ffffff !important;
     border: 1px solid rgba(255,255,255,0.22) !important; border-radius: 10px;
@@ -972,13 +1007,13 @@
   .insights-btn:hover .insights-arrow { transform: translateX(2px); transition: transform 0.2s ease; }
   .insights-arrow { color: #fef3c7 !important; }
 
-  /* ── TARGET TRACKER ──────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ TARGET TRACKER Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .target-tracker-card { background: var(--glass-card) !important; border: 1px solid var(--glass-border) !important; }
   .target-tracker-card:hover { transform: translateY(-3px) scale(1.01) !important; box-shadow: 0 14px 36px rgba(15,23,42,0.28), inset 0 1px 0 rgba(255,255,255,0.22) !important; }
   .target-tracker-card:hover .target-days-count { animation: targetCountPop 0.7s ease; }
   .target-days-count { color: #ffffff !important; text-shadow: 0 2px 10px rgba(30,58,138,0.35); }
 
-  /* ── STREAK CARD ─────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ STREAK CARD Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .streak-card {
     background: var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur) !important; -webkit-backdrop-filter: var(--glass-blur) !important;
@@ -990,7 +1025,7 @@
   .streak-card h4, .streak-card p, .streak-card span:not(.nav-icon) { color: #ffffff !important; }
   .streak-label { color: #fef08a !important; letter-spacing: 0.18em; }
   .streak-number { font-size: 56px !important; line-height: 1 !important; font-weight: 800 !important; color: #ffffff !important; text-shadow: 0 4px 14px rgba(15,23,42,0.25); }
-  .streak-days { color: rgba(255,255,255,0.80) !important; font-size: 16px !important; font-weight: 600 !important; }
+  .streak-days { color:var(--text-primary) !important; font-size: 16px !important; font-weight: 600 !important; }
   .streak-message { color: #fef08a !important; }
   .streak-meteor-wrap { position: absolute; inset: -8% -22% auto auto; width: 200px; height: 200px; pointer-events: none; z-index: 0; }
   .streak-meteor-glow {
@@ -1013,12 +1048,12 @@
   @keyframes meteorGlowPulse { 0%,100% { opacity: 0.85; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
   @keyframes meteorParticle { 0%,100% { opacity: 0.35; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.2); } }
 
-  /* ── CREDITS CARD ────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ CREDITS CARD Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .icon-tile-success { background: linear-gradient(135deg, rgba(34,197,94,0.45), rgba(22,163,74,0.70)) !important; }
   .icon-tile-warning { background: linear-gradient(135deg, rgba(251,191,36,0.50), rgba(245,158,11,0.70)) !important; }
   .icon-tile-ai { background: linear-gradient(135deg, rgba(167,139,250,0.50), rgba(139,92,246,0.70)) !important; }
 
-  /* ── RESUME SCORE CARD ───────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ RESUME SCORE CARD Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .resume-score-card {
     background: var(--glass-bg) !important;
     border: 1px solid var(--glass-border) !important;
@@ -1037,9 +1072,9 @@
     color: #ffffff !important; font-size: 11px !important; font-weight: 900 !important;
     backdrop-filter: blur(8px);
   }
-  .resume-ai-btn:hover { background: rgba(255,255,255,0.28) !important; border-color: rgba(255,255,255,0.50) !important; }
+  .resume-ai-btn:hover { background: rgba(255,255,255,0.28) !important; border-color:var(--text-muted) !important; }
 
-  /* ── LIVE SESSIONS ───────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ LIVE SESSIONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .live-section-card { background: var(--glass-bg) !important; border: 1px solid var(--glass-border) !important; box-shadow: var(--glass-shadow), var(--glass-highlight) !important; }
   .live-section-card:hover { background: var(--glass-bg-hover) !important; border-color: var(--glass-border-strong) !important; }
   .live-session-item {
@@ -1053,15 +1088,15 @@
   .live-session-item:hover { background: rgba(255,255,255,0.10) !important; border-color: var(--glass-border-strong) !important; transform: translateY(-2px); box-shadow: var(--glass-shadow-hover), var(--glass-highlight-strong) !important; }
   .join-btn { background: #3F9ED1 !important; color: #ffffff !important; }
   .join-btn:hover { background: #5FB2CC !important; }
-  .notify-btn { background: rgba(255,255,255,0.12) !important; color: rgba(255,255,255,0.75) !important; }
+  .notify-btn { background: rgba(255,255,255,0.12) !important; color:var(--text-primary) !important; }
   .notify-btn:hover { background: rgba(255,255,255,0.20) !important; color: #ffffff !important; }
   .live-badge { background: #ef4444; color: #ffffff; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
 
-  /* ══════════════════════════════════════════════════════════════
-     THEME STUDIO PANEL — premium customizer
-  ══════════════════════════════════════════════════════════════ */
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+     THEME STUDIO PANEL Ã¢â‚¬â€ premium customizer
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
   #theme-studio {
     width: min(420px, 100vw);
   }
@@ -1317,7 +1352,7 @@
   }
   .ts-input::placeholder { color: var(--text-muted); }
 
-  /* Sidebar palette quick-open CTA — full-width pill so it's unmissable */
+  /* Sidebar palette quick-open CTA Ã¢â‚¬â€ full-width pill so it's unmissable */
   .sidebar-palette-cta {
     width: 100%; padding: 10px 14px;
     display: inline-flex; align-items: center; gap: 10px;
@@ -1354,9 +1389,9 @@
   [data-sidebar="icon-only"] .sidebar-palette-cta .sidebar-palette-label,
   [data-sidebar="icon-only"] .sidebar-palette-cta .sidebar-palette-arrow { display: none; }
 
-  /* ── Theme Studio drawer — explicit open/close state ──
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Theme Studio drawer Ã¢â‚¬â€ explicit open/close state Ã¢â€â‚¬Ã¢â€â‚¬
      The drawer is closed by default. .open swaps state to visible.
-     pointer-events:none when closed → cannot block dashboard. */
+     pointer-events:none when closed Ã¢â€ â€™ cannot block dashboard. */
   .theme-studio-drawer {
     position: fixed;
     top: 0; right: 0;
@@ -1386,7 +1421,7 @@
   .sidebar-palette-cta,
   #close-customizer { cursor: pointer; pointer-events: auto; }
 
-  /* Mobile — bottom sheet */
+  /* Mobile Ã¢â‚¬â€ bottom sheet */
   @media (max-width: 640px) {
     .theme-studio-drawer {
       width: 100vw; max-width: 100vw;
@@ -1402,7 +1437,44 @@
     .theme-studio-drawer.closed { transform: translateY(110%); }
   }
 
-  /* ── Colour Palette popover (full settings panel) ── */
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+     PALETTE FAB Ã¢â‚¬â€ single floating palette icon in the corner that
+     opens the full Colour Palette popover (preset themes, design
+     styles, custom themes, colour pickers, surface, layout,
+     interaction). Mirrors the discoverability pattern on the auth
+     pages while keeping the chrome to a single button.
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
+  .quick-palette-fab {
+    position: fixed; top: 14px; right: 14px; z-index: 60;
+    width: 42px; height: 42px;
+    border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .quick-palette-fab:hover {
+    background: var(--glass-bg-strong);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-1px) scale(1.04);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.28), 0 0 16px color-mix(in srgb, var(--accent-primary) 35%, transparent);
+  }
+  .quick-palette-fab:active { transform: scale(0.96); }
+  .quick-palette-fab:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+  @media (max-width: 640px) {
+    .quick-palette-fab { top: 10px; right: 10px; width: 38px; height: 38px; }
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Colour Palette popover (full settings panel) Ã¢â€â‚¬Ã¢â€â‚¬ */
   .cp-popover {
     position: fixed;
     top: 64px; right: 16px;
@@ -1452,7 +1524,7 @@
   }
   .cp-section > summary::-webkit-details-marker { display: none; }
   .cp-section > summary::after {
-    content: "›"; font-size: 16px; color: var(--text-muted);
+    content: "Ã¢â‚¬Âº"; font-size: 16px; color: var(--text-muted);
     transform: rotate(0deg); transition: transform 0.2s ease;
   }
   .cp-section[open] > summary::after { transform: rotate(90deg); }
@@ -1659,18 +1731,18 @@
     resize: vertical;
   }
 
-  /* ── PROGRESS BARS ───────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ PROGRESS BARS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .progress-track { background: rgba(255,255,255,0.18) !important; }
   .progress-fill { background: linear-gradient(90deg,#7DC9CB,#5FB2CC) !important; }
   .progress-success { background: linear-gradient(90deg,#34d399,#22c55e) !important; }
   .progress-warning { background: linear-gradient(90deg,#fbbf24,#f59e0b) !important; }
   .progress-danger { background: linear-gradient(90deg,#fb7185,#ef4444) !important; }
 
-  /* ── SKILL GAP / MY LEARNING ─────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ SKILL GAP / MY LEARNING Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .skill-role-badge { background: rgba(34,197,94,0.18) !important; color: #86efac !important; border: 1px solid rgba(34,197,94,0.32) !important; border-radius: 9999px; font-size: 11px; font-weight: 700; padding: 3px 10px; }
   .skill-label { color: var(--text-secondary); }
 
-  /* ── OPPORTUNITIES ───────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ OPPORTUNITIES Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .opportunities-card { position: relative; overflow: hidden; }
   .opportunities-card::before {
     content: ""; position: absolute; inset: 0;
@@ -1705,10 +1777,10 @@
   }
   .opportunity-row.best-match:hover { transform: translateY(-4px) scale(1.045); }
   .opportunity-row h4 { color: #ffffff !important; font-size: 20px; line-height: 1.25; font-weight: 700; text-align: center; }
-  .role-meta { font-size: 12px; color: rgba(255,255,255,0.70) !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+  .role-meta { font-size: 12px; color:var(--text-secondary) !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
   .match-pill { display: inline-flex !important; align-items: center !important; gap: 4px; padding: 4px 10px; border-radius: 9999px; background: rgba(34,197,94,0.20) !important; border: 1px solid rgba(34,197,94,0.40) !important; color: #86efac !important; font-size: 11px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
   .best-match-flag { display: inline-flex !important; align-items: center !important; gap: 4px; padding: 4px 10px; border-radius: 9999px; background: linear-gradient(135deg, rgba(125,201,203,0.45), rgba(63,158,209,0.35)) !important; border: 1px solid rgba(125,201,203,0.55) !important; color: #ffffff !important; font-size: 10px; font-weight: 800; letter-spacing: 0.04em; flex-shrink: 0; }
-  .salary-label { color: rgba(255,255,255,0.50) !important; font-size: 9px !important; font-weight: 800 !important; letter-spacing: 0.08em; text-transform: uppercase; }
+  .salary-label { color:var(--text-muted) !important; font-size: 9px !important; font-weight: 800 !important; letter-spacing: 0.08em; text-transform: uppercase; }
   .salary-value { color: #ffffff !important; font-size: 14px !important; font-weight: 700 !important; display: inline-flex; align-items: center; gap: 4px; }
   .apply-btn {
     background: #3F9ED1 !important; color: #ffffff !important;
@@ -1726,7 +1798,7 @@
     font-size: 18px; display: flex; align-items: center; justify-content: center;
   }
 
-  /* ── COURSE CARDS ────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ COURSE CARDS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .course-recommendations {
     display: block !important; border-radius: 24px !important; padding: 24px !important;
     overflow: visible !important;
@@ -1756,7 +1828,7 @@
   .course-thumb.thumb-orange { background: linear-gradient(135deg,#fb923c,#ea580c); }
   .course-thumb.thumb-emerald { background: linear-gradient(135deg,#34d399,#059669); }
   .course-thumb.thumb-pink { background: linear-gradient(135deg,#f472b6,#db2777); }
-  .course-thumb .topic-icon { position: absolute; right: 12px; bottom: 12px; color: rgba(255,255,255,0.85); font-size: 28px; }
+  .course-thumb .topic-icon { position: absolute; right: 12px; bottom: 12px; color:var(--text-primary); font-size: 28px; }
   .badge-bestseller { background: linear-gradient(135deg,#fbbf24,#f59e0b) !important; color: #ffffff !important; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 6px; }
   .credits-indigo { color: #a5b4fc !important; }
   .credits-orange { color: #fdba74 !important; }
@@ -1764,7 +1836,7 @@
   .price-free { color: #6ee7b7 !important; background: rgba(16,185,129,0.15); padding: 2px 10px; border-radius: 9999px; border: 1px solid rgba(16,185,129,0.28); }
   .label-new { color: #7DC9CB !important; font-weight: 700 !important; }
 
-  /* ── CHATBOT FAB ─────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ CHATBOT FAB Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .chatbot-fab {
     background: #ffffff !important;
     border: 2px solid rgba(255,255,255,0.60) !important;
@@ -1787,7 +1859,7 @@
   @keyframes floatMeditation { 0%,100% { transform: translate(-50%,0px); } 50% { transform: translate(-50%,-5px); } }
   .chatbot-wrap:hover .chatbot-meditation { transform: translate(-50%,-6px) scale(1.05); }
 
-  /* ── MOBILE NAV ──────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ MOBILE NAV Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   nav.mobile-nav {
     background: rgba(255,255,255,0.10) !important;
     backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important;
@@ -1797,7 +1869,7 @@
   nav.mobile-nav button { color: var(--text-secondary) !important; }
   nav.mobile-nav button.active { color: #7DC9CB !important; }
 
-  /* ── GENERAL BUTTON OVERRIDES ────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ GENERAL BUTTON OVERRIDES Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .glass-btn {
     background: rgba(255,255,255,0.10) !important;
     border: 1px solid var(--glass-border) !important;
@@ -1806,7 +1878,7 @@
   }
   .glass-btn:hover { background: rgba(255,255,255,0.18) !important; border-color: var(--glass-border-strong) !important; }
 
-  /* ── CARD SIZES — duplicated from original homepage(8).html ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ CARD SIZES Ã¢â‚¬â€ duplicated from original homepage(8).html Ã¢â€â‚¬Ã¢â€â‚¬ */
   .welcome-hero-card { padding: 32px !important; }
   .assessment-engine-card { padding: 28px !important; }
 
@@ -1846,7 +1918,7 @@
   main .grid > .gc.md\:col-span-3 .icon-tile-success { width: 40px !important; height: 40px !important; }
   main .grid > .gc.md\:col-span-3 .metric-value { font-size: 36px !important; line-height: 1.1 !important; }
 
-  /* Resume Score card — compact internal sizing */
+  /* Resume Score card Ã¢â‚¬â€ compact internal sizing */
   .resume-score-card { gap: 4px; padding-bottom: 12px !important; }
   .resume-score-card h3 { font-size: 18px !important; }
   .resume-score-card p { font-size: 12px !important; line-height: 1.25 !important; }
@@ -1873,13 +1945,13 @@
     }
   }
 
-  /* ── ANIMATIONS ──────────────────────────────────────────── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ ANIMATIONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .animate-fade-up { animation: fadeUp 0.6s ease both; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes targetCountPop { 0%,18% { transform: scale(0.92); opacity: 0.65; } 100% { transform: scale(1); opacity: 1; } }
   @keyframes targetRingSpin { 0% { stroke-dashoffset: 352; } 100% { stroke-dashoffset: 106; } }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
      CINEMATIC BOKEH BACKGROUND
      Inspired by real-world glass UI (Apple Vision Pro, smart-home
      dashboards, AR overlays) where the glass floats above an
@@ -1887,57 +1959,57 @@
      turns light sources into soft circular blobs of colour.
 
      We replicate this with two layers:
-       L1 — 5 large slow-moving colour atmospheres (the "scene colour")
-       L2 — 22 bokeh dots (the "out-of-focus point lights")
+       L1 Ã¢â‚¬â€ 5 large slow-moving colour atmospheres (the "scene colour")
+       L2 Ã¢â‚¬â€ 22 bokeh dots (the "out-of-focus point lights")
 
      Together they make the backdrop look like a real room shot at f/1.4.
-     The glass cards' blur(22-28px) then frosted-smears these colours —
+     The glass cards' blur(22-28px) then frosted-smears these colours Ã¢â‚¬â€
      giving the Apple Vision Pro / Dribbble glass effect.
-  ══════════════════════════════════════════════════════════════ */
+  Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 
-  /* ── Container ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Container Ã¢â€â‚¬Ã¢â€â‚¬ */
   .bg-aura {
     position: fixed; inset: 0; z-index: 1;
     pointer-events: none; overflow: hidden;
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     L1: ATMOSPHERE ORBS — large, very blurry colour zones
+  /* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+     L1: ATMOSPHERE ORBS Ã¢â‚¬â€ large, very blurry colour zones
      Think of these as the overall "room lighting colour cast"
-  ───────────────────────────────────────────────────────────── */
+  Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .aura-blob {
     position: absolute; border-radius: 50%;
     filter: blur(100px); will-change: transform;
   }
-  .aura-1 {              /* Electric blue — upper-right region */
+  .aura-1 {              /* Electric blue Ã¢â‚¬â€ upper-right region */
     width: 700px; height: 700px;
     background: radial-gradient(circle at 40% 40%,
       rgba(56,122,255,0.80) 0%, rgba(29,78,216,0.45) 50%, transparent 75%);
     top: -200px; right: -150px;
     animation: auraDrift1 22s ease-in-out infinite; opacity: 0.72;
   }
-  .aura-2 {              /* Cyan — lower-left region */
+  .aura-2 {              /* Cyan Ã¢â‚¬â€ lower-left region */
     width: 620px; height: 620px;
     background: radial-gradient(circle at 55% 55%,
       rgba(0,194,222,0.72) 0%, rgba(8,145,178,0.36) 50%, transparent 75%);
     bottom: -160px; left: -130px;
     animation: auraDrift2 27s ease-in-out infinite; opacity: 0.68;
   }
-  .aura-3 {              /* Deep violet — mid-left */
+  .aura-3 {              /* Deep violet Ã¢â‚¬â€ mid-left */
     width: 480px; height: 480px;
     background: radial-gradient(circle at 50% 45%,
       rgba(149,76,255,0.68) 0%, rgba(109,40,217,0.32) 50%, transparent 75%);
     top: 30%; left: 4%;
     animation: auraDrift3 30s ease-in-out infinite; opacity: 0.58;
   }
-  .aura-4 {              /* Teal-green — lower-right */
+  .aura-4 {              /* Teal-green Ã¢â‚¬â€ lower-right */
     width: 420px; height: 420px;
     background: radial-gradient(circle at 50% 50%,
       rgba(0,210,140,0.62) 0%, rgba(5,150,105,0.28) 50%, transparent 75%);
     bottom: 8%; right: 3%;
     animation: auraDrift4 24s ease-in-out infinite; opacity: 0.52;
   }
-  .aura-5 {              /* Rose-indigo — centre */
+  .aura-5 {              /* Rose-indigo Ã¢â‚¬â€ centre */
     width: 360px; height: 360px;
     background: radial-gradient(circle at 50% 50%,
       rgba(168,85,247,0.58) 0%, rgba(79,70,229,0.22) 50%, transparent 75%);
@@ -1969,7 +2041,7 @@
     50%     { transform: translate(-65px,-45px) scale(1.15); }
   }
 
-  /* Warm-amber atmosphere — gold/copper/amber bokeh instead of cool blues */
+  /* Warm-amber atmosphere Ã¢â‚¬â€ gold/copper/amber bokeh instead of cool blues */
   [data-theme="warm-amber"] .aura-1 {
     background: radial-gradient(circle at 40% 40%,
       rgba(255,180,90,0.78) 0%, rgba(180,110,40,0.42) 50%, transparent 75%);
@@ -1991,17 +2063,17 @@
       rgba(255,210,140,0.55) 0%, rgba(190,130,60,0.22) 50%, transparent 75%);
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     L2: BOKEH DOTS — camera out-of-focus point lights.
+  /* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+     L2: BOKEH DOTS Ã¢â‚¬â€ camera out-of-focus point lights.
      These are the small/medium glowing circles you see in the
      reference designs (smartphone bokeh, Apple Vision Pro env).
      Each is a circle with a bright core fading to transparent.
-  ───────────────────────────────────────────────────────────── */
+  Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
   .bk {
     position: absolute; border-radius: 50%;
     will-change: transform, opacity;
     animation: bkFloat linear infinite;
-    /* default — overridden per dot */
+    /* default Ã¢â‚¬â€ overridden per dot */
     width: 20px; height: 20px;
     background: radial-gradient(circle at 38% 34%,
       rgba(255,255,255,0.90) 0%,
@@ -2041,7 +2113,7 @@
   body > main         { position: relative; z-index: 5; }
   body > nav.mobile-nav { position: relative; z-index: 50; }
 
-  /* ── GLASS CARD LIGHT REFRACTION — stronger ::before sweep ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ GLASS CARD LIGHT REFRACTION Ã¢â‚¬â€ stronger ::before sweep Ã¢â€â‚¬Ã¢â€â‚¬ */
   /* The top-left corner highlight simulates light bending through glass */
   .gc::before, .gl::before,
   .welcome-hero-card::before,
@@ -2052,7 +2124,7 @@
       transparent 55%) !important;
   }
 
-  /* ── GRADIENT GLASS BORDER EDGE — ultra-fine top highlight line ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ GRADIENT GLASS BORDER EDGE Ã¢â‚¬â€ ultra-fine top highlight line Ã¢â€â‚¬Ã¢â€â‚¬ */
   /* A second ::after overlay creates a gradient border that fades left-to-right,
      mimicking light catching the edge of thick glass */
   .gc, .gl,
@@ -2063,11 +2135,11 @@
     box-shadow:
       var(--glass-shadow),
       var(--glass-highlight),
-      /* Outer edge glow — soft color bloom around the card */
+      /* Outer edge glow Ã¢â‚¬â€ soft color bloom around the card */
       0 0 0 0.5px rgba(255,255,255,0.12);
   }
 
-  /* ── SIDEBAR — more transparent, let aura bleed through ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ SIDEBAR Ã¢â‚¬â€ more transparent, let aura bleed through Ã¢â€â‚¬Ã¢â€â‚¬ */
   aside, aside.sidebar-glass {
     background: rgba(14,30,90,0.28) !important;
     backdrop-filter: blur(28px) saturate(200%) !important;
@@ -2078,7 +2150,7 @@
       inset -1px 0 0 rgba(255,255,255,0.06) !important;
   }
 
-  /* ── HEADER — razor-thin glass bar ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ HEADER Ã¢â‚¬â€ razor-thin glass bar Ã¢â€â‚¬Ã¢â€â‚¬ */
   header {
     background: rgba(10,20,70,0.20) !important;
     backdrop-filter: blur(24px) saturate(200%) !important;
@@ -2089,7 +2161,7 @@
       0 1px 0 rgba(255,255,255,0.06) !important;
   }
 
-  /* ── SHIMMER — make sweep more visible against blurred blobs ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ SHIMMER Ã¢â‚¬â€ make sweep more visible against blurred blobs Ã¢â€â‚¬Ã¢â€â‚¬ */
   .shimmer-card::after {
     background: linear-gradient(120deg,
       transparent 0%,
@@ -2099,14 +2171,14 @@
       transparent 100%) !important;
   }
 
-  /* ── MOBILE NAV — transparent glass bar ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ MOBILE NAV Ã¢â‚¬â€ transparent glass bar Ã¢â€â‚¬Ã¢â€â‚¬ */
   nav.mobile-nav {
     background: rgba(10,20,70,0.35) !important;
     backdrop-filter: blur(24px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
   }
 
-  /* ── CUSTOMIZER INPUTS ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ CUSTOMIZER INPUTS Ã¢â€â‚¬Ã¢â€â‚¬ */
   .shimmer-card::after { display: none !important; }
 
   :root {
@@ -2337,12 +2409,21 @@
 </head>
 <body class="antialiased">
 
-<!-- ═══════════════════ CINEMATIC BOKEH WALLPAPER ═══════════════════
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+     Floating palette button Ã¢â‚¬â€ single round icon that opens the full
+     Colour Palette popover (preset themes, design styles, custom
+     themes, colour pickers, glass surface, layout, interaction).
+Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
+<button id="quick-theme-more" type="button" class="quick-palette-fab" title="Open colour palette" aria-label="Open colour palette">
+  <span class="material-symbols-outlined" style="font-size:22px;">palette</span>
+</button>
+
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â CINEMATIC BOKEH WALLPAPER Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
      L1: 5 large atmosphere orbs (colour cast, like room lighting)
      L2: 22 bokeh dots (shallow-DOF out-of-focus point lights)
      Together they make the glass cards blur through a real-looking
-     environment — Apple Vision Pro / smart-home glass reference style.
-═══════════════════════════════════════════════════════════════════ -->
+     environment Ã¢â‚¬â€ Apple Vision Pro / smart-home glass reference style.
+Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <div class="bg-aura" aria-hidden="true">
 
   <!-- L1: Atmosphere orbs -->
@@ -2352,33 +2433,33 @@
   <span class="aura-blob aura-4"></span>
   <span class="aura-blob aura-5"></span>
 
-  <!-- L2: Bokeh dots — large -->
+  <!-- L2: Bokeh dots Ã¢â‚¬â€ large -->
   <span class="bk bk-xl bk-blue"   style="top:5%;   left:12%;  --bo:0.50; --dx:18px;  --dy:-22px; animation-duration:19s; animation-delay:-4s;"></span>
   <span class="bk bk-xl bk-cyan"   style="top:60%;  right:8%;  --bo:0.45; --dx:-20px; --dy:16px;  animation-duration:23s; animation-delay:-11s;"></span>
   <span class="bk bk-xl bk-purple" style="top:40%;  left:55%;  --bo:0.40; --dx:14px;  --dy:-18px; animation-duration:27s; animation-delay:-7s;"></span>
 
-  <!-- L2: Bokeh dots — medium -->
+  <!-- L2: Bokeh dots Ã¢â‚¬â€ medium -->
   <span class="bk bk-lg bk-white"  style="top:18%;  left:38%;  --bo:0.60; --dx:-16px; --dy:12px;  animation-duration:15s; animation-delay:-2s;"></span>
   <span class="bk bk-lg bk-cyan"   style="top:72%;  left:22%;  --bo:0.50; --dx:20px;  --dy:-15px; animation-duration:18s; animation-delay:-9s;"></span>
   <span class="bk bk-lg bk-teal"   style="top:28%;  right:20%; --bo:0.48; --dx:-12px; --dy:20px;  animation-duration:21s; animation-delay:-14s;"></span>
   <span class="bk bk-lg bk-blue"   style="top:82%;  left:62%;  --bo:0.45; --dx:18px;  --dy:-10px; animation-duration:16s; animation-delay:-5s;"></span>
   <span class="bk bk-lg bk-purple" style="top:10%;  right:40%; --bo:0.42; --dx:-14px; --dy:18px;  animation-duration:24s; animation-delay:-18s;"></span>
 
-  <!-- L2: Bokeh dots — small/medium -->
+  <!-- L2: Bokeh dots Ã¢â‚¬â€ small/medium -->
   <span class="bk bk-md bk-white"  style="top:8%;   left:68%;  --bo:0.70; --dx:10px;  --dy:-14px; animation-duration:13s; animation-delay:-3s;"></span>
   <span class="bk bk-md bk-cyan"   style="top:48%;  left:8%;   --bo:0.62; --dx:-12px; --dy:10px;  animation-duration:17s; animation-delay:-8s;"></span>
   <span class="bk bk-md bk-teal"   style="top:90%;  right:32%; --bo:0.55; --dx:14px;  --dy:-8px;  animation-duration:14s; animation-delay:-1s;"></span>
   <span class="bk bk-md bk-blue"   style="top:35%;  right:48%; --bo:0.58; --dx:-10px; --dy:14px;  animation-duration:20s; animation-delay:-16s;"></span>
   <span class="bk bk-md bk-purple" style="top:65%;  left:42%;  --bo:0.50; --dx:16px;  --dy:-12px; animation-duration:22s; animation-delay:-12s;"></span>
 
-  <!-- L2: Bokeh dots — small -->
+  <!-- L2: Bokeh dots Ã¢â‚¬â€ small -->
   <span class="bk bk-sm bk-white"  style="top:22%;  left:80%;  --bo:0.80; --dx:-8px;  --dy:10px;  animation-duration:11s; animation-delay:-5s;"></span>
   <span class="bk bk-sm bk-cyan"   style="top:54%;  left:28%;  --bo:0.72; --dx:10px;  --dy:-8px;  animation-duration:14s; animation-delay:-7s;"></span>
   <span class="bk bk-sm bk-blue"   style="top:78%;  right:15%; --bo:0.68; --dx:-6px;  --dy:10px;  animation-duration:12s; animation-delay:-3s;"></span>
   <span class="bk bk-sm bk-teal"   style="top:15%;  left:50%;  --bo:0.75; --dx:8px;   --dy:-12px; animation-duration:16s; animation-delay:-10s;"></span>
   <span class="bk bk-sm bk-purple" style="top:42%;  right:6%;  --bo:0.65; --dx:-10px; --dy:8px;   animation-duration:13s; animation-delay:-6s;"></span>
 
-  <!-- L2: Bokeh dots — tiny accent sparks -->
+  <!-- L2: Bokeh dots Ã¢â‚¬â€ tiny accent sparks -->
   <span class="bk bk-xs bk-white"  style="top:30%;  left:72%;  --bo:0.90; --dx:6px;   --dy:-8px;  animation-duration:9s;  animation-delay:-2s;"></span>
   <span class="bk bk-xs bk-cyan"   style="top:58%;  left:88%;  --bo:0.85; --dx:-6px;  --dy:6px;   animation-duration:10s; animation-delay:-4s;"></span>
   <span class="bk bk-xs bk-white"  style="top:88%;  left:10%;  --bo:0.88; --dx:8px;   --dy:-6px;  animation-duration:8s;  animation-delay:-1s;"></span>
@@ -2386,7 +2467,7 @@
 
 </div>
 
-<!-- ═══════════════════════════════ SIDEBAR ═══════════════════════════════ -->
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â SIDEBAR Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <aside class="sidebar-glass hidden md:flex flex-col p-5 gap-6 h-screen w-64 fixed left-0 top-0 z-50 transition-all duration-300">
   <div class="flex items-center gap-3">
     <div>
@@ -2462,17 +2543,17 @@
   </nav>
 </aside>
 
-<!-- ═══════════════════════════════ HEADER ════════════════════════════════ -->
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â HEADER Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <header class="sticky top-0 z-40 flex items-center gap-4 h-16 px-6 w-full md:pl-72 border-b" style="border-color:rgba(255,255,255,0.18);">
-  <!-- LEFT — Search -->
+  <!-- LEFT Ã¢â‚¬â€ Search -->
   <div class="flex-1 flex items-center min-w-0">
     <div class="search-shell relative shrink-0 rounded-full">
-      <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[18px]" style="color:rgba(255,255,255,0.50);">search</span>
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[18px]" style="color:var(--text-muted);">search</span>
       <input class="rounded-full py-2 pl-10 pr-4 w-52 lg:w-64 xl:w-72 text-sm transition-all duration-300" placeholder="Search lessons, skills..." type="text"/>
     </div>
   </div>
 
-  <!-- CENTER — Quick nav pills -->
+  <!-- CENTER Ã¢â‚¬â€ Quick nav pills -->
   <nav class="hidden lg:flex items-center justify-center gap-2 shrink-0">
     <button class="nav-pill h-9 px-4 rounded-full flex items-center gap-1.5 text-xs font-semibold whitespace-nowrap hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
       <span class="material-symbols-outlined text-[15px]">school</span><span>Courses</span>
@@ -2488,7 +2569,7 @@
     </button>
   </nav>
 
-  <!-- RIGHT — Utilities + profile -->
+  <!-- RIGHT Ã¢â‚¬â€ Utilities + profile -->
   <div class="flex-1 flex items-center justify-end gap-3">
     <button id="open-customizer" type="button" class="glass-btn w-10 h-10 rounded-full flex items-center justify-center active:scale-95 shrink-0 hover:scale-105" title="Colour palette" aria-label="Open colour palette">
       <span class="material-symbols-outlined text-[18px]">palette</span>
@@ -2499,7 +2580,7 @@
     <div class="flex items-center gap-3 pl-3 shrink-0" style="border-left:1px solid rgba(255,255,255,0.18);">
       <div class="text-right hidden 2xl:block">
         <p class="text-xs font-bold text-white whitespace-nowrap">Alex Johnson</p>
-        <p class="text-[10px]" style="color:rgba(255,255,255,0.60);">Pro Student</p>
+        <p class="text-[10px]" style="color:var(--text-secondary);">Pro Student</p>
       </div>
       <a href="login.html" title="Sign out" class="relative w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 shrink-0" style="background:linear-gradient(135deg,#5FB2CC,#3F9ED1,#4F79D9);border:1px solid rgba(255,255,255,0.30);box-shadow:0 4px 14px rgba(63,158,209,0.40);text-decoration:none;">
         <span class="material-symbols-outlined text-white text-[18px]">person</span>
@@ -2509,10 +2590,10 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════════ MAIN ══════════════════════════════════ -->
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â MAIN Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <main class="md:ml-64 p-6 md:p-8 pb-28 md:pb-12 space-y-8 animate-fade-up">
 
-  <!-- ── ROW 1: Hero + Assessment ────────────────────────────── -->
+  <!-- Ã¢â€â‚¬Ã¢â€â‚¬ ROW 1: Hero + Assessment Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Welcome Hero -->
     <div class="welcome-hero-card accent-top accent-mint rounded-[20px] min-w-0 space-y-4 z-10 text-center md:text-left flex flex-col justify-center">
@@ -2538,7 +2619,7 @@
       <div class="flex justify-between items-start mb-6">
         <div class="space-y-1">
           <h3 class="text-2xl font-semibold">Assessment Engine</h3>
-          <p class="text-sm" style="color:rgba(255,255,255,0.65);">Identify your skill gaps with AI-driven testing</p>
+          <p class="text-sm" style="color:var(--text-secondary);">Identify your skill gaps with AI-driven testing</p>
         </div>
         <div class="assessment-header-icon w-12 h-12 rounded-xl flex items-center justify-center text-white">
           <span class="material-symbols-outlined">quiz</span>
@@ -2548,7 +2629,7 @@
         <div class="assessment-test-card space-y-3 cursor-pointer">
           <div class="assessment-test-icon icon-blue"><span class="material-symbols-outlined">code</span></div>
           <h4 class="font-bold text-white">Backend System Design</h4>
-          <div class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.60);">
+          <div class="flex items-center gap-2 text-xs" style="color:var(--text-secondary);">
             <span class="material-symbols-outlined text-sm">timer</span><span>45 Mins</span>
             <span class="difficulty-badge badge-hard">Hard</span>
           </div>
@@ -2556,14 +2637,14 @@
         <div class="assessment-test-card space-y-3 cursor-pointer">
           <div class="assessment-test-icon icon-purple"><span class="material-symbols-outlined">psychology</span></div>
           <h4 class="font-bold text-white">Data Structures &amp; Algos</h4>
-          <div class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.60);">
+          <div class="flex items-center gap-2 text-xs" style="color:var(--text-secondary);">
             <span class="material-symbols-outlined text-sm">timer</span><span>30 Mins</span>
             <span class="difficulty-badge badge-medium">Medium</span>
           </div>
         </div>
       </div>
       <div class="assessment-footer mt-6 pt-5 flex justify-between items-center">
-        <p class="text-sm" style="color:rgba(255,255,255,0.60);">Last assessment: <span class="font-bold text-white">2 days ago</span></p>
+        <p class="text-sm" style="color:var(--text-secondary);">Last assessment: <span class="font-bold text-white">2 days ago</span></p>
         <button class="insights-btn flex items-center gap-2 text-sm font-bold active:scale-95">
           View Detailed Insights
           <span class="material-symbols-outlined text-base insights-arrow">arrow_forward</span>
@@ -2572,12 +2653,12 @@
     </div>
   </div>
 
-  <!-- ── ROW 2: BENTO GRID ──────────────────────────────────── -->
+  <!-- Ã¢â€â‚¬Ã¢â€â‚¬ ROW 2: BENTO GRID Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ -->
   <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
 
     <!-- Target Tracker -->
     <div class="target-tracker-card shimmer-card gc md:col-span-3 p-6 flex flex-col items-center justify-between text-center">
-      <h4 class="font-bold text-[11px] uppercase tracking-widest" style="color:rgba(255,255,255,0.60);">Target Tracker</h4>
+      <h4 class="font-bold text-[11px] uppercase tracking-widest" style="color:var(--text-secondary);">Target Tracker</h4>
       <div class="relative w-32 h-32 flex items-center justify-center my-4">
         <svg class="w-full h-full -rotate-90" viewBox="0 0 128 128">
           <defs>
@@ -2592,12 +2673,12 @@
         </svg>
         <div class="absolute">
           <span class="target-days-count text-3xl font-black">4</span>
-          <p class="text-[10px] font-bold" style="color:rgba(255,255,255,0.60);">DAYS LEFT</p>
+          <p class="text-[10px] font-bold" style="color:var(--text-secondary);">DAYS LEFT</p>
         </div>
       </div>
       <div>
         <p class="font-bold text-white">Finish React Basics</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.55);">Deadline: Fri, 24 Oct</p>
+        <p class="text-xs" style="color:var(--text-muted);">Deadline: Fri, 24 Oct</p>
       </div>
     </div>
 
@@ -2642,7 +2723,7 @@
           <span class="streak-number">12</span>
           <span class="streak-days">days</span>
         </p>
-        <p class="mt-2 text-xs streak-message font-semibold flex items-center gap-1">You're on fire! 🔥</p>
+        <p class="mt-2 text-xs streak-message font-semibold flex items-center gap-1">You're on fire! Ã°Å¸â€Â¥</p>
       </div>
       <div class="relative z-10 mt-4">
         <div class="flex items-center gap-2">
@@ -2661,7 +2742,7 @@
           <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">account_balance_wallet</span>
         </div>
         <div>
-          <h4 class="text-sm font-bold uppercase tracking-widest" style="color:rgba(255,255,255,0.60);">Credits</h4>
+          <h4 class="text-sm font-bold uppercase tracking-widest" style="color:var(--text-secondary);">Credits</h4>
           <p class="metric-value text-4xl font-black">2,450</p>
         </div>
       </div>
@@ -2674,7 +2755,7 @@
     <div class="resume-score-card shimmer-card md:col-span-3 rounded-[20px] p-6 flex flex-col justify-between">
       <div class="space-y-1">
         <h3 class="text-xl font-semibold">Resume Score</h3>
-        <p class="text-xs" style="color:rgba(255,255,255,0.65);">AI analysis of your latest PDF</p>
+        <p class="text-xs" style="color:var(--text-secondary);">AI analysis of your latest PDF</p>
       </div>
       <div class="flex flex-col items-center justify-center py-2">
         <div class="relative w-28 h-28 flex items-center justify-center">
@@ -2684,7 +2765,7 @@
           </svg>
           <div class="absolute flex flex-col items-center">
             <span class="metric-value text-3xl font-black">85%</span>
-            <span class="text-[9px] font-bold" style="color:rgba(255,255,255,0.65);">READY</span>
+            <span class="text-[9px] font-bold" style="color:var(--text-secondary);">READY</span>
           </div>
         </div>
       </div>
@@ -2719,7 +2800,7 @@
             </div>
             <div class="flex-1">
               <h4 class="font-bold text-white line-clamp-1">FAANG Interview Strategy</h4>
-              <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.60);">By Sarah Williams &bull; Senior Eng @ Meta</p>
+              <p class="text-xs mt-0.5" style="color:var(--text-secondary);">By Sarah Williams &bull; Senior Eng @ Meta</p>
               <button class="join-btn mt-2 text-xs font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-all">Join Room</button>
             </div>
           </div>
@@ -2735,7 +2816,7 @@
             </div>
             <div class="flex-1">
               <h4 class="font-bold text-white line-clamp-1">Advanced React Hooks</h4>
-              <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.60);">Today, 5:00 PM &bull; Prof. David Chen</p>
+              <p class="text-xs mt-0.5" style="color:var(--text-secondary);">Today, 5:00 PM &bull; Prof. David Chen</p>
               <button class="notify-btn mt-2 text-xs font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-all">Notify Me</button>
             </div>
           </div>
@@ -2751,7 +2832,7 @@
             </div>
             <div class="flex-1">
               <h4 class="font-bold text-white line-clamp-1">Building Scalable APIs</h4>
-              <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.60);">Tomorrow, 11:00 AM &bull; Maria Garcia</p>
+              <p class="text-xs mt-0.5" style="color:var(--text-secondary);">Tomorrow, 11:00 AM &bull; Maria Garcia</p>
               <button class="notify-btn mt-2 text-xs font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-all">Notify Me</button>
             </div>
           </div>
@@ -2767,7 +2848,7 @@
             </div>
             <div class="flex-1">
               <h4 class="font-bold text-white line-clamp-1">Machine Learning Fundamentals</h4>
-              <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.60);">Wed, 3:00 PM &bull; Dr. Priya Nair</p>
+              <p class="text-xs mt-0.5" style="color:var(--text-secondary);">Wed, 3:00 PM &bull; Dr. Priya Nair</p>
               <button class="notify-btn mt-2 text-xs font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-all">Notify Me</button>
             </div>
           </div>
@@ -2783,7 +2864,7 @@
     <div class="shimmer-card gc accent-top accent-success md:col-span-6 p-6 space-y-5">
       <div class="flex justify-between items-center">
         <h3 class="text-2xl font-semibold text-white">My Learning</h3>
-        <span class="text-[11px] font-bold tracking-widest" style="color:rgba(255,255,255,0.55);">4 ACTIVE</span>
+        <span class="text-[11px] font-bold tracking-widest" style="color:var(--text-muted);">4 ACTIVE</span>
       </div>
       <div class="space-y-4">
         <div class="space-y-2">
@@ -2875,7 +2956,7 @@
       <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-6">
         <div>
           <h3 class="text-3xl font-semibold text-white">Opportunities</h3>
-          <p class="text-sm mt-1" style="color:rgba(255,255,255,0.65);">Top role matches based on your current skill profile</p>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);">Top role matches based on your current skill profile</p>
         </div>
         <div class="flex items-center gap-2">
           <span class="glass-btn px-3 py-1 rounded-full text-xs font-bold">3 new roles</span>
@@ -2943,12 +3024,12 @@
 
   </div><!-- end bento grid -->
 
-  <!-- ── COURSE RECOMMENDATIONS ─────────────────────────────── -->
+  <!-- Ã¢â€â‚¬Ã¢â€â‚¬ COURSE RECOMMENDATIONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ -->
   <section class="course-recommendations">
     <div class="flex justify-between items-end gap-4 mb-5">
       <div>
         <h3 class="text-3xl font-semibold text-white">Personalized for You</h3>
-        <p class="text-sm mt-1" style="color:rgba(255,255,255,0.65);">Based on your recent assessment performance</p>
+        <p class="text-sm mt-1" style="color:var(--text-secondary);">Based on your recent assessment performance</p>
       </div>
       <button class="glass-btn px-4 py-2 rounded-full font-bold text-sm active:scale-95 whitespace-nowrap">Explore Library</button>
     </div>
@@ -2964,7 +3045,7 @@
         </div>
         <div class="p-4 flex flex-col gap-2 flex-1">
           <h4 class="font-bold text-sm text-white line-clamp-2 leading-snug">Full Stack Next.js &amp; GraphQL Masterclass</h4>
-          <span class="text-xs" style="color:rgba(255,255,255,0.60);">4.2k students</span>
+          <span class="text-xs" style="color:var(--text-secondary);">4.2k students</span>
           <div class="pt-3 mt-auto border-t flex justify-between items-center" style="border-color:rgba(255,255,255,0.12);">
             <span class="font-black text-sm credits-indigo">450 Credits</span>
           </div>
@@ -2979,7 +3060,7 @@
         </div>
         <div class="p-4 flex flex-col gap-2 flex-1">
           <h4 class="font-bold text-sm text-white line-clamp-2 leading-snug">Data Structures for FAANG Interview</h4>
-          <span class="text-xs" style="color:rgba(255,255,255,0.60);">1.8k students</span>
+          <span class="text-xs" style="color:var(--text-secondary);">1.8k students</span>
           <div class="pt-3 mt-auto border-t flex justify-between items-center" style="border-color:rgba(255,255,255,0.12);">
             <span class="font-black text-sm credits-orange">600 Credits</span>
           </div>
@@ -3009,7 +3090,7 @@
         </div>
         <div class="p-4 flex flex-col gap-2 flex-1">
           <h4 class="font-bold text-sm text-white line-clamp-2 leading-snug">Product Design &amp; Prototyping in Figma</h4>
-          <span class="text-xs" style="color:rgba(255,255,255,0.60);">9k students</span>
+          <span class="text-xs" style="color:var(--text-secondary);">9k students</span>
           <div class="pt-3 mt-auto border-t flex justify-between items-center" style="border-color:rgba(255,255,255,0.12);">
             <span class="font-black text-xs price-free">FREE</span>
           </div>
@@ -3021,7 +3102,7 @@
 
 </main>
 
-<!-- ═══════════════════════════════ CHATBOT FAB ═══════════════════════════ -->
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â CHATBOT FAB Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <div class="chatbot-wrap group fixed bottom-24 right-5 md:bottom-6 md:right-6 z-50">
   <div class="chatbot-meditation">
     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full block drop-shadow-lg" aria-hidden="true">
@@ -3113,35 +3194,51 @@
   </button>
 </div>
 
-<!-- ═══════════════════════════════ MOBILE NAV ════════════════════════════ -->
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â MOBILE NAV Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <nav class="mobile-nav bottom-action-bar md:hidden fixed bottom-0 left-0 right-0 border-t z-50 flex justify-around items-center h-20 px-4" style="border-color:rgba(255,255,255,0.18);">
   <button class="active flex flex-col items-center gap-1 transition-all duration-200 active:scale-95">
     <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">home</span>
     <span class="text-[10px] font-bold">Home</span>
   </button>
-  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:rgba(255,255,255,0.55);">
+  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:var(--text-muted);">
     <span class="material-symbols-outlined">school</span>
     <span class="text-[10px] font-bold">Courses</span>
   </button>
-  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:rgba(255,255,255,0.55);">
+  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:var(--text-muted);">
     <span class="material-symbols-outlined">workspaces</span>
     <span class="text-[10px] font-bold">Projects</span>
   </button>
-  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:rgba(255,255,255,0.55);">
+  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:var(--text-muted);">
     <span class="material-symbols-outlined">auto_awesome</span>
     <span class="text-[10px] font-bold">AI</span>
   </button>
-  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:rgba(255,255,255,0.55);">
+  <button class="flex flex-col items-center gap-1 transition-all duration-200 active:scale-95" style="color:var(--text-muted);">
     <span class="material-symbols-outlined">person</span>
     <span class="text-[10px] font-bold">Profile</span>
   </button>
 </nav>
 
 
-<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<!-- Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â SCRIPTS Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â -->
 <script>
-/* ── Convert Material Symbols → Lucide icons ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Convert Material Symbols Ã¢â€ â€™ Lucide icons Ã¢â€â‚¬Ã¢â€â‚¬ */
 (function () {
+  /* OAuth return handler — backend redirects here with tokens in the URL
+     fragment after Google / Microsoft sign-in. Persist under the same keys
+     the login page uses, then strip the hash. */
+  (function captureOauthTokens() {
+    if (!location.hash || location.hash.length < 2) return;
+    var p = new URLSearchParams(location.hash.slice(1));
+    var at = p.get('access_token');
+    if (!at) return;
+    localStorage.setItem('vidyouth_access_token', at);
+    if (p.get('refresh_token')) localStorage.setItem('vidyouth_refresh_token', p.get('refresh_token'));
+    localStorage.setItem('vidyouth_token_type', p.get('token_type') || 'Bearer');
+    localStorage.setItem('vidyouth_token_expires_at',
+      String(Date.now() + (parseInt(p.get('expires_in') || '900', 10) * 1000)));
+    history.replaceState(null, '', location.pathname + location.search);
+  })();
+
   const map = {
     'school':'graduation-cap','home':'home','play_lesson':'play-circle','live_tv':'tv',
     'analytics':'bar-chart-3','workspaces':'layers','query_stats':'trending-up',
@@ -3171,7 +3268,7 @@
 })();
 
 
-/* ── Scroll reveal ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Scroll reveal Ã¢â€â‚¬Ã¢â€â‚¬ */
 (function () {
   const els = Array.from(new Set([
     ...document.querySelectorAll('header'),
@@ -3204,7 +3301,7 @@
   els.forEach(el => obs.observe(el));
 })();
 
-/* ── Live sessions scroll ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Live sessions scroll Ã¢â€â‚¬Ã¢â€â‚¬ */
 (function () {
   const container = document.getElementById('liveScroll');
   const left = document.getElementById('scrollLeft');
@@ -3222,7 +3319,7 @@
   update();
 })();
 
-/* ── Interactive Shimmer/Glitter Hover Effect ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Interactive Shimmer/Glitter Hover Effect Ã¢â€â‚¬Ã¢â€â‚¬ */
 (function () {
   // Selectors for elements that should have hover shimmer.
   // Cards, sidebar features, search shell, important buttons.
@@ -3343,7 +3440,7 @@
   }
 })();
 
-/* ── Colour Palette — full-featured popover ──
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Colour Palette Ã¢â‚¬â€ full-featured popover Ã¢â€â‚¬Ã¢â€â‚¬
    Everything from the old Theme Studio but in a popover anchored to
    the header palette icon: theme presets, design styles, custom themes
    (CRUD), global colours, glass surface controls, layout controls,
@@ -3369,7 +3466,19 @@
     'apple-dark':   { label: 'Apple Dark',   swatch: 'linear-gradient(135deg,#000,#2997FF)',
       vars: { '--bg-primary':'#000000','--bg-secondary':'#161617','--glass-base':'255,255,255','--glass-bg-alpha':'0.08','--glass-bg-strong-alpha':'0.14','--glass-border-base':'255,255,255','--glass-border-alpha':'0.12','--glass-border-strong-alpha':'0.22','--accent-primary':'#2997FF','--accent-secondary':'#BF5AF2','--success':'#30D158','--warning':'#FFD60A','--danger':'#FF453A','--text-primary':'#F5F5F7','--text-secondary':'#D2D2D7','--text-muted':'#86868B','--shadow-color':'0,0,0','--blur-strength':'26px' }},
     'swiss-white':  { label: 'Swiss White',  swatch: 'linear-gradient(135deg,#F6F5F1,#111827)',
-      vars: { '--bg-primary':'#F6F5F1','--bg-secondary':'#EAE7DF','--glass-base':'255,255,255','--glass-bg-alpha':'0.72','--glass-bg-strong-alpha':'0.88','--glass-border-base':'20,20,20','--glass-border-alpha':'0.10','--glass-border-strong-alpha':'0.18','--accent-primary':'#111827','--accent-secondary':'#D97706','--success':'#15803D','--warning':'#D97706','--danger':'#DC2626','--text-primary':'#111827','--text-secondary':'#4B5563','--text-muted':'#6B7280','--shadow-color':'30,30,30','--blur-strength':'8px' }}
+      vars: { '--bg-primary':'#F6F5F1','--bg-secondary':'#EAE7DF','--glass-base':'255,255,255','--glass-bg-alpha':'0.72','--glass-bg-strong-alpha':'0.88','--glass-border-base':'20,20,20','--glass-border-alpha':'0.10','--glass-border-strong-alpha':'0.18','--accent-primary':'#111827','--accent-secondary':'#D97706','--success':'#15803D','--warning':'#D97706','--danger':'#DC2626','--text-primary':'#111827','--text-secondary':'#4B5563','--text-muted':'#6B7280','--shadow-color':'30,30,30','--blur-strength':'8px' }},
+    'rose-blush':   { label: 'Rose Blush',   swatch: 'linear-gradient(135deg,#FB7185,#3F0F1F)',
+      vars: { '--bg-primary':'#1F0710','--bg-secondary':'#3A1224','--glass-base':'255,210,225','--glass-bg-alpha':'0.10','--glass-bg-strong-alpha':'0.16','--glass-border-base':'251,113,133','--glass-border-alpha':'0.22','--glass-border-strong-alpha':'0.36','--accent-primary':'#FB7185','--accent-secondary':'#F43F5E','--success':'#34D399','--warning':'#FBBF24','--danger':'#EF4444','--text-primary':'#FFF1F4','--text-secondary':'#F5C8D2','--text-muted':'#C99AA7','--shadow-color':'40,5,15','--blur-strength':'24px' }},
+    'ocean-deep':   { label: 'Ocean Deep',   swatch: 'linear-gradient(135deg,#22D3EE,#082F49)',
+      vars: { '--bg-primary':'#04141F','--bg-secondary':'#082F49','--glass-base':'190,230,245','--glass-bg-alpha':'0.10','--glass-bg-strong-alpha':'0.16','--glass-border-base':'34,211,238','--glass-border-alpha':'0.22','--glass-border-strong-alpha':'0.36','--accent-primary':'#22D3EE','--accent-secondary':'#0EA5E9','--success':'#34D399','--warning':'#FACC15','--danger':'#F87171','--text-primary':'#ECFEFF','--text-secondary':'#C7EFF7','--text-muted':'#8EBDC8','--shadow-color':'0,20,35','--blur-strength':'24px' }},
+    'sunset-orange':{ label: 'Sunset',       swatch: 'linear-gradient(135deg,#FB923C,#7C2D12)',
+      vars: { '--bg-primary':'#1A0A04','--bg-secondary':'#3A1505','--glass-base':'255,200,150','--glass-bg-alpha':'0.12','--glass-bg-strong-alpha':'0.18','--glass-border-base':'251,146,60','--glass-border-alpha':'0.24','--glass-border-strong-alpha':'0.38','--accent-primary':'#FB923C','--accent-secondary':'#F97316','--success':'#A3E635','--warning':'#FACC15','--danger':'#EF4444','--text-primary':'#FFF5EC','--text-secondary':'#F5D5B8','--text-muted':'#C49B7A','--shadow-color':'40,15,5','--blur-strength':'26px' }},
+    'monokai-pro': { label: 'Monokai',       swatch: 'linear-gradient(135deg,#A6E22E,#272822)',
+      vars: { '--bg-primary':'#1E1F1C','--bg-secondary':'#272822','--glass-base':'200,210,180','--glass-bg-alpha':'0.08','--glass-bg-strong-alpha':'0.14','--glass-border-base':'166,226,46','--glass-border-alpha':'0.20','--glass-border-strong-alpha':'0.32','--accent-primary':'#A6E22E','--accent-secondary':'#F92672','--success':'#A6E22E','--warning':'#FD971F','--danger':'#F92672','--text-primary':'#F8F8F2','--text-secondary':'#CFD0C2','--text-muted':'#909289','--shadow-color':'0,0,0','--blur-strength':'14px' }},
+    'graphite':    { label: 'Graphite',      swatch: 'linear-gradient(135deg,#9CA3AF,#111827)',
+      vars: { '--bg-primary':'#0B0D10','--bg-secondary':'#15181D','--glass-base':'255,255,255','--glass-bg-alpha':'0.06','--glass-bg-strong-alpha':'0.12','--glass-border-base':'255,255,255','--glass-border-alpha':'0.10','--glass-border-strong-alpha':'0.18','--accent-primary':'#9CA3AF','--accent-secondary':'#6B7280','--success':'#22C55E','--warning':'#F59E0B','--danger':'#EF4444','--text-primary':'#F8FAFC','--text-secondary':'#CBD5E1','--text-muted':'#94A3B8','--shadow-color':'0,0,0','--blur-strength':'18px' }},
+    'high-contrast':{label:'High Contrast',  swatch: 'linear-gradient(135deg,#FACC15,#000)',
+      vars: { '--bg-primary':'#000000','--bg-secondary':'#0A0A0A','--glass-base':'255,255,255','--glass-bg-alpha':'0.16','--glass-bg-strong-alpha':'0.26','--glass-border-base':'255,255,255','--glass-border-alpha':'0.50','--glass-border-strong-alpha':'0.80','--accent-primary':'#FACC15','--accent-secondary':'#22D3EE','--success':'#22C55E','--warning':'#F59E0B','--danger':'#EF4444','--text-primary':'#FFFFFF','--text-secondary':'#E5E7EB','--text-muted':'#9CA3AF','--shadow-color':'0,0,0','--blur-strength':'10px' }}
   };
 
   var STYLES = [
@@ -3383,6 +3492,16 @@
   var DEFAULT_INTERACTION = {
     shimmerEnabled: true, shimmerOpacity: 1, shimmerSpeed: 0.9,
     shimmerColor: '#ffe8b8', hoverLift: true, hoverGlow: true, reduceMotion: false
+  };
+
+  // â”€â”€ Sync controls: how aggressively the active palette paints
+  // chrome (top nav, sidebar), cursor, selection, and active states.
+  var DEFAULT_SYNC = {
+    navTint:       0.18,   // 0..0.50 â€” accent overlay on header background
+    sidebarTint:   0.12,   // 0..0.50 â€” accent overlay on sidebar background
+    cursorAccent:  true,   // caret-color in inputs
+    accentSelect:  true,   // ::selection bg follows accent
+    activeGlow:    true    // nav-pill / sidebar item active state glows
   };
 
   var COLOR_FIELDS = [
@@ -3400,6 +3519,7 @@
       density: 'comfortable', sidebar: 'attached', cardStyle: 'glass',
       vars: Object.assign({}, PRESETS['warm-amber'].vars),
       interaction: Object.assign({}, DEFAULT_INTERACTION),
+      sync: Object.assign({}, DEFAULT_SYNC),
       customThemes: []
     };
   }
@@ -3417,7 +3537,15 @@
     return defaultState();
   }
   var state = loadState();
-  function saveState() { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
+  function saveState() {
+    localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    // Cross-page handoff for login.html / signup.html, which still read this
+    // legacy key. Only write when the active theme is a known preset so we
+    // don't confuse the auth pages with a custom-theme id.
+    if (PRESETS[state.theme]) {
+      localStorage.setItem('vidyouth_theme_name', state.theme);
+    }
+  }
 
   function hexToRgba(hex, a) {
     var m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
@@ -3449,10 +3577,22 @@
     root.style.setProperty('--hover-lift', i.hoverLift ? '-2px' : '0px');
     root.style.setProperty('--hover-glow-on', i.hoverGlow ? '1' : '0');
     root.classList.toggle('reduce-motion', !!i.reduceMotion);
+
+    // Sync controls â€” paint the top nav, sidebar, cursor, selection with
+    // the active palette. Each slider/toggle drives a CSS variable that the
+    // header/sidebar/inputs read; values land in :root so all components
+    // recolour in one paint.
+    var sync = state.sync || DEFAULT_SYNC;
+    root.style.setProperty('--nav-tint',     String(sync.navTint));
+    root.style.setProperty('--sidebar-tint', String(sync.sidebarTint));
+    root.classList.toggle('cursor-accent',  !!sync.cursorAccent);
+    root.classList.toggle('accent-select',  !!sync.accentSelect);
+    root.classList.toggle('active-glow',    !!sync.activeGlow);
+
     saveState();
   }
 
-  // ── Build popover skeleton ──
+  // Ã¢â€â‚¬Ã¢â€â‚¬ Build popover skeleton Ã¢â€â‚¬Ã¢â€â‚¬
   var pop = document.createElement('div');
   pop.id = 'color-palette-popover';
   pop.className = 'cp-popover';
@@ -3471,6 +3611,7 @@
       '<details class="cp-section"><summary><p class="cp-eyebrow" style="margin:0;">Global Colours</p></summary><div class="cp-section-body" id="cp-colors"></div></details>',
       '<details class="cp-section"><summary><p class="cp-eyebrow" style="margin:0;">Surface &amp; Glass</p></summary><div class="cp-section-body" id="cp-surface"></div></details>',
       '<details class="cp-section"><summary><p class="cp-eyebrow" style="margin:0;">Layout</p></summary><div class="cp-section-body" id="cp-layout"></div></details>',
+      '<details class="cp-section" open><summary><p class="cp-eyebrow" style="margin:0;">Sync â€” Nav &amp; Cursor</p></summary><div class="cp-section-body" id="cp-sync"></div></details>',
       '<details class="cp-section"><summary><p class="cp-eyebrow" style="margin:0;">Interaction</p></summary><div class="cp-section-body" id="cp-interaction"></div></details>',
     '</div>',
     '<div class="cp-popover-footer">',
@@ -3485,7 +3626,7 @@
   function $(id) { return pop.querySelector('#' + id); }
   function setText(el, t) { if (el) el.textContent = t; }
 
-  // ── Renderers ──
+  // Ã¢â€â‚¬Ã¢â€â‚¬ Renderers Ã¢â€â‚¬Ã¢â€â‚¬
   function renderThemes() {
     var grid = $('cp-themes'); if (!grid) return;
     var html = '';
@@ -3639,7 +3780,7 @@
         }).join('') + '</div>' +
       '<label class="cp-slider-row"><div class="cp-slider-head"><span>Card spacing</span><span class="cp-slider-val" id="cp-out-sp">' + spacingCur.toFixed(2) + 'rem</span></div><input type="range" class="cp-slider" id="cp-r-sp" min="0.5" max="3" step="0.25" value="' + spacingCur + '"/></label>' +
       '<label class="cp-slider-row"><div class="cp-slider-head"><span>Border radius</span><span class="cp-slider-val" id="cp-out-rd">' + radiusCur + 'px</span></div><input type="range" class="cp-slider" id="cp-r-rd" min="0" max="32" step="1" value="' + radiusCur + '"/></label>' +
-      '<label class="cp-slider-row"><div class="cp-slider-head"><span>Font scale</span><span class="cp-slider-val" id="cp-out-ft">' + fontCur.toFixed(2) + '×</span></div><input type="range" class="cp-slider" id="cp-r-ft" min="0.85" max="1.20" step="0.01" value="' + fontCur + '"/></label>';
+      '<label class="cp-slider-row"><div class="cp-slider-head"><span>Font scale</span><span class="cp-slider-val" id="cp-out-ft">' + fontCur.toFixed(2) + 'Ãƒâ€”</span></div><input type="range" class="cp-slider" id="cp-r-ft" min="0.85" max="1.20" step="0.01" value="' + fontCur + '"/></label>';
     wrap.querySelectorAll('[data-seg]').forEach(function (seg) {
       var key = seg.dataset.seg;
       seg.querySelectorAll('.cp-seg-btn').forEach(function (b) {
@@ -3669,9 +3810,54 @@
     $('cp-r-ft').addEventListener('input', function (e) {
       var v = parseFloat(e.target.value);
       state.vars['--font-scale'] = String(v);
-      $('cp-out-ft').textContent = v.toFixed(2) + '×';
+      $('cp-out-ft').textContent = v.toFixed(2) + 'Ãƒâ€”';
       applyState();
     });
+  }
+
+  function renderSync() {
+    var wrap = $('cp-sync'); if (!wrap) return;
+    if (!state.sync) state.sync = Object.assign({}, DEFAULT_SYNC);
+    var s = state.sync;
+    function tog(id, label, key) {
+      return '<div class="cp-toggle-row"><span>' + label + '</span><button class="cp-toggle' + (s[key] ? ' is-on' : '') +
+             '" id="' + id + '" type="button"></button></div>';
+    }
+    function slider(id, label, key, min, max, step, unit) {
+      var pct = unit === '%' ? Math.round(s[key] * 100) + '%' : s[key].toFixed(2);
+      return '<label class="cp-slider-row"><div class="cp-slider-head"><span>' + label + '</span><span class="cp-slider-val" id="' + id + '-out">' + pct + '</span></div>' +
+             '<input type="range" class="cp-slider" id="' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + s[key] + '"/></label>';
+    }
+    wrap.innerHTML =
+      '<p class="cp-sub" style="margin:0 0 8px;">Carry the accent into chrome â€” top nav, sidebar, cursor, text selection.</p>' +
+      slider('cp-r-navtint',  'Top navigation tint', 'navTint',     '0', '0.50', '0.02', '%') +
+      slider('cp-r-sidetint', 'Sidebar tint',        'sidebarTint', '0', '0.50', '0.02', '%') +
+      tog('cp-tog-caret',  'Coloured cursor caret',   'cursorAccent') +
+      tog('cp-tog-select', 'Accent text selection',   'accentSelect') +
+      tog('cp-tog-active', 'Active-item glow in nav', 'activeGlow');
+
+    function bindTog(id, key) {
+      var el = $(id); if (!el) return;
+      el.addEventListener('click', function () {
+        s[key] = !s[key];
+        el.classList.toggle('is-on', s[key]);
+        applyState();
+      });
+    }
+    bindTog('cp-tog-caret',  'cursorAccent');
+    bindTog('cp-tog-select', 'accentSelect');
+    bindTog('cp-tog-active', 'activeGlow');
+
+    function bindSlider(id, key) {
+      var input = $(id); var out = $(id + '-out'); if (!input || !out) return;
+      input.addEventListener('input', function (e) {
+        s[key] = parseFloat(e.target.value);
+        out.textContent = Math.round(s[key] * 100) + '%';
+        applyState();
+      });
+    }
+    bindSlider('cp-r-navtint',  'navTint');
+    bindSlider('cp-r-sidetint', 'sidebarTint');
   }
 
   function renderInteraction() {
@@ -3717,7 +3903,7 @@
     });
   }
 
-  // ── Action buttons ──
+  // Ã¢â€â‚¬Ã¢â€â‚¬ Action buttons Ã¢â€â‚¬Ã¢â€â‚¬
   function saveCustom() {
     var nameEl = $('cp-custom-name');
     var name = (nameEl && nameEl.value.trim()) || ('Custom ' + (state.customThemes.length + 1));
@@ -3740,7 +3926,7 @@
     if (!confirm('Reset all theme settings to defaults?')) return;
     state = defaultState();
     applyState();
-    renderThemes(); renderStyles(); renderCustom(); renderColors(); renderSurface(); renderLayout(); renderInteraction();
+    renderThemes(); renderStyles(); renderCustom(); renderColors(); renderSurface(); renderLayout(); renderSync(); renderInteraction();
   }
   function exportTheme() {
     var payload = {
@@ -3768,8 +3954,9 @@
       if (obj.sidebar) state.sidebar = obj.sidebar;
       if (obj.cardStyle) state.cardStyle = obj.cardStyle;
       if (obj.interaction) state.interaction = Object.assign({}, DEFAULT_INTERACTION, obj.interaction);
+      if (obj.sync) state.sync = Object.assign({}, DEFAULT_SYNC, obj.sync);
       applyState();
-      renderThemes(); renderStyles(); renderCustom(); renderColors(); renderSurface(); renderLayout(); renderInteraction();
+      renderThemes(); renderStyles(); renderCustom(); renderColors(); renderSurface(); renderLayout(); renderSync(); renderInteraction();
     } catch (e) { alert('Invalid JSON: ' + e.message); }
   }
 
@@ -3780,14 +3967,21 @@
   $('cp-custom-save').addEventListener('click', saveCustom);
   $('cp-custom-duplicate').addEventListener('click', duplicateCurrent);
 
-  // ── Boot ──
+  // Ã¢â€â‚¬Ã¢â€â‚¬ Boot Ã¢â€â‚¬Ã¢â€â‚¬
   applyState();
-  renderThemes(); renderStyles(); renderCustom(); renderColors(); renderSurface(); renderLayout(); renderInteraction();
+  renderThemes(); renderStyles(); renderCustom(); renderColors(); renderSurface(); renderLayout(); renderSync(); renderInteraction();
 
-  // ── Open / close ──
+  // Ã¢â€â‚¬Ã¢â€â‚¬ Open / close Ã¢â€â‚¬Ã¢â€â‚¬
   var btn = document.getElementById('open-customizer');
+  var moreBtn = document.getElementById('quick-theme-more');
   if (btn) {
     btn.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      pop.classList.toggle('open');
+    });
+  }
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function (e) {
       e.preventDefault(); e.stopPropagation();
       pop.classList.toggle('open');
     });
@@ -3796,11 +3990,28 @@
     if (!pop.classList.contains('open')) return;
     if (pop.contains(e.target)) return;
     if (btn && btn.contains(e.target)) return;
+    if (moreBtn && moreBtn.contains(e.target)) return;
     pop.classList.remove('open');
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') pop.classList.remove('open');
   });
+
+  // Cross-page handoff: when login.html / signup.html set
+  // vidyouth_theme_name, pick it up here so the dashboard opens in the
+  // theme the user just chose on the auth pages.
+  var legacy = localStorage.getItem('vidyouth_theme_name');
+  if (legacy && PRESETS[legacy] && state.theme !== legacy) {
+    applyPreset(legacy);
+  }
+
+  // Tiny stable API so other pages / scripts can flip the theme without
+  // reaching into this IIFE.
+  window.VidyouthPalette = {
+    setTheme: function (id) { applyPreset(id); },
+    getTheme: function () { return state.theme; },
+    presets:  Object.keys(PRESETS)
+  };
 })();
 </script>
 </body>

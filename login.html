@@ -203,18 +203,75 @@
   .shimmer-active .shimmer-glitter { opacity: 1; animation: glitter-pulse 0.9s ease-in-out; }
 
   /* ── LOGIN-SPECIFIC ───────────────────────────────────────── */
+  .brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 28px;
+  }
   .brand-logo {
-    width: 40px; height: 40px; border-radius: 11px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    background: #FFFFFF;
     display: flex; align-items: center; justify-content: center;
-    color: #150A04; font-weight: 900; font-size: 19px;
-    box-shadow: 0 6px 18px rgba(232,194,140,0.45), inset 0 1px 0 rgba(255,255,255,0.45);
-    flex-shrink: 0;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.10),
+      0 14px 36px rgba(34, 197, 94, 0.40),
+      0 0 60px rgba(34, 197, 94, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .brand-logo::after {
+    content: "";
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(34,197,94,0.35) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(8px);
+  }
+  .brand-logo:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.14),
+      0 20px 48px rgba(34, 197, 94, 0.55),
+      0 0 80px rgba(34, 197, 94, 0.40);
+  }
+  .brand-logo img,
+  .brand-logo svg {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .brand-text-block { margin-top: 16px; }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .brand-tagline {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--text-muted);
+    margin-top: 7px;
+    text-transform: uppercase;
+  }
+  .brand-institute {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--text-muted);
+    opacity: 0.6;
+    margin-top: 4px;
+    text-transform: uppercase;
   }
   .auth-card { padding: 36px; max-width: 460px; width: 100%; }
   @media (max-width: 480px) { .auth-card { padding: 24px; } }
-  .auth-heading { font-size: 26px; font-weight: 800; line-height: 1.18; letter-spacing: -0.01em; color: var(--text-primary); }
-  .auth-sub { font-size: 14px; color: var(--text-secondary); }
+  .auth-heading { font-size: 26px; font-weight: 800; line-height: 1.18; letter-spacing: -0.01em; color: var(--text-primary); text-align: center; }
+  .auth-sub { font-size: 14px; color: var(--text-secondary); text-align: center; }
 
   .auth-tabs {
     background: rgba(var(--glass-base),0.10);
@@ -332,10 +389,123 @@
   /* Footer */
   .auth-footer { color: var(--text-muted); font-size: 11px; }
 
+  /* API status pill */
+  .api-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    color: var(--text-secondary);
+  }
+  .api-pill-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #FBBF24; box-shadow: 0 0 8px rgba(251,191,36,0.7);
+  }
+  .api-pill-online .api-pill-dot   { background:#22c55e; box-shadow: 0 0 10px rgba(34,197,94,0.7); }
+  .api-pill-offline .api-pill-dot  { background:#ef4444; box-shadow: 0 0 10px rgba(239,68,68,0.7); }
+  .api-pill-online  { color: #86efac; }
+  .api-pill-offline { color: #fca5a5; }
+
   @media (prefers-reduced-motion: reduce) {
     .aura-blob { animation: none; }
     .gc:hover, .shimmer-host:hover { transform: none; }
     .shimmer-active .shimmer-sweep, .shimmer-active .shimmer-glitter { animation: none !important; }
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     FIX 1 — INPUT CONTRAST
+     Tailwind "forms" plugin forces background:#fff + dark text on
+     inputs after our styles, making typed text invisible. These win
+     with !important and also tame browser autofill.
+  ════════════════════════════════════════════════════════════ */
+  .auth-input,
+  input.auth-input,
+  input[type="text"].auth-input,
+  input[type="email"].auth-input,
+  input[type="tel"].auth-input,
+  input[type="password"].auth-input,
+  select.auth-input {
+    background: rgba(var(--glass-base), 0.16) !important;
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    caret-color: var(--accent-primary) !important;
+    border: 1px solid var(--glass-border) !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .auth-input:focus,
+  input.auth-input:focus {
+    background: rgba(var(--glass-base), 0.24) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 28%, transparent) !important;
+  }
+  .auth-input::placeholder { color: var(--text-muted) !important; opacity: 1; }
+  .auth-input:-webkit-autofill,
+  .auth-input:-webkit-autofill:hover,
+  .auth-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-primary) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--bg-secondary) inset !important;
+    caret-color: var(--accent-primary) !important;
+    transition: background-color 9999s ease-out 0s;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     FIX 2 — FIT THE CARD IN ONE SCREEN (no scrolling)
+  ════════════════════════════════════════════════════════════ */
+  main.min-h-screen {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    min-height: 100vh;
+    align-items: center;
+  }
+  .auth-card {
+    padding: 20px 24px !important;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+  .auth-card::-webkit-scrollbar { width: 0; height: 0; }
+  .auth-card { scrollbar-width: none; }
+
+  .brand-section { margin-bottom: 10px !important; }
+  .brand-logo { width: 60px !important; height: 60px !important; }
+  .brand-text-block { margin-top: 6px !important; }
+  .brand-name { font-size: 17px !important; }
+  .brand-tagline { font-size: 9px !important; margin-top: 3px !important; }
+  .brand-institute { font-size: 8px !important; margin-top: 2px !important; }
+
+  .auth-heading { font-size: 19px !important; line-height: 1.15 !important; }
+  .auth-sub { font-size: 12px !important; }
+  .auth-heading.mb-1\.5 { margin-bottom: 2px !important; }
+  .auth-sub.mb-6 { margin-bottom: 12px !important; }
+
+  .auth-tabs.mb-5 { margin-bottom: 10px !important; }
+  .auth-tab { padding: 7px 0 !important; }
+
+  form#authForm.space-y-4 > * + * { margin-top: 10px !important; }
+  .auth-label { margin-bottom: 5px !important; font-size: 11px !important; }
+  .auth-input { padding: 10px 13px !important; font-size: 13px !important; }
+
+  #pwMeter.mt-2 { margin-top: 6px !important; }
+  #pwHint.mt-1\.5 { margin-top: 4px !important; }
+  #pwHint { font-size: 10px !important; }
+
+  .auth-divider.my-5 { margin-top: 12px !important; margin-bottom: 12px !important; }
+  .auth-social-btn { padding: 9px !important; }
+  .auth-btn-primary { padding: 11px !important; }
+
+  p.text-center.mt-6 { margin-top: 12px !important; }
+  .relative.z-10.flex.flex-col.items-center.gap-2.pb-6 {
+    padding-bottom: 8px !important;
+    gap: 4px !important;
+  }
+  .api-pill { padding: 3px 9px !important; font-size: 10px !important; }
+
+  @media (max-height: 720px) {
+    .brand-logo { width: 48px !important; height: 48px !important; }
+    .brand-section { margin-bottom: 8px !important; }
+    form#authForm.space-y-4 > * + * { margin-top: 8px !important; }
   }
 </style>
 </head>
@@ -362,12 +532,59 @@
 <main class="relative z-10 min-h-screen flex items-center justify-center px-4 py-10">
   <div class="gc auth-card" id="authCard">
 
-    <!-- Brand -->
-    <div class="flex items-center gap-3 mb-7">
-      <div class="brand-logo">V</div>
-      <div>
-        <p class="text-sm font-bold tracking-[0.18em] uppercase" style="color:var(--text-primary);">Vidyouth</p>
-        <p class="text-[10px] tracking-widest" style="color:var(--text-muted);">AI LEARNING LAB</p>
+    <!-- Brand: centered, large, with SVG fallback that approximates the real badge -->
+    <div class="brand-section">
+      <div class="brand-logo" id="brandLogo">
+        <img
+          src="assets/vidyouth-logo.png"
+          alt="Vidyouth Intelligence Institute Pvt. Ltd."
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        />
+        <!-- SVG fallback — renders if the PNG is missing. Approximates the
+             circular badge: green ring, "VIDYOUTH INTELLIGENCE" curved on top,
+             "INSTITUTE PVT. LTD." curved on bottom, stylized V mark inside. -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+          <defs>
+            <path id="topArc"    d="M 30,100 A 70,70 0 0 1 170,100" fill="none" />
+            <path id="bottomArc" d="M 30,100 A 70,70 0 0 0 170,100" fill="none" />
+          </defs>
+
+          <!-- Outer green ring -->
+          <circle cx="100" cy="100" r="92" fill="#22c55e" />
+          <circle cx="100" cy="100" r="78" fill="#ffffff" />
+
+          <!-- Curved text top: VIDYOUTH INTELLIGENCE -->
+          <text fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="800" letter-spacing="2">
+            <textPath href="#topArc" startOffset="50%" text-anchor="middle">VIDYOUTH  INTELLIGENCE</textPath>
+          </text>
+
+          <!-- Curved text bottom: INSTITUTE PVT. LTD. -->
+          <text fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="2">
+            <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">INSTITUTE  PVT.  LTD.</textPath>
+          </text>
+
+          <!-- Stylized V mark: inverted triangle with V cutout -->
+          <polygon points="60,72 140,72 100,148" fill="#22c55e" />
+          <polygon points="78,72 122,72 100,118" fill="#ffffff" />
+
+          <!-- Light bulb top-right of V -->
+          <circle cx="128" cy="74" r="7" fill="#22c55e" />
+          <rect x="125" y="80" width="6" height="3" rx="1" fill="#22c55e" />
+
+          <!-- Tiny circuit-board dots either side -->
+          <circle cx="46" cy="100" r="2" fill="#22c55e" />
+          <circle cx="52" cy="106" r="2" fill="#22c55e" />
+          <circle cx="52" cy="94"  r="2" fill="#22c55e" />
+          <circle cx="154" cy="100" r="2" fill="#22c55e" />
+          <circle cx="148" cy="106" r="2" fill="#22c55e" />
+          <circle cx="148" cy="94"  r="2" fill="#22c55e" />
+        </svg>
+      </div>
+
+      <div class="brand-text-block">
+        <p class="brand-name">Vidyouth</p>
+        <p class="brand-tagline">AI Learning Lab</p>
+        <p class="brand-institute">Intelligence Institute Pvt. Ltd.</p>
       </div>
     </div>
 
@@ -393,12 +610,8 @@
       <div data-pane="mobile" hidden>
         <label class="auth-label" for="phone">Mobile number</label>
         <div class="flex gap-2">
-          <select class="auth-input shrink-0" style="width:96px;" aria-label="Country code">
-            <option value="+91">+91</option>
-            <option value="+1">+1</option>
-            <option value="+44">+44</option>
-            <option value="+61">+61</option>
-            <option value="+971">+971</option>
+          <select id="countryCode" class="auth-input shrink-0" style="width:132px;" aria-label="Country code">
+            <!-- Populated by buildCountryCodes() — full international list -->
           </select>
           <input id="phone" name="phone" type="tel" autocomplete="tel" class="auth-input" placeholder="98765 43210"/>
         </div>
@@ -424,8 +637,17 @@
         <span>Keep me signed in for 7 days</span>
       </label>
 
+      <p id="authMessage" class="text-sm min-h-[20px]" style="color:var(--accent-primary);" role="status" aria-live="polite"></p>
+
       <!-- Sign in -->
       <button type="submit" class="auth-btn-primary">Sign in</button>
+
+      <!-- Email-code (passwordless) entry point -->
+      <p class="text-center text-sm" style="color:var(--text-secondary);">
+        <a href="#" id="emailCodeLink" class="auth-link" style="font-size:13px;">
+          Sign in with an email code instead
+        </a>
+      </p>
 
     </form>
 
@@ -456,13 +678,18 @@
 
     <!-- Sign up -->
     <p class="text-center text-sm mt-6" style="color:var(--text-secondary);">
-      New to Vidyouth? <a href="#" class="auth-link" style="font-size:14px;">Create an account</a>
+      New to Vidyouth? <a href="signup.html" class="auth-link" style="font-size:14px;">Create an account</a>
     </p>
 
   </div>
 </main>
 
-<p class="auth-footer text-center pb-6 relative z-10">© 2026 Vidyouth · AI Learning Lab</p>
+<div class="relative z-10 flex flex-col items-center gap-2 pb-6">
+  <span id="apiPing" class="api-pill api-pill-checking" title="Backend reachability">
+    <span class="api-pill-dot"></span><span id="apiPingText">checking API…</span>
+  </span>
+  <p class="auth-footer text-center">© 2026 Vidyouth · AI Learning Lab</p>
+</div>
 
 <script>
   /* ── Theme System (shared with newhome.html via localStorage) ── */
@@ -523,6 +750,39 @@
     dot.addEventListener('click', () => applyTheme(dot.dataset.theme));
   });
 
+  /* ── Country dial codes (full international list, India default) ── */
+  (function buildCountryCodes() {
+    const sel = document.getElementById('countryCode');
+    if (!sel) return;
+    const C = [
+      ['+91','India'],['+1','USA / Canada'],['+44','United Kingdom'],['+61','Australia'],
+      ['+971','UAE'],['+65','Singapore'],['+60','Malaysia'],['+966','Saudi Arabia'],
+      ['+974','Qatar'],['+973','Bahrain'],['+968','Oman'],['+965','Kuwait'],
+      ['+92','Pakistan'],['+880','Bangladesh'],['+94','Sri Lanka'],['+977','Nepal'],
+      ['+975','Bhutan'],['+960','Maldives'],['+93','Afghanistan'],['+98','Iran'],
+      ['+64','New Zealand'],['+27','South Africa'],['+234','Nigeria'],['+254','Kenya'],
+      ['+233','Ghana'],['+255','Tanzania'],['+256','Uganda'],['+20','Egypt'],
+      ['+212','Morocco'],['+251','Ethiopia'],['+49','Germany'],['+33','France'],
+      ['+39','Italy'],['+34','Spain'],['+31','Netherlands'],['+32','Belgium'],
+      ['+41','Switzerland'],['+43','Austria'],['+46','Sweden'],['+47','Norway'],
+      ['+45','Denmark'],['+358','Finland'],['+351','Portugal'],['+353','Ireland'],
+      ['+30','Greece'],['+48','Poland'],['+420','Czechia'],['+36','Hungary'],
+      ['+40','Romania'],['+380','Ukraine'],['+7','Russia / Kazakhstan'],['+90','Turkey'],
+      ['+972','Israel'],['+86','China'],['+852','Hong Kong'],['+886','Taiwan'],
+      ['+81','Japan'],['+82','South Korea'],['+84','Vietnam'],['+66','Thailand'],
+      ['+63','Philippines'],['+62','Indonesia'],['+95','Myanmar'],['+855','Cambodia'],
+      ['+856','Laos'],['+852','Hong Kong'],['+55','Brazil'],['+52','Mexico'],
+      ['+54','Argentina'],['+56','Chile'],['+57','Colombia'],['+51','Peru'],
+      ['+58','Venezuela'],['+593','Ecuador'],['+598','Uruguay'],['+595','Paraguay'],
+    ];
+    const seen = new Set();
+    sel.innerHTML = C
+      .filter(([code]) => !seen.has(code) && seen.add(code))
+      .map(([code, name]) => `<option value="${code}">${code}  ${name}</option>`)
+      .join('');
+    sel.value = '+91';
+  })();
+
   /* ── Email / Mobile tab switch ── */
   document.querySelectorAll('.auth-tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -553,17 +813,143 @@
     togglePw.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
   });
 
-  /* ── Form submit → dashboard ── */
-  document.getElementById('authForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    // No real auth — go to the dashboard.
+  /* ── OAuth return handler ──
+     The backend's /auth/{provider}/callback redirects here with tokens (or an
+     error) in the URL fragment. Read them, store under the same localStorage
+     keys the password flow uses, strip the hash, and continue. */
+  (function handleOauthReturn() {
+    if (!location.hash || location.hash.length < 2) return;
+    const p = new URLSearchParams(location.hash.slice(1));
+    const err = p.get('oauth_error');
+    if (err) {
+      history.replaceState(null, '', location.pathname + location.search);
+      const m = document.getElementById('authMessage');
+      if (m) { m.textContent = 'Sign-in failed: ' + err.replace(/_/g, ' '); m.style.color = '#FCA5A5'; }
+      return;
+    }
+    const at = p.get('access_token');
+    if (!at) return;
+    localStorage.setItem('vidyouth_access_token', at);
+    if (p.get('refresh_token')) localStorage.setItem('vidyouth_refresh_token', p.get('refresh_token'));
+    localStorage.setItem('vidyouth_token_type', p.get('token_type') || 'Bearer');
+    localStorage.setItem('vidyouth_token_expires_at',
+      String(Date.now() + (parseInt(p.get('expires_in') || '900', 10) * 1000)));
+    history.replaceState(null, '', location.pathname + location.search);
     window.location.href = 'newhome.html';
+  })();
+
+  /* ── Backend auth integration ── */
+  const API_BASE_URL = localStorage.getItem('vidyouth_api_base_url') || 'http://localhost:8080';
+
+  /* Ping /livez once so the user can see whether the API is reachable. */
+  (async function pingApi() {
+    const pill = document.getElementById('apiPing');
+    const text = document.getElementById('apiPingText');
+    try {
+      const r = await fetch(`${API_BASE_URL}/livez`, { method: 'GET', mode: 'cors' });
+      if (!r.ok) throw new Error('not ok');
+      pill.classList.remove('api-pill-checking');
+      pill.classList.add('api-pill-online');
+      text.textContent = `API online · ${new URL(API_BASE_URL).host}`;
+    } catch {
+      pill.classList.remove('api-pill-checking');
+      pill.classList.add('api-pill-offline');
+      text.textContent = `API offline · ${new URL(API_BASE_URL).host}`;
+    }
+  })();
+  const authForm = document.getElementById('authForm');
+  const authMessage = document.getElementById('authMessage');
+  const submitBtn = authForm.querySelector('button[type="submit"]');
+
+  function setAuthMessage(message, isError = false) {
+    authMessage.textContent = message;
+    authMessage.style.color = isError ? '#FCA5A5' : 'var(--accent-primary)';
+  }
+
+  function activeLoginTab() {
+    return document.querySelector('.auth-tab.active')?.dataset.tab || 'email';
+  }
+
+  function storeTokens(payload) {
+    localStorage.setItem('vidyouth_access_token', payload.access_token);
+    localStorage.setItem('vidyouth_refresh_token', payload.refresh_token);
+    localStorage.setItem('vidyouth_token_type', payload.token_type || 'Bearer');
+    localStorage.setItem('vidyouth_token_expires_at', String(Date.now() + ((payload.expires_in || 900) * 1000)));
+  }
+
+  function normalizeMobile(countryCode, phone) {
+    const digits = phone.replace(/\D/g, '');
+    return `${countryCode}${digits}`;
+  }
+
+  async function loginWithPassword(identifier, password) {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ identifier, password }),
+    });
+
+    const payload = response.status === 204 ? {} : await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(payload.error || 'Login failed');
+    }
+    return payload;
+  }
+
+  /* ── Form submit → backend login ── */
+  authForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setAuthMessage('');
+
+    const tab = activeLoginTab();
+    const password = pwInput.value.trim();
+    const identifier = tab === 'email'
+      ? document.getElementById('email').value.trim()
+      : normalizeMobile(document.getElementById('countryCode').value, document.getElementById('phone').value);
+
+    if (!identifier || !password) {
+      setAuthMessage('Enter your login details.', true);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Signing in...';
+    try {
+      const payload = await loginWithPassword(identifier, password);
+      storeTokens(payload);
+      setAuthMessage('Signed in. Opening dashboard...');
+      window.location.href = 'newhome.html';
+    } catch (err) {
+      setAuthMessage(err.message || 'Unable to sign in.', true);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign in';
+    }
   });
 
-  /* ── Social provider buttons → dashboard ── */
+  /* ── Social provider buttons → backend OAuth start routes ── */
   document.querySelectorAll('.auth-social-btn').forEach(btn => {
-    btn.addEventListener('click', () => { window.location.href = 'newhome.html'; });
+    btn.addEventListener('click', () => {
+      const provider = btn.dataset.provider;
+      window.location.href = `${API_BASE_URL}/auth/${provider}`;
+    });
   });
+
+  /* ── "Sign in with an email code" → OTP verification page ── */
+  const emailCodeLink = document.getElementById('emailCodeLink');
+  if (emailCodeLink) {
+    emailCodeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = (document.getElementById('email')?.value || '').trim();
+      if (!email) {
+        setAuthMessage('Enter your email above first, then tap the code link.', true);
+        document.getElementById('email')?.focus();
+        return;
+      }
+      localStorage.setItem('vidyouth_pending_email', email);
+      window.location.href = 'verify.html?email=' + encodeURIComponent(email);
+    });
+  }
 
   /* ── Shimmer hover (same effect as dashboard) ── */
   (function () {

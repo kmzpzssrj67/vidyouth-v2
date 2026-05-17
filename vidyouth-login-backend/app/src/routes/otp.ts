@@ -8,11 +8,11 @@
 import type { FastifyInstance } from 'fastify';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
-import { issueOtp, verifyOtp } from '@/services/otp.js';
-import { recordAudit } from '@/services/audit.js';
-import { query } from '@/db/pg.js';
-import { signAccess, signRefresh } from '@/services/jwt.js';
-import { startSession } from '@/services/sessions.js';
+import { issueOtp, verifyOtp } from '../services/otp.js';
+import { recordAudit } from '../services/audit.js';
+import { query } from '../db/pg.js';
+import { signAccess, signRefresh } from '../services/jwt.js';
+import { startSession } from '../services/sessions.js';
 
 const requestBody = z.object({
   channel: z.enum(['sms', 'email']),

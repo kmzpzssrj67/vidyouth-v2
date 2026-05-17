@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Easing, Image, ImageSourcePropType } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Sparkles } from 'lucide-react-native';
 import { useThemeTokens } from '@/theme/ThemeProvider';
+import VidyouthLogoSvg from './VidyouthLogoSvg';
 
 interface SplashLogoProps {
   /** Drop a real PNG/SVG-as-PNG here when the asset is ready. If omitted,
-   *  a polished programmatic mark is rendered. */
+   *  the SVG Vidyouth Intelligence Institute badge is rendered. */
   source?: ImageSourcePropType;
   /** Diameter of the logo glyph in pixels. Default 132. */
   size?: number;
@@ -14,7 +13,8 @@ interface SplashLogoProps {
 
 /**
  * Hero logo lockup used on the Splash screen. Two layered halos pulse
- * behind a gradient sparkle glyph, with the institutional wordmark below.
+ * behind the Vidyouth Intelligence Institute badge (or a provided image),
+ * with the institutional wordmark below.
  *
  *   <SplashLogo source={require('./assets/logo.png')} />
  */
@@ -91,7 +91,7 @@ export default function SplashLogo({ source, size = 132 }: SplashLogoProps) {
         ]}
       />
 
-      {/* glyph */}
+      {/* glyph — real PNG when supplied, else the SVG badge */}
       <View
         style={[
           styles.glyphRing,
@@ -100,7 +100,12 @@ export default function SplashLogo({ source, size = 132 }: SplashLogoProps) {
             height: size + 18,
             borderRadius: (size + 18) / 2,
             borderColor: t.colors.glassBorderStrong,
-            backgroundColor: t.colors.glassBgStrong,
+            backgroundColor: '#FFFFFF',
+            shadowColor: t.colors.glowPrimary,
+            shadowOpacity: 0.55 * t.effects.glowIntensity + 0.05,
+            shadowRadius: 24,
+            shadowOffset: { width: 0, height: 8 },
+            elevation: 12,
           },
         ]}
       >
@@ -111,30 +116,7 @@ export default function SplashLogo({ source, size = 132 }: SplashLogoProps) {
             resizeMode="cover"
           />
         ) : (
-          <LinearGradient
-            colors={t.colors.accentGradient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={[
-              styles.glyph,
-              {
-                width: size,
-                height: size,
-                borderRadius: size / 2,
-                shadowColor: t.colors.glowPrimary,
-                shadowOpacity: 0.55 * t.effects.glowIntensity + 0.05,
-                shadowRadius: 24,
-                shadowOffset: { width: 0, height: 8 },
-                elevation: 12,
-              },
-            ]}
-          >
-            <Sparkles
-              size={size * 0.4}
-              color={t.colors.bgPrimary}
-              strokeWidth={2.4}
-            />
-          </LinearGradient>
+          <VidyouthLogoSvg size={size} accent="#22C55E" background="#FFFFFF" />
         )}
       </View>
     </View>
@@ -200,10 +182,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     overflow: 'hidden',
-  },
-  glyph: {
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   wordmarkWrap: {
     alignItems: 'center',
